@@ -1,4 +1,4 @@
-# BudgetApp Project Context
+# BudgetAtlas Project Context
 
 Stand: 2026-08-28
 
@@ -8,44 +8,51 @@ Diese Datei beschreibt den aktuellen Projektkontext. Die allgemeinen Arbeits-, G
 
 ## Projektziel
 
-BudgetApp ist eine einfache Progressive Web App zur lokalen Verwaltung eines Haushaltsbudgets. Nutzer koennen monatliche Einnahmen und Ausgaben erfassen, bearbeiten, importieren, exportieren und offline verwenden.
+BudgetAtlas ist eine statische Progressive Web App zur lokalen Verwaltung eines Haushaltsbudgets. Nutzer können monatliche Einnahmen und Ausgaben erfassen, bearbeiten, importieren, exportieren und offline verwenden.
 
-Die App bleibt bewusst klein: kein Backend, kein Login, kein Tracking, keine Server-Speicherung und lokale Datenhaltung im Browser.
+Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine Server-Speicherung der Budgetdaten.
 
-## Branch-Status
+## Herkunft und Branch-Status
 
-- `main`: bestehende stabile Oberfläche. Sie darf durch die Beta-Redesign-Arbeit nicht verändert werden.
-- `beta`: experimentelles vollständiges Redesign nach dem visuellen Konzept „Fokus & Flow“ mit dunklem Navy-Dashboard, Cyan-/Grün-/Orange-Akzenten, Desktop-Sidebar und Mobile-Bottom-Navigation.
-- Das Redesign verwendet weiterhin die bestehende Datenstruktur und dieselben `localStorage`-Schlüssel, damit vorhandene Budgetdaten auf dem Beta-Branch nutzbar bleiben.
-- Eine Übernahme von `beta` nach `main` ist nicht beschlossen und darf nicht automatisch erfolgen.
+- Das aktuelle `main` von BudgetAtlas basiert auf dem Redesign aus `Schrotty74/BudgetApp` Branch `beta`.
+- Das Redesign wurde als neuer Ausgangspunkt für BudgetAtlas übernommen.
+- Alte BudgetApp-Handbücher, Screenshots, Demo-Dateien und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
+- Die README-Dateien wurden für BudgetAtlas und das Redesign neu angepasst.
+- BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel, damit der Datenkern kompatibel bleibt.
 
 ## Architektur
 
-Die App ist eine statische PWA ohne Framework, Paketmanager oder Build-Schritt.
+BudgetAtlas ist eine statische PWA ohne Framework, Paketmanager oder Build-Schritt.
 
-Wichtige Dateien auf `beta`:
+Wichtige Dateien:
 
-- `index.html`: schlanke Struktur und semantische Dashboard-Bereiche
-- `styles.css`: vollständiges Redesign, Responsive-CSS, Dark-/Light-Variante und Animationen
-- `app.js`: bestehende Budgetlogik, Datenmodell, Berechnungen und allgemeines UI-Verhalten
-- `io.js`: bestehende Import-/Export-Logik für Excel, PDF, PNG und JSON
-- `ui.js`: ausschließlich Redesign-spezifische Navigation, Mobile-Sidebar, Bottom-Navigation und Monatsanzeige
-- `sw.js`: Service Worker und Offline-Cache; cached auf `beta` auch `ui.js`
+- `index.html`: Dashboard-Struktur und PWA-Einstieg
+- `styles.css`: Redesign, Responsive-CSS, Dark-/Light-Variante und Animationen
+- `app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung und allgemeines UI-Verhalten
+- `io.js`: Excel-, PDF-, PNG- und JSON-Import/-Export
+- `ui.js`: Desktop-/Mobile-Navigation und Monatsanzeige
+- `sw.js`: Service Worker und Offline-Cache
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
 
-Die Aufteilung hält `index.html` klein und trennt Redesign-Navigation von Budget- und Import-/Export-Logik. Es wurden keine neuen externen JavaScript-Frameworks oder UI-Abhängigkeiten eingeführt.
+Es wurden keine JavaScript-Frameworks oder zusätzlichen UI-Abhängigkeiten eingeführt.
 
-## Redesign „Fokus & Flow“
+## Redesign
 
-Zielbild des Beta-Branches:
+Das aktuelle Hauptlayout verwendet:
 
-- dunkle Navy-Oberfläche mit leuchtenden Cyan-, Grün- und Orange-Akzenten
-- Desktop: feste Sidebar, kompakte Kopfzeile, große Polster-Karte, Ausgaben-Mix daneben, Kartenraster und Detailbereiche
-- Tablet: reduzierte Sidebar und gestapelte Hauptkarten
-- Mobil: ausblendbare Sidebar, kompakte Karten, feste Bottom-Navigation und zentraler Schnell-Hinzufügen-Button
-- vorhandene Donut-, Balken-, Karten-, Formular- und Löschanimationen bleiben eingebunden
-- `prefers-reduced-motion` bleibt berücksichtigt
+- dunkle Navy-Oberfläche mit Cyan-, Grün- und Orange-Akzenten
+- Desktop-Sidebar
+- große Karte für das monatliche Polster
+- Ausgaben-Mix als Donut-Diagramm
+- Karten für Einnahmen und Ausgaben
+- Schnellzugriff zum Hinzufügen
+- getrennte Detailbereiche für Einnahmen und Ausgaben
+- Mobile-Bottom-Navigation mit zentralem Schnell-Hinzufügen-Button
+- animierte Donut-Segmente und Ausgabenbalken
+- dezentes Kartenfeedback
+- weich öffnende Formulare und flüssigeres Löschen
+- Unterstützung für `prefers-reduced-motion`
 
 ## Datenformate und Speicherung
 
@@ -69,30 +76,47 @@ Interne Ausgaben-Frequenzen bleiben deutsch gespeichert:
 
 JSON-Backups enthalten Budgetdaten plus App-Einstellungen. Bei nicht-monatlichen Ausgaben werden realer Zahlungsbetrag (`amount`) und monatlicher Budgetanteil (`monthly`) getrennt gespeichert.
 
-## Übernommene Funktionen
+## Funktionen
 
-Der Beta-Branch soll funktional auf dem bestehenden Datenkern aufbauen. Weiterhin vorgesehen sind insbesondere:
+Aktuell enthalten sind insbesondere:
 
 - monatliches Polster, Einnahmen und Ausgaben
-- Donut-Chart für Ausgaben
+- animierter Donut-Chart für Ausgaben
+- Prozentbalken für Ausgabenanteile
 - Hinzufügen, Bearbeiten und Löschen
 - Swipe-to-delete mit Rückgängig-Option
-- Excel-Import und Excel-Export
-- PDF- und PNG-Export
-- JSON-Backup und Wiederherstellung
-- Import-Vorschau
+- einklappbare Einnahmen-/Ausgabenbereiche
+- Excel-Import mit Vorschau und Fehlerhinweisen
+- Excel-Export
+- PDF-Export
+- PNG-Export des neuen Dashboard-Bereichs
+- JSON-Backup und Wiederherstellung mit Vorschau
 - Deutsch/Englisch
 - Dark-/Light-Mode
 - Offline-PWA und Service Worker
-- Update-Hinweis über `version.json`
+- Update-Hinweis über BudgetAtlas `version.json`
 - lokale Speicherung ohne Server
+
+## Redesign-Anschlusskorrekturen
+
+Bei der Übernahme wurden zwei alte Selektoren aus der vorherigen Oberfläche korrigiert:
+
+- Sprachwechsel verwendet jetzt den tatsächlich vorhandenen Polster-Titel im neuen Layout.
+- Dashboard-Importanimation und PNG-Export verwenden jetzt `.main-content` statt der im Redesign nicht mehr vorhandenen `.container`-Klasse.
+
+Außerdem wurden GitHub-, Update-, Export- und Backup-Bezeichnungen auf BudgetAtlas umgestellt.
+
+## PWA-Icon
+
+Die bisherigen BudgetApp-PNG-Icons wurden nicht übernommen, weil sie als altes Branding-/Visual-Asset behandelt werden. `manifest.json` und `sw.js` enthalten deshalb derzeit keine Verweise auf diese alten Dateien.
+
+Vor einer öffentlichen Veröffentlichung sollte ein eigenes BudgetAtlas-PWA-Icon erstellt und anschließend in Manifest, HTML und Service Worker eingebunden werden.
 
 ## Externe Abhängigkeiten
 
 - SheetJS über CDN für Excel-Import/-Export
 - Google Fonts über CSS-Import
-
-Es wurden für das Beta-Redesign keine weiteren externen Abhängigkeiten hinzugefügt.
+- html2canvas wird beim PNG-Export bei Bedarf dynamisch vom CDN geladen
 
 ## Lokaler Test
 
@@ -102,24 +126,26 @@ python3 -m http.server 8087
 
 Danach die App unter `http://127.0.0.1:8087/` öffnen.
 
-## Testschwerpunkte für `beta`
+## Testschwerpunkte
 
-Vor einer möglichen Übernahme nach `main` mindestens prüfen:
+Vor einer öffentlichen Veröffentlichung mindestens prüfen:
 
 - Desktop-Layout bei breiten und mittleren Fenstergrößen
 - iPhone-/Mobile-Layout inklusive Bottom-Navigation und Sidebar
-- bestehende Daten aus `localStorage` werden korrekt dargestellt
+- vorhandene `localStorage`-Budgetdaten werden korrekt dargestellt
 - Einnahmen/Ausgaben hinzufügen, bearbeiten, löschen und rückgängig machen
 - Excel- und JSON-Import inklusive Vorschau
-- alle Exporte
+- Excel-, PDF-, PNG- und JSON-Export
 - DE/EN-Umschaltung
 - Dark-/Light-Mode
-- `prefers-reduced-motion`
-- Offline-Verhalten und Cache-Aktualisierung des Beta-Service-Workers
+- Animationen und `prefers-reduced-motion`
+- Offline-Verhalten und Service-Worker-Cache
+- Update-Prüfung gegen BudgetAtlas
+- neues PWA-Icon nach dessen Erstellung
 
-## Release-Regeln
+## Release
 
-Das Beta-Redesign ist derzeit kein Release. Deshalb bleiben App-Version `v1.8`, `version.json` und `CHANGELOG.md` unverändert.
+Die Übernahme nach BudgetAtlas `main` ist noch keine neue öffentliche Release-Version. `v1.8` und `version.json` wurden deshalb nicht hochgezählt.
 
 Vor einem späteren Release müssen Versionsstellen, Changelog, `version.json`, Service-Worker-Cache und `PORTFOLIO_UPDATE.md` gezielt geprüft werden.
 
