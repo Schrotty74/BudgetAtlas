@@ -105,7 +105,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
       <section class="section detail-card" id="expenseSection"><div class="section-title" onclick="toggleSection('expense')" id="expenseSectionTitle"><span id="expenseSectionLabel">Ausgaben</span><span class="section-chevron" id="expenseChevron">▾</span></div><div class="section-body" id="expenseBody"><div id="expenseRows"></div><button class="btn-add" onclick="toggleAdd('expense')">+ Ausgabe hinzufügen</button><div class="add-form" id="expenseAddForm"><div class="edit-fields"><div class="ef ef-icon"><label>Icon</label><input id="aeIcon" value="💸" maxlength="4"></div><div class="ef ef-name"><label>Bezeichnung</label><input id="aeName" placeholder="z. B. Streaming"></div><div class="ef ef-amount"><label>Betrag (€)</label><input id="aeAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></div><div class="ef ef-freq"><label>Häufigkeit</label><select id="aeFreq"><option value="Monatlich">🔁 Monatlich</option><option value="Alle 2 Monate">📅 Alle 2 Monate</option><option value="Quartalsweise">📅 Quartalsweise</option><option value="Jährlich">📅 Jährlich</option><option value="Variabel">🔀 Variabel</option></select></div></div><div class="edit-actions"><button class="btn-discard" onclick="closeAdd('expense')">Abbrechen</button><button class="btn-save" onclick="confirmAddExpense()">Hinzufügen</button></div></div><div class="total-row"><span>Gesamt / Monat</span><span id="outTotal"></span></div></div></section>
     </section>
 
-    <div class="footer">Daten werden lokal gespeichert · Läuft offline · v1.8</div>
+    <div class="footer">Daten werden lokal gespeichert · Läuft offline · v1.0</div>
   </main>
 </div>
 
