@@ -1,12 +1,12 @@
-# Chat-Startvorlage – BudgetApp
+# Chat-Startvorlage – BudgetAtlas
 
-Ich arbeite am Projekt **BudgetApp**.
+Ich arbeite am Projekt **BudgetAtlas**.
 
 Projekt-Root:
 `Repository-Root`
 
 Repository:
-https://github.com/Schrotty74/BudgetApp
+https://github.com/Schrotty74/BudgetAtlas
 
 Bitte lies vor Beginn:
 
@@ -21,15 +21,16 @@ Die verbindlichen allgemeinen Arbeits-, Git-, Veröffentlichungs- und Repository
 
 Prüfe vor Aussagen oder Änderungen den tatsächlichen Projektzustand. Halte den Auftrag eng begrenzt und aktualisiere bei relevanten Änderungen die vorgesehenen Kontextdateien im selben Auftrag.
 
-BudgetApp-spezifisch:
+BudgetAtlas-spezifisch:
 
-- Single-File-Architektur erhalten, solange keine Aufteilung verlangt wird.
+- Bestehende Aufteilung in `index.html`, `styles.css`, `app.js`, `io.js` und `ui.js` erhalten, solange keine andere Struktur ausdrücklich verlangt wird.
 - Kein Framework und keine neue externe Abhängigkeit ohne klare Begründung.
 - Neue sichtbare Texte immer in Deutsch und Englisch pflegen.
 - `localStorage`-Daten rückwärtskompatibel behandeln.
 - Offline-first und GitHub-Pages-Kompatibilität erhalten.
-- Bei Release alle Versionsstellen synchronisieren: `index.html`, `CHANGELOG.md`, `version.json`, `sw.js` und eingebetteter Service Worker.
-- Wenn Bash-spezifische Befehle nötig sind, die im Projekt dokumentierte Bash-Umgebung verwenden.
+- `demo.xlsx` ist die kompatible Demo-Datei für Importtests und enthält nur fiktive Beispieldaten.
+- Bei einem Release alle Versionsstellen gezielt prüfen: sichtbare Versionsanzeige, `CHANGELOG.md`, `version.json` und Service-Worker-Cache.
+- Öffentliche Screenshots, Handbücher und Branding-Assets müssen den aktuellen BudgetAtlas-Stand zeigen und dürfen nicht ungeprüft aus BudgetApp übernommen werden.
 
 Aktueller Auftrag:
 
