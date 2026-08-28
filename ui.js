@@ -39,15 +39,77 @@
     setTimeout(() => toggleAdd('expense'), 220);
   });
 
-  const monthLabel = document.getElementById('monthLabel');
-  if (monthLabel) {
+  function updateMonthLabel() {
+    const monthLabel = document.getElementById('monthLabel');
+    if (!monthLabel) return;
     monthLabel.textContent = new Intl.DateTimeFormat(
       document.documentElement.lang === 'en' ? 'en' : 'de-AT',
       { month: 'long', year: 'numeric' }
     ).format(new Date());
   }
 
+  function numberFromMoney(text) {
+    if (!text) return 0;
+    const cleaned = text.replace(/[^0-9,.-]/g, '').replace(/\./g, '').replace(',', '.');
+    return Number.parseFloat(cleaned) || 0;
+  }
+
+  function syncDashboardMeta() {
+    const income = numberFromMoney(document.getElementById('totalIn')?.textContent);
+    const expenses = numberFromMoney(document.getElementById('totalOut')?.textContent);
+    const ratio = income > 0 ? Math.min(Math.max((expenses / income) * 100, 0), 999) : 0;
+    const ratioEl = document.getElementById('heroRatio');
+    const donutTotal = document.getElementById('donutTotal');
+    if (ratioEl) ratioEl.textContent = income > 0 ? `${ratio.toFixed(0)} %` : '–';
+    if (donutTotal) donutTotal.textContent = document.getElementById('totalOut')?.textContent || '–';
+  }
+
+  function syncLanguageExtras() {
+    const en = document.documentElement.lang === 'en';
+    const heroMeta = document.getElementById('heroMetaLeft');
+    const donutLabel = document.getElementById('donutCenterLabel');
+    const quickTitle = document.querySelector('.quick-title');
+    const quickButtons = document.querySelectorAll('.quick-card button b');
+    const moreButton = document.querySelector('.bottom-nav button[data-target="mixSection"]');
+    if (heroMeta) heroMeta.textContent = en ? 'Expense ratio' : 'Ausgabenanteil';
+    if (donutLabel) donutLabel.textContent = en ? 'Total expenses' : 'Gesamtausgaben';
+    if (quickTitle) quickTitle.textContent = en ? 'Quick access' : 'Schnellzugriff';
+    if (quickButtons[0]) quickButtons[0].textContent = en ? 'Income' : 'Einnahme';
+    if (quickButtons[1]) quickButtons[1].textContent = en ? 'Expense' : 'Ausgabe';
+    if (quickButtons[2]) quickButtons[2].textContent = 'Import / Export';
+    if (moreButton) moreButton.lastChild.textContent = en ? 'More' : 'Mehr';
+    updateMonthLabel();
+  }
+
+  function restoreStructuredIOToggle() {
+    const button = document.getElementById('ioToggleBtn');
+    if (!button || button.querySelector('b')) return;
+    const en = document.documentElement.lang === 'en';
+    button.innerHTML = `<span>⇅</span><b>Import / Export</b><small>${en ? 'Import or export data' : 'Daten importieren oder exportieren'}</small>`;
+  }
+
+  const totals = [document.getElementById('totalIn'), document.getElementById('totalOut')].filter(Boolean);
+  const totalObserver = new MutationObserver(syncDashboardMeta);
+  totals.forEach(el => totalObserver.observe(el, { childList: true, characterData: true, subtree: true }));
+
+  const langObserver = new MutationObserver(() => {
+    restoreStructuredIOToggle();
+    syncLanguageExtras();
+    syncDashboardMeta();
+  });
+  langObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+  const ioButton = document.getElementById('ioToggleBtn');
+  if (ioButton) {
+    new MutationObserver(() => requestAnimationFrame(restoreStructuredIOToggle))
+      .observe(ioButton, { childList: true, subtree: true });
+  }
+
   window.addEventListener('keydown', event => {
     if (event.key === 'Escape') closeSidebar();
   });
+
+  updateMonthLabel();
+  syncLanguageExtras();
+  syncDashboardMeta();
 })();
