@@ -1,0 +1,173 @@
+/* Light mode polish: stronger contrast and clearer controls */
+html.light{
+  --bg:#e5eef3;
+  --panel:#ffffff;
+  --panel-2:#f1f6f9;
+  --line:#91aebe;
+  --line-strong:#6f97ab;
+  --text:#0c2332;
+  --muted:#486473;
+  --cyan:#006f89;
+  --accent:#078848;
+  --orange:#ad4d00;
+}
+
+html.light body{background:#e5eef3;color:#0c2332}
+html.light .main-content{color:#0c2332}
+
+html.light .hero-card,
+html.light .mix-card,
+html.light .summary-card,
+html.light .quick-card,
+html.light .detail-card,
+html.light .empty-state{
+  border-color:#9fb8c5;
+  background:#ffffff;
+  box-shadow:0 5px 14px rgba(25,57,74,.12);
+}
+
+html.light .section-title,
+html.light .card-label,
+html.light .row-name,
+html.light .total-row,
+html.light .month-control strong,
+html.light .quick-title{
+  color:#0e2a3a;
+}
+
+html.light .dc-label,
+html.light .legend-item,
+html.light .mix-total,
+html.light .summary-caption,
+html.light .row-freq-sub,
+html.light .row-pct,
+html.light .footer,
+html.light .side-footer,
+html.light .header-label{
+  color:#486473;
+}
+
+html.light .mix-total{border-color:#9eb8c6}
+html.light .mix-total strong,
+html.light .row-amount,
+html.light .total-row span:last-child{color:#0f2b3b}
+
+html.light .green{color:#067a40!important}
+html.light .orange{color:#a64600!important}
+html.light .spark.green{color:#078848!important}
+html.light .spark.orange{color:#b45000!important}
+
+html.light .quick-card{
+  border-color:#8fb0c0;
+  background:linear-gradient(180deg,#ffffff,#f6fafc);
+}
+html.light .quick-title{font-weight:800;color:#006f89}
+html.light .quick-actions{gap:12px}
+html.light .quick-card button{
+  min-height:62px;
+  border:1px solid #a0bcc9;
+  border-radius:12px;
+  background:#f3f8fb;
+  color:#163849;
+  box-shadow:0 2px 5px rgba(28,65,84,.08);
+}
+html.light .quick-card button:active{
+  background:#e5f1f6;
+  border-color:#5c93a9;
+  transform:scale(.98);
+}
+html.light .quick-card button span{
+  width:34px;
+  height:34px;
+  border:1px solid #5f99ad;
+  background:#d5edf3;
+  color:#006d86;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.65);
+}
+html.light .quick-card button b{
+  color:#163849;
+  font-weight:700;
+}
+
+html.light .btn-add{
+  border:1px dashed #5f93aa;
+  background:#f3f8fb;
+  color:#006f89;
+  font-weight:800;
+}
+html.light .btn-add:active{background:#e6f1f5}
+
+html.light .row{border-color:#aec6d1}
+html.light .row-icon{background:#dcece5}
+html.light .icon-btn{color:#355d70}
+
+html.light .mobile-menu-btn{
+  border-color:#82a6b8;
+  background:#f7fbfd;
+}
+html.light .mobile-menu-btn::before{color:#24495b}
+html.light #langBtn{color:#31596b}
+
+html.light .bottom-nav{
+  border-top-color:#8eaaba;
+  background:rgba(244,249,252,.98)!important;
+  box-shadow:0 -4px 14px rgba(28,61,79,.10);
+}
+html.light .bottom-nav button{color:#456574}
+html.light .bottom-nav button.active{color:#006f89}
+
+html.light .sidebar{
+  background:linear-gradient(180deg,#fbfdfe,#eef5f8);
+  border-right-color:#9fb8c5;
+}
+html.light .nav-item{color:#355668}
+html.light .nav-item span{color:#456d80}
+html.light .nav-item:hover,
+html.light .nav-item.active{
+  background:#dbeaf1;
+  color:#0d2d3e;
+}
+html.light .nav-item.active span{color:#006f89}
+
+html.light .io-toggle{
+  border-color:#7ea5b7;
+  background:#eef6f9;
+  color:#123444;
+}
+html.light .io-toggle small{color:#486473}
+
+html.light .mobile-io-sheet,
+html.light .mobile-more-sheet{
+  border-color:#8eacba;
+  background:linear-gradient(180deg,#ffffff,#eff5f8);
+  box-shadow:0 22px 60px rgba(30,64,82,.20);
+}
+html.light .mobile-io-head strong,
+html.light .mobile-more-head strong{color:#0d2a39}
+html.light .mobile-io-head span,
+html.light .mobile-more-list button>small{color:#4a6574}
+html.light .mobile-io-action,
+html.light .mobile-more-list button{
+  border-color:#9bb7c5;
+  background:#f5f9fb;
+  color:#163747;
+}
+html.light .mobile-io-action span,
+html.light .mobile-more-list button>span{
+  background:#d9edf3;
+  color:#006f89;
+}
+html.light .mobile-io-close,
+html.light .mobile-more-close{
+  border-color:#9bb6c3;
+  background:#f5f9fb;
+  color:#294e60;
+}
+
+@media(max-width:700px){
+  html.light .quick-card{padding:10px}
+  html.light .quick-actions{gap:8px}
+  html.light .quick-card button{min-height:58px;padding:6px 3px}
+  html.light .quick-card button span{width:32px;height:32px}
+  html.light .quick-card button b{font-size:.5rem}
+}
