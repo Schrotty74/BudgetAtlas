@@ -6,6 +6,12 @@ BudgetAtlas is a local, responsive budget PWA with a modern “Focus & Flow” d
 
 The app stores budget data exclusively in the browser. There is no account, no tracking, and no server-side storage of personal financial data.
 
+## Screenshots
+
+These screenshots show fictional demo data only.
+
+<img src="docs/screenshots/IMG_2651.jpeg" alt="BudgetAtlas demo screenshot 1" width="280"> <img src="docs/screenshots/IMG_2655.jpg" alt="BudgetAtlas demo screenshot 2" width="280">
+
 ## Features
 
 - Monthly buffer, income and expenses at a glance
