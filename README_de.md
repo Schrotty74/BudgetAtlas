@@ -51,7 +51,7 @@ Budgetdaten werden im lokalen Browser-Speicher (`localStorage`) gespeichert. Es 
 
 ## Status
 
-BudgetAtlas befindet sich aktuell im Redesign-/Teststadium. Die dokumentierte App-Version bleibt vorerst `v1.8`; eine neue öffentliche Release-Version wurde noch nicht erstellt.
+BudgetAtlas startet nach dem Redesign als eigenständiges Projekt mit einer eigenen Versionslinie bei `v1.0`.
 
 ## Repository
 
