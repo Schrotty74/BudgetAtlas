@@ -159,10 +159,9 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
   </main>
 </div>
 
-<nav class="bottom-nav" aria-label="Mobile Navigation">
+<nav class="bottom-nav" aria-label="Mobile Navigation" style="grid-template-columns:repeat(4,minmax(0,1fr))">
   <button class="active" data-target="overview"><span>⌂</span>Übersicht</button>
   <button data-target="incomeSection"><span>▣</span>Einnahmen</button>
-  <button class="fab" id="mobileFab" aria-label="Schnell hinzufügen">＋</button>
   <button data-target="expenseSection"><span>▤</span>Ausgaben</button>
   <button data-target="mixSection"><span>•••</span>Mehr</button>
 </nav>
