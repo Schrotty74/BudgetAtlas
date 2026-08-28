@@ -2,19 +2,17 @@
 
 **Live App:** https://schrotty74.github.io/BudgetAtlas/
 
-BudgetAtlas is a local, responsive budget PWA with a modern “Focus & Flow” dashboard for desktop and mobile devices.
-
-The app stores budget data exclusively in the browser. There is no account, no tracking, and no server-side storage of personal financial data.
-
-## Screenshots
+> **Demo data only:** All values shown in the screenshots are fictional sample data from [`demo.xlsx`](demo.xlsx). No personal financial data is shown.
 
 <p align="center">
   <a href="docs/screenshots/budgetatlas-demo-gallery.jpg">
-    <img src="docs/screenshots/budgetatlas-demo-gallery.jpg" alt="BudgetAtlas dark and light mode screenshots with demo data" width="260">
+    <img src="docs/screenshots/budgetatlas-demo-gallery.jpg" alt="BudgetAtlas dark and light mode screenshots with demo data" width="720">
   </a>
 </p>
 
-> **Demo data:** All screenshots show fictional sample data from [`demo.xlsx`](demo.xlsx). No personal financial data is shown.
+BudgetAtlas is a local, responsive budget PWA with a modern “Focus & Flow” dashboard for desktop and mobile devices.
+
+The app stores budget data exclusively in the browser. There is no account, no tracking, and no server-side storage of personal financial data.
 
 ## Features
 
