@@ -10,7 +10,7 @@ The app stores budget data exclusively in the browser. There is no account, no t
 
 These screenshots show fictional demo data only.
 
-<img src="docs/screenshots/IMG_2651.jpeg" alt="BudgetAtlas demo screenshot 1" width="280"> <img src="docs/screenshots/IMG_2655.jpg" alt="BudgetAtlas demo screenshot 2" width="280">
+<img src="docs/screenshots/IMG_2651.jpeg" alt="BudgetAtlas demo screenshot 1" width="220"> <img src="docs/screenshots/IMG_2655.jpg" alt="BudgetAtlas demo screenshot 2" width="220">
 
 ## Features
 
