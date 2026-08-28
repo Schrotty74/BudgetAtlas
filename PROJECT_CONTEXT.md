@@ -15,11 +15,10 @@ Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine 
 ## Herkunft und Branch-Status
 
 - Das aktuelle `main` von BudgetAtlas basiert auf dem Redesign aus `Schrotty74/BudgetApp` Branch `beta`.
-- Das Redesign wurde als neuer Ausgangspunkt für BudgetAtlas übernommen.
+- BudgetAtlas ist inzwischen ein eigenständiges Repository und `main` ist der aktuelle Entwicklungsstand.
 - Alte BudgetApp-Handbücher, Screenshots und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
-- `demo.xlsx` ist als kompatible Demo-Datei vorgesehen, weil das Excel-Datenformat unverändert nutzbar ist.
-- Die README-Dateien wurden für BudgetAtlas und das Redesign neu angepasst.
-- BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel, damit der Datenkern kompatibel bleibt.
+- `demo.xlsx` ist kompatibel und bleibt als Demo-Datei für Excel-Importtests erhalten.
+- BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel.
 
 ## Architektur
 
@@ -28,33 +27,35 @@ BudgetAtlas ist eine statische PWA ohne Framework, Paketmanager oder Build-Schri
 Wichtige Dateien:
 
 - `index.html`: Dashboard-Struktur und PWA-Einstieg
-- `styles.css`: Redesign, Responsive-CSS, Dark-/Light-Variante und Animationen
+- `styles.css`: Focus-&-Flow-Redesign, Responsive-CSS, Dark-/Light-Variante und Animationen
 - `app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung und allgemeines UI-Verhalten
 - `io.js`: Excel-, PDF-, PNG- und JSON-Import/-Export
-- `ui.js`: Desktop-/Mobile-Navigation und Monatsanzeige
+- `ui.js`: Desktop-/Mobile-Navigation, Monatsanzeige und rein darstellungsbezogene Dashboard-Metadaten
 - `sw.js`: Service Worker und Offline-Cache
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
 - `demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
 
-Es wurden keine JavaScript-Frameworks oder zusätzlichen UI-Abhängigkeiten eingeführt.
+Die Budget- und Import-/Exportlogik wurde bei der visuellen Focus-&-Flow-Angleichung nicht umgebaut.
 
-## Redesign
+## Focus & Flow – visuelle Referenz
 
-Das aktuelle Hauptlayout verwendet:
+Die verbindliche visuelle Richtung ist das Konzept „Vorschlag 2 – Focus & Flow“ mit dichter, hochwertiger Finanz-Dashboard-Optik für Desktop und Mobilgerät.
 
-- dunkle Navy-Oberfläche mit Cyan-, Grün- und Orange-Akzenten
-- Desktop-Sidebar
-- große Karte für das monatliche Polster
-- Ausgaben-Mix als Donut-Diagramm
-- Karten für Einnahmen und Ausgaben
-- Schnellzugriff zum Hinzufügen
-- getrennte Detailbereiche für Einnahmen und Ausgaben
-- Mobile-Bottom-Navigation mit zentralem Schnell-Hinzufügen-Button
-- animierte Donut-Segmente und Ausgabenbalken
-- dezentes Kartenfeedback
-- weich öffnende Formulare und flüssigeres Löschen
-- Unterstützung für `prefers-reduced-motion`
+Der aktuelle Stand wurde stärker an diese Referenz angeglichen:
+
+- kompakter Monatskopf statt großer mobiler App-Überschrift
+- Desktop-Sidebar mit zurückhaltender Navigation
+- deutlich kompaktere Karten, Abstände und Radien
+- große Polster-Karte mit dunkler Bergsilhouette und durchgehender grüner Verlaufslinie
+- Fortschrittsbalken plus abgeleiteter Ausgabenanteil
+- kompakter Ausgaben-Mix mit Donut, Legende und Gesamtausgaben
+- Einnahmen-/Ausgaben-Karten mit Icons und dezenten Trend-Akzenten
+- Schnellzugriff nur für tatsächlich vorhandene Funktionen: Einnahme, Ausgabe und Import/Export
+- Mobile-Bottom-Navigation mit zentralem Plus-Button
+- Cyan wird primär für Navigation/Aktionen eingesetzt, Grün für positive Werte und Orange für Ausgaben
+- keine Konzeptfunktionen wie Belegscanner, Konten, Budgets oder Ziele wurden erfunden
+- `prefers-reduced-motion` bleibt berücksichtigt
 
 ## Datenformate und Speicherung
 
@@ -91,7 +92,7 @@ Aktuell enthalten sind insbesondere:
 - Excel-Import mit Vorschau und Fehlerhinweisen
 - Excel-Export
 - PDF-Export
-- PNG-Export des neuen Dashboard-Bereichs
+- PNG-Export des Dashboard-Bereichs
 - JSON-Backup und Wiederherstellung mit Vorschau
 - Deutsch/Englisch
 - Dark-/Light-Mode
@@ -99,20 +100,23 @@ Aktuell enthalten sind insbesondere:
 - Update-Hinweis über BudgetAtlas `version.json`
 - lokale Speicherung ohne Server
 
-## Redesign-Anschlusskorrekturen
+## Redesign-spezifische UI-Metadaten
 
-Bei der Übernahme wurden alte Selektoren aus der vorherigen Oberfläche korrigiert:
+`ui.js` ergänzt ausschließlich abgeleitete Darstellungswerte und verändert keine gespeicherten Budgetdaten:
 
-- Sprachwechsel verwendet jetzt den tatsächlich vorhandenen Polster-Titel im neuen Layout.
-- Dashboard-Importanimation und PNG-Export verwenden jetzt `.main-content` statt der im Redesign nicht mehr vorhandenen `.container`-Klasse.
+- Ausgabenanteil = monatliche Ausgaben geteilt durch monatliche Einnahmen
+- Gesamtausgaben im Mix werden aus dem bereits gerenderten Monatswert übernommen
+- zusätzliche Beschriftungen reagieren auf Deutsch/Englisch
 
-Außerdem wurden GitHub-, Update-, Export- und Backup-Bezeichnungen auf BudgetAtlas umgestellt.
+## PWA-Cache
+
+Der Service-Worker-Cache wurde für die Focus-&-Flow-Angleichung auf `budgetatlas-v1.8-focus-flow-2` gesetzt, damit bestehende Installationen die geänderten HTML-/CSS-/UI-Dateien neu laden.
 
 ## PWA-Icon
 
-Die bisherigen BudgetApp-PNG-Icons wurden nicht übernommen, weil sie als altes Branding-/Visual-Asset behandelt werden. `manifest.json` und `sw.js` enthalten deshalb derzeit keine Verweise auf diese alten Dateien.
+Die bisherigen BudgetApp-PNG-Icons wurden nicht übernommen. `manifest.json` und `sw.js` enthalten derzeit keine Verweise auf diese alten Dateien.
 
-Vor einer öffentlichen Veröffentlichung sollte ein eigenes BudgetAtlas-PWA-Icon erstellt und anschließend in Manifest, HTML und Service Worker eingebunden werden.
+Vor einer späteren Veröffentlichung mit eigenständigem Branding sollte ein eigenes BudgetAtlas-PWA-Icon erstellt und anschließend in Manifest, HTML und Service Worker eingebunden werden.
 
 ## Externe Abhängigkeiten
 
@@ -130,25 +134,24 @@ Danach die App unter `http://127.0.0.1:8087/` öffnen.
 
 ## Testschwerpunkte
 
-Vor einer öffentlichen Veröffentlichung mindestens prüfen:
+Nach der aktuellen visuellen Angleichung insbesondere prüfen:
 
-- Desktop-Layout bei breiten und mittleren Fenstergrößen
-- iPhone-/Mobile-Layout inklusive Bottom-Navigation und Sidebar
-- vorhandene `localStorage`-Budgetdaten werden korrekt dargestellt
-- Einnahmen/Ausgaben hinzufügen, bearbeiten, löschen und rückgängig machen
-- Excel-Import mit `demo.xlsx` inklusive Vorschau
-- JSON-Wiederherstellung inklusive Vorschau
+- Desktop-Layout gegen die Focus-&-Flow-Referenz
+- iPhone-/Mobile-Layout gegen die Focus-&-Flow-Referenz
+- Header, Polster-Karte, Ausgaben-Mix, Summary-Karten und Bottom-Navigation
+- vorhandene `localStorage`-Budgetdaten
+- Hinzufügen, Bearbeiten, Löschen und Rückgängig
+- Excel-Import mit `demo.xlsx`
+- JSON-Wiederherstellung
 - Excel-, PDF-, PNG- und JSON-Export
 - DE/EN-Umschaltung
 - Dark-/Light-Mode
-- Animationen und `prefers-reduced-motion`
-- Offline-Verhalten und Service-Worker-Cache
-- Update-Prüfung gegen BudgetAtlas
-- neues PWA-Icon nach dessen Erstellung
+- `prefers-reduced-motion`
+- Offline-/Flugmodus nach Laden des neuen Service Workers
 
 ## Release
 
-Die Übernahme nach BudgetAtlas `main` ist noch keine neue öffentliche Release-Version. `v1.8` und `version.json` wurden deshalb nicht hochgezählt.
+Die aktuelle visuelle Überarbeitung ist noch keine neue Release-Version. `v1.8`, `version.json` und `CHANGELOG.md` wurden deshalb nicht hochgezählt.
 
 Vor einem späteren Release müssen Versionsstellen, Changelog, `version.json`, Service-Worker-Cache und `PORTFOLIO_UPDATE.md` gezielt geprüft werden.
 
