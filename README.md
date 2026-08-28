@@ -1,95 +1,64 @@
-# 💶 BudgetAtlas
+# BudgetAtlas
 
-![License](https://img.shields.io/badge/license-GPL--3.0-green)
-![PWA](https://img.shields.io/badge/PWA-ready-blue)
-![HTML5](https://img.shields.io/badge/HTML5-pure-orange)
-![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-yellow)
-![Mobile](https://img.shields.io/badge/mobile-friendly-blueviolet)
-![No Server](https://img.shields.io/badge/no%20server-offline%20only-lightgrey)
-![localStorage](https://img.shields.io/badge/storage-localStorage%20only-informational)
-![No Tracking](https://img.shields.io/badge/tracking-none-success)
-![No Login](https://img.shields.io/badge/login-not%20required-success)
+BudgetAtlas is a local, responsive budget PWA with a modern “Focus & Flow” dashboard for desktop and mobile devices.
 
-🇩🇪 [Deutsche Version](README_de.md)
+The app stores budget data exclusively in the browser. There is no account, no tracking, and no server-side storage of personal financial data.
 
-BudgetAtlas is a private, local-first PWA for managing a household budget. The redesigned dashboard uses a clear desktop sidebar, compact summary cards, a prominent monthly buffer and dedicated mobile navigation.
+## Features
 
----
+- Monthly buffer, income and expenses at a glance
+- Animated expense-mix donut chart
+- Animated percentage bars for expense shares
+- Add, edit and delete income and expenses
+- Swipe-to-delete with undo on mobile devices
+- Collapsible income and expense sections
+- Excel import with preview and invalid-row feedback
+- Excel export
+- PDF export
+- PNG dashboard export
+- JSON backup and restore with preview
+- German / English
+- Dark and light mode
+- Offline-capable PWA with Service Worker
+- `prefers-reduced-motion` support
+- Responsive desktop sidebar and mobile bottom navigation
 
-## ✨ Features
+## Demo workbook
 
-### Dashboard & navigation
-
-- 📊 **Redesigned dashboard** — dark navy interface with cyan, green and orange accents
-- 💰 **Monthly buffer** — income minus monthly expenses shown as the main dashboard value
-- 🍩 **Animated expense mix** — donut chart with categories and highlighted segments
-- 📈 **Animated expense bars** — percentage bars grow to their current values after updates
-- 🧭 **Desktop sidebar** — direct navigation to overview, income, expenses and expense mix
-- 📱 **Mobile bottom navigation** — compact navigation for small screens with quick-add access
-- ⚡ **Quick actions** — add income or expenses directly from the dashboard
-- 🗂️ **Collapsible sections** — income and expense areas can be expanded or collapsed
-- ✨ **Subtle UI motion** — card feedback, smoother deletion and expanding forms
-- ♿ **Reduced motion support** — respects `prefers-reduced-motion`
-
-### Income & expenses
-
-- ➕ **Add entries** — icon, name and amount
-- ✏️ **Inline editing** — edit existing entries directly in the list
-- 👆 **Swipe to delete** — remove entries with a swipe gesture on mobile
-- ↩️ **Undo delete** — restore accidentally deleted entries within five seconds
-- 📅 **Multiple payment frequencies** — monthly, every two months, quarterly, yearly or variable
-- 💶 **Actual payment amounts** — non-monthly costs keep the real payment amount and monthly budget share separately
-
-### Import & export
-
-- 📥 **Excel import with preview** — inspect detected income and expenses before applying them
-- ⚠️ **Invalid-row detection** — problematic Excel rows are listed with a reason and skipped
-- 📤 **Excel export** — export the budget as `.xlsx`
-- 🖨️ **PDF export** — create a printable monthly overview
-- 📷 **PNG export** — export the dashboard as an image
-- 💾 **JSON backup** — back up budget data and app settings
-- ♻️ **JSON restore with preview** — inspect backup contents before replacing current data
-
-### PWA, privacy & settings
-
-- 📴 **Offline-ready** — Service Worker caches the app for use without internet
-- 📱 **Installable** — use BudgetAtlas as a PWA on mobile or desktop
-- 🌗 **Dark / Light mode** — switch between dark and light themes
-- 🌐 **German / English** — switch languages at any time
-- 💾 **Local storage** — budget data is stored in the browser using `localStorage`
-- 🔒 **No server, no login, no tracking**
-
----
-
-## 🔒 Privacy
-
-BudgetAtlas works locally in the browser. Budget data is not sent to a server and there is no account system or tracking.
-
-Budget data and app settings stay in local browser storage. Export files are only created after an explicit user action.
-
----
-
-## 📥 Excel import
-
-The app recognises `.xlsx` files with sections named **Einnahmen** and **Ausgaben**. A preview is shown before import. Invalid rows are listed and are not applied.
+[`demo.xlsx`](demo.xlsx) contains fictional sample data only and can be used directly to test the Excel import. The Excel data format remains compatible with the inherited data core.
 
 Supported frequencies:
 
-`Monatlich` · `Alle 2 Monate` · `Quartalsweise` · `Jährlich` · `Variabel`
+- `Monatlich`
+- `Alle 2 Monate`
+- `Quartalsweise`
+- `Jährlich`
+- `Variabel`
 
----
+## Privacy
 
-## 🛠 Technology
+Budget data is stored in the browser's local storage (`localStorage`). There is no backend, no user account, and no tracking.
+
+## Technology
 
 - Pure HTML, CSS and JavaScript
-- no framework
-- no build step
-- [SheetJS](https://sheetjs.com) for Excel import and export
-- Service Worker for offline support
-- `localStorage` for local data persistence
+- No framework
+- No package manager
+- No build step
+- SheetJS for Excel import/export
+- html2canvas is loaded on demand for PNG export
+- Service Worker for offline use
 
----
+## Status
 
-## 📄 License
+BudgetAtlas is currently in the redesign/testing stage. The documented app version remains `v1.8` for now; no new public release version has been created yet.
 
-GPL-3.0 — see [LICENSE](LICENSE)
+## Repository
+
+https://github.com/Schrotty74/BudgetAtlas
+
+## License
+
+GPL-3.0 — see [`LICENSE`](LICENSE).
+
+🇩🇪 [Deutsche Version](README_de.md)
