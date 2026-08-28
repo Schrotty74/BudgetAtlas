@@ -188,7 +188,7 @@ function exportPDF() {
 </style>
 </head>
 <body>
-<h1>💶 Mein Budget</h1>
+<h1>💶 BudgetAtlas</h1>
 <div class="sub">Monatliche Übersicht · ${date}</div>
 <div class="banner"><div class="banner-label">Monatliches Polster</div><div class="banner-amount">${bal >= 0 ? '+' : ''}${fmt(bal)}</div></div>
 <div class="cards">
@@ -199,7 +199,7 @@ function exportPDF() {
 <table><tr><th>Bezeichnung</th><th>Häufigkeit</th><th class="num">Betrag</th></tr>${rows_income}<tr class="total-row"><td colspan="2">Gesamt</td><td class="num">${fmt(tin)}</td></tr></table>
 <h2>Ausgaben</h2>
 <table><tr><th>Bezeichnung</th><th>Häufigkeit</th><th class="num">Betrag</th><th class="num">/ Monat</th><th class="num">Anteil</th></tr>${rows_expense}<tr class="total-row"><td colspan="3">Gesamt / Monat</td><td class="num">${fmt(tout)}</td><td></td></tr></table>
-<div class="footer">Erstellt mit Mein Budget · ${new Date().toLocaleDateString('de-AT')}</div>
+<div class="footer">Erstellt mit BudgetAtlas · ${new Date().toLocaleDateString('de-AT')}</div>
 </body></html>`;
 
   const w = window.open('', '_blank');
@@ -214,7 +214,7 @@ function exportExcel() {
   const date = new Date().toLocaleDateString('de-AT', {month:'long', year:'numeric'});
 
   const data = [
-    ['Mein Budget - ' + date],
+    ['BudgetAtlas - ' + date],
     [],
     ['EINNAHMEN'],
     ['Bezeichnung', 'Betrag (€)', 'Häufigkeit'],
@@ -235,13 +235,13 @@ function exportExcel() {
   const ws = XLSX.utils.aoa_to_sheet(data);
   ws['!cols'] = [{wch:35},{wch:18},{wch:20},{wch:18},{wch:14}];
   XLSX.utils.book_append_sheet(wb, ws, 'Budget');
-  XLSX.writeFile(wb, 'MeinBudget_' + new Date().toLocaleDateString('de-AT').replace(/\./g,'-') + '.xlsx');
+  XLSX.writeFile(wb, 'BudgetAtlas_' + new Date().toLocaleDateString('de-AT').replace(/\./g,'-') + '.xlsx');
 }
 
 // ---- JSON Backup ----
 function exportJsonBackup() {
   const backup = {
-    app: 'BudgetApp',
+    app: 'BudgetAtlas',
     version: APP_VERSION,
     exportedAt: new Date().toISOString(),
     data: { income, expenses },
@@ -259,7 +259,7 @@ function exportJsonBackup() {
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = 'MeinBudget_Backup_' + new Date().toLocaleDateString('de-AT').replace(/\./g, '-') + '.json';
+  link.download = 'BudgetAtlas_Backup_' + new Date().toLocaleDateString('de-AT').replace(/\./g, '-') + '.json';
   document.body.appendChild(link);
   link.click();
   link.remove();
@@ -402,14 +402,15 @@ async function exportImage() {
         document.head.appendChild(s);
       });
     }
-    const container = document.querySelector('.container');
+    const container = document.querySelector('.main-content');
+    if (!container) throw new Error('Dashboard not found');
     const canvas = await html2canvas(container, {
       backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#0f1117',
       scale: 2,
       useCORS: true,
       logging: false
     });
-    const filename = 'MeinBudget_' + new Date().toLocaleDateString('de-AT').replace(/\./g, '-') + '.png';
+    const filename = 'BudgetAtlas_' + new Date().toLocaleDateString('de-AT').replace(/\./g, '-') + '.png';
     const blob = await new Promise((resolve, reject) => {
       canvas.toBlob(result => result ? resolve(result) : reject(new Error('PNG konnte nicht erstellt werden.')), 'image/png');
     });
@@ -417,7 +418,7 @@ async function exportImage() {
 
     if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
       try {
-        await navigator.share({ files: [file], title: currentLang === 'en' ? 'My Budget' : 'Mein Budget' });
+        await navigator.share({ files: [file], title: 'BudgetAtlas' });
         return;
       } catch (shareError) {
         if (shareError && shareError.name === 'AbortError') return;
