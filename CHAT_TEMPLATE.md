@@ -23,13 +23,14 @@ Prüfe vor Aussagen oder Änderungen den tatsächlichen Projektzustand. Halte de
 
 BudgetAtlas-spezifisch:
 
-- Bestehende Aufteilung in `index.html`, `styles.css`, `app.js`, `io.js` und `ui.js` erhalten, solange keine andere Struktur ausdrücklich verlangt wird.
+- Bestehende Aufteilung in `index.html`, `styles.css`, `focus-flow.css`, `app.js`, `io.js`, `ui.js` und `focus-flow.js` erhalten, solange keine andere Struktur ausdrücklich verlangt wird.
 - Kein Framework und keine neue externe Abhängigkeit ohne klare Begründung.
 - Neue sichtbare Texte immer in Deutsch und Englisch pflegen.
 - `localStorage`-Daten rückwärtskompatibel behandeln.
 - Offline-first und GitHub-Pages-Kompatibilität erhalten.
-- `demo.xlsx` ist die kompatible Demo-Datei für Importtests und enthält nur fiktive Beispieldaten.
-- Bei einem Release alle Versionsstellen gezielt prüfen: sichtbare Versionsanzeige, `CHANGELOG.md`, `version.json` und Service-Worker-Cache.
+- `docs/demo.xlsx` ist die kompatible Demo-Datei für Importtests und enthält nur fiktive Beispieldaten.
+- Bei einem Release alle Versionsstellen gezielt prüfen: sichtbare Versionsanzeige, `APP_VERSION`, `CHANGELOG.md`, `version.json` und Service-Worker-Cache.
+- BudgetAtlas verwendet eine eigene Versionslinie ab `v1.0`; die frühere BudgetApp-Versionszählung nicht fortführen.
 - Öffentliche Screenshots, Handbücher und Branding-Assets müssen den aktuellen BudgetAtlas-Stand zeigen und dürfen nicht ungeprüft aus BudgetApp übernommen werden.
 
 Aktueller Auftrag:
