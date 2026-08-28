@@ -39,7 +39,7 @@ const I18N = {
     importBig: '📥 Excel importieren',
     noData: 'Keine Daten vorhanden',
     noDataSub: 'Excel importieren oder manuell eintragen',
-    footer: 'Daten werden lokal gespeichert · Läuft offline · v1.8',
+    footer: 'Daten werden lokal gespeichert · Läuft offline · v1.0',
     saved: '✓ gespeichert',
     updateAvailable: v => `🆕 Neue Version verfügbar: ${v} — Tippen zum Aktualisieren`,
     jsonExported: '✓ JSON-Backup exportiert',
@@ -102,7 +102,7 @@ const I18N = {
     importBig: '📥 Import Excel',
     noData: 'No data yet',
     noDataSub: 'Import Excel or add entries manually',
-    footer: 'Data stored locally · Works offline · v1.8',
+    footer: 'Data stored locally · Works offline · v1.0',
     saved: '✓ saved',
     updateAvailable: v => `🆕 New version available: ${v} — Tap to update`,
     jsonExported: '✓ JSON backup exported',
@@ -613,7 +613,7 @@ if (currentLang === 'en') applyLang();
 initSectionState();
 
 // ---- Update check ----
-const APP_VERSION = 'v1.8';
+const APP_VERSION = 'v1.0';
 function dismissUpdate() {
   document.getElementById('updateBanner').classList.remove('show');
 }
