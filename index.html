@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Budget Beta">
+<meta name="theme-color" content="#07111f">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>Mein Budget · Beta</title>
+<link rel="stylesheet" href="styles.css">
+<script>
+['reminderEnabled', 'reminderTime', 'reminderLastSent'].forEach(key => localStorage.removeItem(key));
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(console.warn);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">▥</span><span>Mein Budget</span><span class="beta-chip">BETA</span></div>
+    <nav class="side-nav" aria-label="Hauptnavigation">
+      <button class="nav-item active" data-target="overview"><span>⌂</span>Übersicht</button>
+      <button class="nav-item" data-target="incomeSection"><span>↙</span>Einnahmen</button>
+      <button class="nav-item" data-target="expenseSection"><span>↗</span>Ausgaben</button>
+      <button class="nav-item" data-target="mixSection"><span>◉</span>Ausgaben-Mix</button>
+    </nav>
+    <div class="side-spacer"></div>
+    <div class="io-menu sidebar-io" id="ioMenu">
+      <button class="io-toggle" id="ioToggleBtn" onclick="toggleIOMenu()"><span>⇅</span> Import / Export</button>
+      <div class="io-dropdown" id="ioDropdown">
+        <label class="io-item" id="ioImport">📥 Excel importieren<input type="file" accept=".xlsx,.xls" onchange="importExcel(this);closeIOMenu()" hidden></label>
+        <button class="io-item" id="ioExportExcel" onclick="exportExcel();closeIOMenu()">📊 Excel exportieren</button>
+        <button class="io-item" id="ioExportPDF" onclick="exportPDF();closeIOMenu()">🖨️ PDF exportieren</button>
+        <button class="io-item" id="ioExportImage" onclick="exportImage();closeIOMenu()">📷 Bild exportieren</button>
+        <button class="io-item" id="ioExportJson" onclick="exportJsonBackup();closeIOMenu()">💾 JSON-Backup exportieren</button>
+        <label class="io-item" id="ioImportJson">♻️ JSON-Backup wiederherstellen<input type="file" accept=".json,application/json" onchange="importJsonBackup(this);closeIOMenu()" hidden></label>
+      </div>
+    </div>
+    <div class="side-footer"><span class="status-dot"></span><span>Daten lokal gespeichert</span></div>
+  </aside>
+
+  <div class="mobile-scrim" id="mobileScrim"></div>
+
+  <main class="main-content" id="overview">
+    <div id="installBanner" class="notice-banner">
+      <span>📲 Als App installieren — läuft dann offline</span>
+      <button class="install-btn" id="installBtn">Installieren</button>
+      <button class="dismiss-btn" onclick="dismissInstall()">×</button>
+    </div>
+
+    <header class="topbar">
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">☰</button>
+      <div class="header">
+        <div class="header-label">Monatliche Übersicht</div>
+        <h1>Mein <span class="hl">Budget</span> <span id="offlineBadge">Offline</span></h1>
+      </div>
+      <div class="month-control"><button aria-label="Voriger Monat">‹</button><strong id="monthLabel">Aktueller Monat</strong><button aria-label="Nächster Monat">›</button></div>
+      <div class="top-controls">
+        <a class="ctrl-btn icon-only" id="discordBtn" href="https://discord.gg/RbsvqRCPQ" target="_blank" rel="noopener noreferrer" title="Discord" aria-label="Discord">◈</a>
+        <a class="ctrl-btn icon-only" id="githubBtn" href="https://github.com/Schrotty74/BudgetApp" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">⌘</a>
+        <button id="reminderBtn" type="button" hidden aria-hidden="true" tabindex="-1"></button>
+        <button class="ctrl-btn" id="langBtn" onclick="toggleLang()">🌐 EN</button>
+        <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+      </div>
+    </header>
+
+    <div class="import-toast" id="importToast"></div>
+    <div class="update-banner" id="updateBanner" onclick="location.reload(true)">
+      <span class="update-banner-text" id="updateBannerText"></span>
+      <button class="update-banner-close" onclick="event.stopPropagation();dismissUpdate()">×</button>
+    </div>
+
+    <div id="emptyState" class="empty-state" style="display:none">
+      <div class="empty-icon">▦</div>
+      <div class="empty-title">Keine Daten vorhanden</div>
+      <div class="empty-sub">Excel importieren oder manuell eintragen</div>
+      <label class="btn-import-big">📥 Excel importieren<input type="file" accept=".xlsx,.xls" onchange="importExcel(this)" hidden></label>
+    </div>
+
+    <section class="hero-grid">
+      <div class="balance-banner hero-card" id="balanceBanner">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>Monatliches Polster</span><span class="info-dot">i</span></div>
+          <div class="balance-amount" id="balance"></div>
+          <div class="hero-status">Noch verfügbar</div>
+          <div class="balance-bar"><div class="balance-bar-fill" id="balanceBar" style="width:0%"></div></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true"><div class="mountain m1"></div><div class="mountain m2"></div><div class="trend-line">╭╮╭──╮╭╮</div></div>
+      </div>
+
+      <section class="section mix-card" id="mixSection">
+        <div class="section-title"><span>Ausgaben-Mix</span><span class="info-dot">i</span></div>
+        <div class="mix-layout">
+          <div class="donut-wrap"><div class="donut-container"><svg class="donut" width="180" height="180" viewBox="0 0 180 180" id="donutSvg"></svg><div class="donut-center"><div class="dc-pct" id="donutPct">–</div><div class="dc-label" id="donutLabel">–</div></div></div></div>
+          <div class="legend" id="legend"></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="cards summary-grid">
+      <div class="card summary-card income-summary">
+        <div class="summary-head"><div><span class="summary-icon green-bg">↙</span><span class="card-label">Einnahmen / Monat</span></div><span class="spark green">⌁⌁⌁</span></div>
+        <div class="card-value green" id="totalIn"></div>
+        <div class="summary-caption">Diesen Monat</div>
+      </div>
+      <div class="card summary-card expense-summary">
+        <div class="summary-head"><div><span class="summary-icon orange-bg">↗</span><span class="card-label">Ausgaben / Monat</span></div><span class="spark orange">⌁⌁⌁</span></div>
+        <div class="card-value orange" id="totalOut"></div>
+        <div class="summary-caption">Diesen Monat</div>
+      </div>
+      <div class="quick-card">
+        <div class="quick-title">Schnellzugriff</div>
+        <button onclick="toggleAdd('income')"><span>＋</span>Einnahme</button>
+        <button onclick="toggleAdd('expense')"><span>＋</span>Ausgabe</button>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <section class="section detail-card" id="incomeSection">
+        <div class="section-title" onclick="toggleSection('income')" id="incomeSectionTitle"><span id="incomeSectionLabel">Einnahmen</span><span class="section-chevron" id="incomeChevron">▾</span></div>
+        <div class="section-body" id="incomeBody">
+          <div id="incomeRows"></div>
+          <button class="btn-add" onclick="toggleAdd('income')">+ Einnahme hinzufügen</button>
+          <div class="add-form" id="incomeAddForm">
+            <div class="edit-fields">
+              <div class="ef ef-icon"><label>Icon</label><input id="aiIcon" value="💰" maxlength="4"></div>
+              <div class="ef ef-name"><label id="aiNameLabel">Bezeichnung</label><input id="aiName" placeholder="z. B. Nebenjob"></div>
+              <div class="ef ef-amount"><label>Betrag (€)</label><input id="aiAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></div>
+            </div>
+            <div class="edit-actions"><button class="btn-discard" onclick="closeAdd('income')" id="aiCancel">Abbrechen</button><button class="btn-save" onclick="confirmAddIncome()" id="aiAdd">Hinzufügen</button></div>
+          </div>
+          <div class="total-row"><span>Gesamt</span><span id="inTotal"></span></div>
+        </div>
+      </section>
+
+      <section class="section detail-card" id="expenseSection">
+        <div class="section-title" onclick="toggleSection('expense')" id="expenseSectionTitle"><span id="expenseSectionLabel">Ausgaben</span><span class="section-chevron" id="expenseChevron">▾</span></div>
+        <div class="section-body" id="expenseBody">
+          <div id="expenseRows"></div>
+          <button class="btn-add" onclick="toggleAdd('expense')">+ Ausgabe hinzufügen</button>
+          <div class="add-form" id="expenseAddForm">
+            <div class="edit-fields">
+              <div class="ef ef-icon"><label>Icon</label><input id="aeIcon" value="💸" maxlength="4"></div>
+              <div class="ef ef-name"><label>Bezeichnung</label><input id="aeName" placeholder="z. B. Streaming"></div>
+              <div class="ef ef-amount"><label>Betrag (€)</label><input id="aeAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></div>
+              <div class="ef ef-freq"><label>Häufigkeit</label><select id="aeFreq"><option value="Monatlich">🔁 Monatlich</option><option value="Alle 2 Monate">📅 Alle 2 Monate</option><option value="Quartalsweise">📅 Quartalsweise</option><option value="Jährlich">📅 Jährlich</option><option value="Variabel">🔀 Variabel</option></select></div>
+            </div>
+            <div class="edit-actions"><button class="btn-discard" onclick="closeAdd('expense')">Abbrechen</button><button class="btn-save" onclick="confirmAddExpense()">Hinzufügen</button></div>
+          </div>
+          <div class="total-row"><span>Gesamt / Monat</span><span id="outTotal"></span></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="import-strip"><div><strong>Import / Export</strong><span>Daten sicher importieren oder exportieren.</span></div><button onclick="document.getElementById('ioToggleBtn').click()">⇅ Öffnen</button></section>
+    <div class="footer">Daten werden lokal gespeichert · Läuft offline · v1.8 · Beta Redesign</div>
+  </main>
+</div>
+
+<nav class="bottom-nav" aria-label="Mobile Navigation">
+  <button class="active" data-target="overview"><span>⌂</span>Übersicht</button>
+  <button data-target="incomeSection"><span>↙</span>Einnahmen</button>
+  <button class="fab" id="mobileFab" aria-label="Schnell hinzufügen">＋</button>
+  <button data-target="expenseSection"><span>↗</span>Ausgaben</button>
+  <button data-target="mixSection"><span>◉</span>Mix</button>
+</nav>
+
+<div id="importPreviewModal" class="import-preview-backdrop" hidden onclick="if (event.target === this) closeImportPreview()">
+  <div class="import-preview" role="dialog" aria-modal="true" aria-labelledby="importPreviewTitle">
+    <h2 id="importPreviewTitle"></h2><p id="importPreviewSummary" class="import-preview-summary"></p><p id="importPreviewNotice" class="import-preview-notice"></p><ul id="importPreviewDetails" class="import-preview-details"></ul>
+    <div class="import-preview-actions"><button type="button" class="import-preview-cancel" id="importPreviewCancel" onclick="closeImportPreview()"></button><button type="button" class="import-preview-confirm" id="importPreviewConfirm" onclick="confirmImportPreview()"></button></div>
+  </div>
+</div>
+<div id="saveIndicator">✓ gespeichert</div>
+<div id="undoToast" class="undo-toast" role="status" aria-live="polite"><span></span><button type="button" onclick="undoDelete()"></button></div>
+
+<script src="app.js"></script>
+<script src="io.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
