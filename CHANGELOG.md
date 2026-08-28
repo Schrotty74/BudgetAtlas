@@ -1,8 +1,24 @@
 # Changelog
 
-Alle wesentlichen Änderungen an diesem Projekt werden hier dokumentiert.
+Alle wesentlichen Änderungen an BudgetAtlas werden hier dokumentiert.
 
 ---
+
+## [1.0] – 2026-08-28
+
+### BudgetAtlas
+- Eigenständige Versionslinie für BudgetAtlas gestartet
+- Vollständiges Focus-&-Flow-Redesign gegenüber BudgetApp
+- Bestehende Budget-, Import-/Export- und lokale Datenfunktionen übernommen
+- Neue BudgetAtlas-Oberfläche für Desktop und Mobilgeräte
+- Dark-/Light-Mode sowie mobile Navigation für das neue Layout angepasst
+- Versionsanzeige, Update-Prüfung und Service-Worker-Cache auf `v1.0` umgestellt
+
+---
+
+## Legacy: BudgetApp-Versionshistorie
+
+Die folgenden Einträge stammen aus der Vorgänger-App BudgetApp. Sie werden nur als Entwicklungshistorie aufbewahrt und gehören nicht zur neuen BudgetAtlas-Versionszählung.
 
 ## [1.8] – 2026-08-27
 
@@ -87,7 +103,7 @@ Alle wesentlichen Änderungen an diesem Projekt werden hier dokumentiert.
 
 ## [1.0] – 2026-06-23
 
-### Erstveröffentlichung
+### Erstveröffentlichung von BudgetApp
 - **Übersicht** — Monatliches Polster, Einnahmen & Ausgaben auf einen Blick
 - **Donut-Chart** — Visuelle Aufschlüsselung der Ausgaben-Kategorien mit Legende
 - **Excel-Import** — `.xlsx` Dateien einlesen; Einnahmen & Ausgaben werden automatisch erkannt
