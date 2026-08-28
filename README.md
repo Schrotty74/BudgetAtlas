@@ -1,99 +1,94 @@
-<img src="icon.png" alt="BudgetApp Icon" width="160">
-
-# 💶 BudgetApp – Private Offline Household Budget & Expense Tracker
+# 💶 BudgetAtlas
 
 ![License](https://img.shields.io/badge/license-GPL--3.0-green)
 ![PWA](https://img.shields.io/badge/PWA-ready-blue)
 ![HTML5](https://img.shields.io/badge/HTML5-pure-orange)
 ![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-yellow)
-![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen)
 ![Mobile](https://img.shields.io/badge/mobile-friendly-blueviolet)
 ![No Server](https://img.shields.io/badge/no%20server-offline%20only-lightgrey)
 ![localStorage](https://img.shields.io/badge/storage-localStorage%20only-informational)
 ![No Tracking](https://img.shields.io/badge/tracking-none-success)
 ![No Login](https://img.shields.io/badge/login-not%20required-success)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/Zy93AaYFaj)
 
-[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-open-brightgreen)](https://schrotty74.github.io/BudgetApp)
+🇩🇪 [Deutsche Version](README_de.md)
 
-🇩🇪 [Deutsche Version](README_de.md) · 📖 [User Manual (PDF)](docs/BudgetApp-Manual-EN.pdf)
-
-## 📱 Screenshot
-
-![BudgetApp monthly overview with sample data](screenshots/budgetapp-overview.jpg)
-
-<sub>Current BudgetApp overview with sample data</sub>
+BudgetAtlas is a private, local-first PWA for managing a household budget. The redesigned dashboard uses a clear desktop sidebar, compact summary cards, a prominent monthly buffer and dedicated mobile navigation.
 
 ---
 
 ## ✨ Features
 
-- 📊 **Dashboard** — Monthly balance, income & expenses at a glance
-- 🍩 **Donut chart** — Visual breakdown of expense categories
-- 📥 **Excel import** — Check the detected income and expenses before importing; invalid rows are listed and skipped
-- 📤 **Excel export** — Export your budget as a `.xlsx` file
-- 🖨️ **PDF export** — Print-ready export of your monthly overview
-- 📷 **Image export** — Export the full view as a PNG (works in installed PWA too)
-- 💾 **JSON backup** — View the backup contents before restoring budget data and app settings
-- ✏️ **Full editing** — Add, edit and delete entries inline
-- 👆 **Swipe to delete with undo** — Remove entries with a swipe gesture on mobile and restore accidental deletions within five seconds
-- 📅 **Actual amounts** — Non-monthly expenses show the real payment amount with frequency as a subtitle
-- 🗂️ **Collapsible sections** — Income & expenses can be collapsed with a single tap
-- 🌗 **Dark / Light mode** — Toggle between dark and light theme (☀️ / 🌙)
-- 🌐 **Language switch** — Switch between German and English at any time
-- 💾 **Local storage** — All data stays exclusively on your device
+### Dashboard & navigation
+
+- 📊 **Redesigned dashboard** — dark navy interface with cyan, green and orange accents
+- 💰 **Monthly buffer** — income minus monthly expenses shown as the main dashboard value
+- 🍩 **Animated expense mix** — donut chart with categories and highlighted segments
+- 📈 **Animated expense bars** — percentage bars grow to their current values after updates
+- 🧭 **Desktop sidebar** — direct navigation to overview, income, expenses and expense mix
+- 📱 **Mobile bottom navigation** — compact navigation for small screens with quick-add access
+- ⚡ **Quick actions** — add income or expenses directly from the dashboard
+- 🗂️ **Collapsible sections** — income and expense areas can be expanded or collapsed
+- ✨ **Subtle UI motion** — card feedback, smoother deletion and expanding forms
+- ♿ **Reduced motion support** — respects `prefers-reduced-motion`
+
+### Income & expenses
+
+- ➕ **Add entries** — icon, name and amount
+- ✏️ **Inline editing** — edit existing entries directly in the list
+- 👆 **Swipe to delete** — remove entries with a swipe gesture on mobile
+- ↩️ **Undo delete** — restore accidentally deleted entries within five seconds
+- 📅 **Multiple payment frequencies** — monthly, every two months, quarterly, yearly or variable
+- 💶 **Actual payment amounts** — non-monthly costs keep the real payment amount and monthly budget share separately
+
+### Import & export
+
+- 📥 **Excel import with preview** — inspect detected income and expenses before applying them
+- ⚠️ **Invalid-row detection** — problematic Excel rows are listed with a reason and skipped
+- 📤 **Excel export** — export the budget as `.xlsx`
+- 🖨️ **PDF export** — create a printable monthly overview
+- 📷 **PNG export** — export the dashboard as an image
+- 💾 **JSON backup** — back up budget data and app settings
+- ♻️ **JSON restore with preview** — inspect backup contents before replacing current data
+
+### PWA, privacy & settings
+
 - 📴 **Offline-ready** — Service Worker caches the app for use without internet
-- 📱 **Installable** — Add to iPhone/iPad Home Screen or install as a desktop app
+- 📱 **Installable** — use BudgetAtlas as a PWA on mobile or desktop
+- 🌗 **Dark / Light mode** — switch between dark and light themes
+- 🌐 **German / English** — switch languages at any time
+- 💾 **Local storage** — budget data is stored in the browser using `localStorage`
+- 🔒 **No server, no login, no tracking**
 
 ---
 
 ## 🔒 Privacy
 
-**No data ever leaves your device.** The source code contains zero personal financial data. All entries are stored exclusively in the browser's local storage (localStorage) and are only visible on your device.
+BudgetAtlas works locally in the browser. Budget data is not sent to a server and there is no account system or tracking.
+
+Budget data and app settings stay in local browser storage. Export files are only created after an explicit user action.
 
 ---
 
-## 📱 Install as an App
+## 📥 Excel import
 
-**iPhone / iPad (Safari):**
-1. Open `schrotty74.github.io/BudgetApp` in Safari
-2. Tap the Share icon
-3. Select „Add to Home Screen"
-4. Tap „Add"
+The app recognises `.xlsx` files with sections named **Einnahmen** and **Ausgaben**. A preview is shown before import. Invalid rows are listed and are not applied.
 
-**Mac / Windows (Chrome or Edge):**
-1. Open the page
-2. Click the install icon in the address bar
-3. Confirm „Install"
+Supported frequencies:
 
----
-
-## 📥 Excel Import
-
-The app automatically recognises `.xlsx` files as long as they contain sections labelled **Einnahmen** (Income) and **Ausgaben** (Expenses). Whitespace variations in section headers are handled automatically.
-
-Supported frequencies: `Monatlich` · `Alle 2 Monate` · `Quartalsweise` · `Jährlich` · `Variabel`
+`Monatlich` · `Alle 2 Monate` · `Quartalsweise` · `Jährlich` · `Variabel`
 
 ---
 
 ## 🛠 Technology
 
-- Pure HTML / CSS / JavaScript — no frameworks, no build step
-- [SheetJS](https://sheetjs.com) for Excel import & export
+- Pure HTML, CSS and JavaScript
+- no framework
+- no build step
+- [SheetJS](https://sheetjs.com) for Excel import and export
 - Service Worker for offline support
-- localStorage for local data persistence
+- `localStorage` for local data persistence
 
 ---
-
-## 💬 Community
-
-Questions, feedback and discussions are welcome on [Discord](https://discord.gg/Zy93AaYFaj).
-
----
-
-## Repo activity
-
-![Repobeats analytics image](https://repobeats.axiom.co/api/embed/c8cf3c56f0c9c8dc7954a1e45033ee696f5be103.svg "Repobeats analytics image")
 
 ## 📄 License
 
