@@ -1,5 +1,7 @@
 # BudgetAtlas
 
+**Live App:** https://schrotty74.github.io/BudgetAtlas/
+
 BudgetAtlas is a local, responsive budget PWA with a modern “Focus & Flow” dashboard for desktop and mobile devices.
 
 The app stores budget data exclusively in the browser. There is no account, no tracking, and no server-side storage of personal financial data.
