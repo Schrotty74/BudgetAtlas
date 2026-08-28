@@ -16,7 +16,8 @@ Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine 
 
 - Das aktuelle `main` von BudgetAtlas basiert auf dem Redesign aus `Schrotty74/BudgetApp` Branch `beta`.
 - Das Redesign wurde als neuer Ausgangspunkt für BudgetAtlas übernommen.
-- Alte BudgetApp-Handbücher, Screenshots, Demo-Dateien und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
+- Alte BudgetApp-Handbücher, Screenshots und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
+- `demo.xlsx` wurde übernommen, weil das Excel-Datenformat kompatibel geblieben ist und die Datei weiterhin für Importtests verwendet werden kann.
 - Die README-Dateien wurden für BudgetAtlas und das Redesign neu angepasst.
 - BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel, damit der Datenkern kompatibel bleibt.
 
@@ -34,6 +35,7 @@ Wichtige Dateien:
 - `sw.js`: Service Worker und Offline-Cache
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
+- `demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
 
 Es wurden keine JavaScript-Frameworks oder zusätzlichen UI-Abhängigkeiten eingeführt.
 
@@ -99,7 +101,7 @@ Aktuell enthalten sind insbesondere:
 
 ## Redesign-Anschlusskorrekturen
 
-Bei der Übernahme wurden zwei alte Selektoren aus der vorherigen Oberfläche korrigiert:
+Bei der Übernahme wurden alte Selektoren aus der vorherigen Oberfläche korrigiert:
 
 - Sprachwechsel verwendet jetzt den tatsächlich vorhandenen Polster-Titel im neuen Layout.
 - Dashboard-Importanimation und PNG-Export verwenden jetzt `.main-content` statt der im Redesign nicht mehr vorhandenen `.container`-Klasse.
@@ -134,7 +136,8 @@ Vor einer öffentlichen Veröffentlichung mindestens prüfen:
 - iPhone-/Mobile-Layout inklusive Bottom-Navigation und Sidebar
 - vorhandene `localStorage`-Budgetdaten werden korrekt dargestellt
 - Einnahmen/Ausgaben hinzufügen, bearbeiten, löschen und rückgängig machen
-- Excel- und JSON-Import inklusive Vorschau
+- Excel-Import mit `demo.xlsx` inklusive Vorschau
+- JSON-Wiederherstellung inklusive Vorschau
 - Excel-, PDF-, PNG- und JSON-Export
 - DE/EN-Umschaltung
 - Dark-/Light-Mode
