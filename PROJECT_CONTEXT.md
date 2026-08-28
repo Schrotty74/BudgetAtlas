@@ -17,7 +17,7 @@ Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine 
 - Das aktuelle `main` von BudgetAtlas basiert auf dem Redesign aus `Schrotty74/BudgetApp` Branch `beta`.
 - Das Redesign wurde als neuer Ausgangspunkt für BudgetAtlas übernommen.
 - Alte BudgetApp-Handbücher, Screenshots und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
-- `demo.xlsx` wurde übernommen, weil das Excel-Datenformat kompatibel geblieben ist und die Datei weiterhin für Importtests verwendet werden kann.
+- `demo.xlsx` ist als kompatible Demo-Datei vorgesehen, weil das Excel-Datenformat unverändert nutzbar ist.
 - Die README-Dateien wurden für BudgetAtlas und das Redesign neu angepasst.
 - BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel, damit der Datenkern kompatibel bleibt.
 
