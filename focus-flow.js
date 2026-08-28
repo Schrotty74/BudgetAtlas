@@ -46,8 +46,18 @@
     };
   }
 
+  let openMobileIO = () => {};
+
   function buildMobileIOMenu() {
-    if (document.getElementById('mobileIOSheet')) return;
+    const existing = document.getElementById('mobileIOSheet');
+    if (existing) {
+      openMobileIO = () => {
+        existing.hidden = false;
+        requestAnimationFrame(() => existing.classList.add('open'));
+      };
+      window.openMobileIO = openMobileIO;
+      return;
+    }
 
     const sheet = document.createElement('div');
     sheet.id = 'mobileIOSheet';
@@ -64,12 +74,12 @@
           <button type="button" class="mobile-io-close" aria-label="Schließen">×</button>
         </div>
         <div class="mobile-io-grid">
-          <label class="mobile-io-action primary"><span>↓</span><b>${isEnglish() ? 'Import Excel' : 'Excel importieren'}</b><input type="file" accept=".xlsx,.xls" hidden></label>
+          <label class="mobile-io-action primary"><span>↓</span><b>${isEnglish() ? 'Import Excel' : 'Excel importieren'}</b><input id="mobileExcelImport" type="file" accept=".xlsx,.xls" hidden></label>
           <button type="button" class="mobile-io-action" data-io="excel"><span>↥</span><b>${isEnglish() ? 'Export Excel' : 'Excel exportieren'}</b></button>
           <button type="button" class="mobile-io-action" data-io="pdf"><span>▤</span><b>PDF</b></button>
           <button type="button" class="mobile-io-action" data-io="image"><span>▣</span><b>PNG</b></button>
           <button type="button" class="mobile-io-action" data-io="json"><span>◇</span><b>JSON Backup</b></button>
-          <label class="mobile-io-action"><span>↺</span><b>${isEnglish() ? 'Restore JSON' : 'JSON wiederherstellen'}</b><input type="file" accept=".json,application/json" hidden></label>
+          <label class="mobile-io-action"><span>↺</span><b>${isEnglish() ? 'Restore JSON' : 'JSON wiederherstellen'}</b><input id="mobileJsonImport" type="file" accept=".json,application/json" hidden></label>
         </div>
       </div>`;
 
@@ -79,21 +89,22 @@
       sheet.classList.remove('open');
       setTimeout(() => { sheet.hidden = true; }, 180);
     };
-    const open = () => {
+
+    openMobileIO = () => {
       sheet.hidden = false;
       requestAnimationFrame(() => sheet.classList.add('open'));
     };
+    window.openMobileIO = openMobileIO;
 
     sheet.addEventListener('click', event => {
       if (event.target === sheet || event.target.closest('.mobile-io-close')) close();
     });
 
-    const inputs = sheet.querySelectorAll('input[type="file"]');
-    inputs[0]?.addEventListener('change', event => {
+    document.getElementById('mobileExcelImport')?.addEventListener('change', event => {
       if (event.target.files?.length && typeof importExcel === 'function') importExcel(event.target);
       close();
     });
-    inputs[1]?.addEventListener('change', event => {
+    document.getElementById('mobileJsonImport')?.addEventListener('change', event => {
       if (event.target.files?.length && typeof importJsonBackup === 'function') importJsonBackup(event.target);
       close();
     });
@@ -103,11 +114,15 @@
     sheet.querySelector('[data-io="image"]')?.addEventListener('click', () => { if (typeof exportImage === 'function') exportImage(); close(); });
     sheet.querySelector('[data-io="json"]')?.addEventListener('click', () => { if (typeof exportJsonBackup === 'function') exportJsonBackup(); close(); });
 
-    const quickButtons = document.querySelectorAll('.quick-card button');
-    const quickIO = quickButtons[2];
+    const quickIO = document.querySelector('.quick-actions button:last-child');
     if (quickIO) {
+      quickIO.onclick = null;
       quickIO.removeAttribute('onclick');
-      quickIO.addEventListener('click', open);
+      quickIO.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        openMobileIO();
+      });
     }
 
     window.addEventListener('keydown', event => {
