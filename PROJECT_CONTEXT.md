@@ -27,8 +27,9 @@ BudgetAtlas ist eine statische PWA ohne Framework, Paketmanager oder Build-Schri
 
 Wichtige Dateien:
 
-- `index.html`: Dashboard-Struktur und PWA-Einstieg
-- `styles.css`: Focus-&-Flow-Redesign, Responsive-CSS, Dark-/Light-Variante und Animationen
+- `index.html`: Dashboard-Struktur, PWA-Einstieg und zusammengeführte Light-/Dark-Polish-Regeln
+- `styles.css`: grundlegende App-Styles
+- `focus-flow.css`: Focus-&-Flow-Redesign, Responsive-Layout und zusätzliche Dashboard-/Mobile-Styles
 - `app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung und allgemeines UI-Verhalten
 - `io.js`: Excel-, PDF-, PNG- und JSON-Import/-Export
 - `ui.js`: Desktop-/Mobile-Navigation, Monatsanzeige und rein darstellungsbezogene Dashboard-Metadaten
@@ -112,7 +113,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-1`, damit bestehende Installationen die auf die neue BudgetAtlas-Versionslinie umgestellten Dateien neu laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-2`. Die Erhöhung auf `-2` stellt sicher, dass bestehende Installationen die auf `v1.0` aktualisierte JavaScript-Version statt einer älteren gecachten Datei laden.
 
 ## PWA-Icon
 
