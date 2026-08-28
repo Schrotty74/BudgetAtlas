@@ -28,6 +28,7 @@ These screenshots show fictional demo data only.
 - German / English
 - Dark and light mode
 - Offline-capable PWA with Service Worker
+- Update notification via `version.json`
 - `prefers-reduced-motion` support
 - Responsive desktop sidebar and mobile bottom navigation
 
