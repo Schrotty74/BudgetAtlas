@@ -25,7 +25,7 @@ Die App speichert Budgetdaten ausschließlich lokal im Browser. Es gibt kein Kon
 
 ## Demo-Excel
 
-Die Datei [`demo.xlsx`](demo.xlsx) enthält ausschließlich fiktive Beispieldaten und kann direkt zum Testen des Excel-Imports verwendet werden. Das Excel-Datenformat ist mit dem übernommenen Datenkern kompatibel geblieben.
+Die Datei [`demo.xlsx`](docs/demo.xlsx) enthält ausschließlich fiktive Beispieldaten und kann direkt zum Testen des Excel-Imports verwendet werden. Das Excel-Datenformat ist mit dem übernommenen Datenkern kompatibel geblieben.
 
 Unterstützte Häufigkeiten:
 
