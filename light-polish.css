@@ -164,6 +164,24 @@ html.light .mobile-more-close{
   color:#294e60;
 }
 
+/* Slightly stronger secondary text in light mode. Keep Quick Access buttons unchanged. */
+html.light .hero-meta,
+html.light .hero-meta span,
+html.light .dc-label,
+html.light .legend-item,
+html.light .mix-total,
+html.light .summary-caption,
+html.light .row-freq-sub,
+html.light .row-pct,
+html.light .footer,
+html.light .side-footer,
+html.light .header-label{
+  color:#365563;
+}
+html.light .legend-item{font-weight:500}
+html.light .mix-total{color:#365563}
+html.light .hero-meta strong{color:#0f2b3b}
+
 @media(max-width:700px){
   html.light .quick-card{padding:10px}
   html.light .quick-actions{gap:8px}
