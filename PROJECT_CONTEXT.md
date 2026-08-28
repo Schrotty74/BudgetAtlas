@@ -2,7 +2,7 @@
 
 Stand: 2026-08-28
 
-Aktuelle dokumentierte App-Version: `v1.8`
+Aktuelle dokumentierte App-Version: `v1.0`
 
 Diese Datei beschreibt den aktuellen Projektkontext. Die allgemeinen Arbeits-, Git-, Veröffentlichungs- und Repository-Datenschutzregeln stehen verbindlich in `AGENTS.md`.
 
@@ -16,8 +16,9 @@ Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine 
 
 - Das aktuelle `main` von BudgetAtlas basiert auf dem Redesign aus `Schrotty74/BudgetApp` Branch `beta`.
 - BudgetAtlas ist inzwischen ein eigenständiges Repository und `main` ist der aktuelle Entwicklungsstand.
+- BudgetAtlas beginnt als eigenständiges Projekt mit einer eigenen Versionslinie bei `v1.0`; die frühere BudgetApp-Versionszählung wird nicht fortgeführt.
 - Alte BudgetApp-Handbücher, Screenshots und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
-- `demo.xlsx` ist kompatibel und bleibt als Demo-Datei für Excel-Importtests erhalten.
+- `docs/demo.xlsx` ist kompatibel und bleibt als Demo-Datei für Excel-Importtests erhalten.
 - BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel.
 
 ## Architektur
@@ -31,10 +32,11 @@ Wichtige Dateien:
 - `app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung und allgemeines UI-Verhalten
 - `io.js`: Excel-, PDF-, PNG- und JSON-Import/-Export
 - `ui.js`: Desktop-/Mobile-Navigation, Monatsanzeige und rein darstellungsbezogene Dashboard-Metadaten
+- `focus-flow.js`: zusätzliche Focus-&-Flow-UI-Logik, Sprachsynchronisierung und Budgetstatus
 - `sw.js`: Service Worker und Offline-Cache
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
-- `demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
+- `docs/demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
 
 Die Budget- und Import-/Exportlogik wurde bei der visuellen Focus-&-Flow-Angleichung nicht umgebaut.
 
@@ -52,7 +54,7 @@ Der aktuelle Stand wurde stärker an diese Referenz angeglichen:
 - kompakter Ausgaben-Mix mit Donut, Legende und Gesamtausgaben
 - Einnahmen-/Ausgaben-Karten mit Icons und dezenten Trend-Akzenten
 - Schnellzugriff nur für tatsächlich vorhandene Funktionen: Einnahme, Ausgabe und Import/Export
-- Mobile-Bottom-Navigation mit zentralem Plus-Button
+- Mobile-Bottom-Navigation mit vier gleichwertigen Einträgen: Übersicht, Einnahmen, Ausgaben und Mehr
 - Cyan wird primär für Navigation/Aktionen eingesetzt, Grün für positive Werte und Orange für Ausgaben
 - keine Konzeptfunktionen wie Belegscanner, Konten, Budgets oder Ziele wurden erfunden
 - `prefers-reduced-motion` bleibt berücksichtigt
@@ -110,7 +112,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der Service-Worker-Cache wurde für die Focus-&-Flow-Angleichung auf `budgetatlas-v1.8-focus-flow-2` gesetzt, damit bestehende Installationen die geänderten HTML-/CSS-/UI-Dateien neu laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-1`, damit bestehende Installationen die auf die neue BudgetAtlas-Versionslinie umgestellten Dateien neu laden.
 
 ## PWA-Icon
 
@@ -141,7 +143,7 @@ Nach der aktuellen visuellen Angleichung insbesondere prüfen:
 - Header, Polster-Karte, Ausgaben-Mix, Summary-Karten und Bottom-Navigation
 - vorhandene `localStorage`-Budgetdaten
 - Hinzufügen, Bearbeiten, Löschen und Rückgängig
-- Excel-Import mit `demo.xlsx`
+- Excel-Import mit `docs/demo.xlsx`
 - JSON-Wiederherstellung
 - Excel-, PDF-, PNG- und JSON-Export
 - DE/EN-Umschaltung
@@ -151,7 +153,7 @@ Nach der aktuellen visuellen Angleichung insbesondere prüfen:
 
 ## Release
 
-Die aktuelle visuelle Überarbeitung ist noch keine neue Release-Version. `v1.8`, `version.json` und `CHANGELOG.md` wurden deshalb nicht hochgezählt.
+BudgetAtlas verwendet ab jetzt eine eigene Versionslinie beginnend mit `v1.0`. `version.json`, sichtbare Versionsanzeigen und der Service-Worker-Cache sind darauf abgestimmt. Dies erstellt noch keinen separaten GitHub-Release oder Tag.
 
 Vor einem späteren Release müssen Versionsstellen, Changelog, `version.json`, Service-Worker-Cache und `PORTFOLIO_UPDATE.md` gezielt geprüft werden.
 
