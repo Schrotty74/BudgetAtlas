@@ -1,4 +1,4 @@
-const CACHE = 'budget-v1.8-beta-redesign-1';
+const CACHE = 'budgetatlas-v1.8-redesign-1';
 const ASSETS = [
   './',
   './index.html',
@@ -7,9 +7,7 @@ const ASSETS = [
   './io.js',
   './ui.js',
   './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/apple-touch-icon.png',
+  './version.json',
   'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap'
 ];
 
