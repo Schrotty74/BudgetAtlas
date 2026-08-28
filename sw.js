@@ -1,13 +1,13 @@
-const CACHE = 'budgetatlas-v1.8-focus-flow-9';
+const CACHE = 'budgetatlas-v1.8-focus-flow-10';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css?v=9',
-  './focus-flow.css?v=9',
-  './app.js?v=9',
-  './io.js?v=9',
-  './ui.js?v=9',
-  './focus-flow.js?v=9',
+  './styles.css?v=10',
+  './focus-flow.css?v=10',
+  './app.js?v=10',
+  './io.js?v=10',
+  './ui.js?v=10',
+  './focus-flow.js?v=10',
   './manifest.json',
   './version.json',
   'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap'
