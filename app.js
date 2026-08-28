@@ -4,7 +4,7 @@
 const I18N = {
   de: {
     monthlyOverview: 'Monatliche Übersicht',
-    appTitle: 'Mein <span class="hl">Budget</span>',
+    appTitle: '<span class="hl">BudgetAtlas</span>',
     installBanner: '📲 Als App installieren — läuft dann offline',
     installBtn: 'Installieren',
     discordTitle: 'Discord öffnen',
@@ -67,7 +67,7 @@ const I18N = {
   },
   en: {
     monthlyOverview: 'Monthly Overview',
-    appTitle: 'My <span class="hl">Budget</span>',
+    appTitle: '<span class="hl">BudgetAtlas</span>',
     installBanner: '📲 Install as App — works offline',
     installBtn: 'Install',
     discordTitle: 'Open Discord',
@@ -168,7 +168,8 @@ function applyLang() {
   document.getElementById('discordBtn').setAttribute('aria-label', l('discordTitle'));
   document.getElementById('githubBtn').title = l('githubTitle');
   document.getElementById('githubBtn').setAttribute('aria-label', l('githubTitle'));
-  document.querySelector('.balance-label').textContent = l('monthlyBuffer');
+  const bufferLabel = document.querySelector('.eyebrow span');
+  if (bufferLabel) bufferLabel.textContent = l('monthlyBuffer');
   document.querySelectorAll('.card-label')[0].textContent = l('incomeMonth');
   document.querySelectorAll('.card-label')[1].textContent = l('expenseMonth');
   document.querySelector('.section-title span').textContent = l('expenseMix');
@@ -249,7 +250,7 @@ window.addEventListener('beforeinstallprompt', e => {
 document.getElementById('installBtn')?.addEventListener('click', async () => {
   if (!deferredPrompt) return;
   deferredPrompt.prompt();
-  const { outcome } = await deferredPrompt.userChoice;
+  await deferredPrompt.userChoice;
   deferredPrompt = null;
   document.getElementById('installBanner').classList.remove('show');
 });
@@ -583,7 +584,6 @@ function update(save=true) {
   checkEmptyState();
 }
 
-// Keyboard
 document.addEventListener('keydown', e=>{
   if(e.key==='Escape'){
     if (typeof closeImportPreview === 'function' && closeImportPreview()) return;
@@ -622,7 +622,7 @@ async function checkForUpdate() {
     const stored = JSON.parse(localStorage.getItem('updateCheck') || '{}');
     const now = Date.now();
     if (stored.ts && now - stored.ts < 86400000) return;
-    const res = await fetch('https://schrotty74.github.io/BudgetApp/version.json?t=' + now, {cache: 'no-store'});
+    const res = await fetch('https://schrotty74.github.io/BudgetAtlas/version.json?t=' + now, {cache: 'no-store'});
     if (!res.ok) return;
     const data = await res.json();
     const latest = (data.version || '').trim();
@@ -686,11 +686,11 @@ function scheduleReminderToday() {
 }
 function showReminder() {
   localStorage.setItem('reminderLastSent', new Date().toDateString());
-  const opts = { body: 'Hast du heute deine Ausgaben eingetragen? 💶', icon: './icons/icon-192.png', badge: './icons/icon-192.png' };
+  const opts = { body: 'Hast du heute deine Ausgaben eingetragen? 💶' };
   if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-    navigator.serviceWorker.controller.postMessage({ type: 'SHOW_NOTIFICATION', title: 'Mein Budget', ...opts });
+    navigator.serviceWorker.controller.postMessage({ type: 'SHOW_NOTIFICATION', title: 'BudgetAtlas', ...opts });
   } else {
-    new Notification('Mein Budget', opts);
+    new Notification('BudgetAtlas', opts);
   }
 }
 (function initReminder() {
@@ -742,7 +742,7 @@ function showReminder() {
   }
 
   function animateDashboardImport() {
-    const container = document.querySelector('.container');
+    const container = document.querySelector('.main-content');
     if (!container || reduceMotion()) return;
     clearTimeout(importTimer);
     container.classList.remove('dashboard-import-pulse');
