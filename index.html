@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Budget Beta">
+<meta name="apple-mobile-web-app-title" content="BudgetAtlas">
 <meta name="theme-color" content="#07111f">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<title>Mein Budget · Beta</title>
+<title>BudgetAtlas</title>
 <link rel="stylesheet" href="styles.css">
 <script>
 ['reminderEnabled', 'reminderTime', 'reminderLastSent'].forEach(key => localStorage.removeItem(key));
@@ -20,7 +19,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
 <body>
 <div class="app-shell">
   <aside class="sidebar" id="sidebar">
-    <div class="brand"><span class="brand-mark">▥</span><span>Mein Budget</span><span class="beta-chip">BETA</span></div>
+    <div class="brand"><span class="brand-mark">▥</span><span>BudgetAtlas</span><span class="beta-chip">BETA</span></div>
     <nav class="side-nav" aria-label="Hauptnavigation">
       <button class="nav-item active" data-target="overview"><span>⌂</span>Übersicht</button>
       <button class="nav-item" data-target="incomeSection"><span>↙</span>Einnahmen</button>
@@ -55,12 +54,12 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">☰</button>
       <div class="header">
         <div class="header-label">Monatliche Übersicht</div>
-        <h1>Mein <span class="hl">Budget</span> <span id="offlineBadge">Offline</span></h1>
+        <h1><span class="hl">BudgetAtlas</span> <span id="offlineBadge">Offline</span></h1>
       </div>
       <div class="month-control"><button aria-label="Voriger Monat">‹</button><strong id="monthLabel">Aktueller Monat</strong><button aria-label="Nächster Monat">›</button></div>
       <div class="top-controls">
         <a class="ctrl-btn icon-only" id="discordBtn" href="https://discord.gg/RbsvqRCPQ" target="_blank" rel="noopener noreferrer" title="Discord" aria-label="Discord">◈</a>
-        <a class="ctrl-btn icon-only" id="githubBtn" href="https://github.com/Schrotty74/BudgetApp" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">⌘</a>
+        <a class="ctrl-btn icon-only" id="githubBtn" href="https://github.com/Schrotty74/BudgetAtlas" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">⌘</a>
         <button id="reminderBtn" type="button" hidden aria-hidden="true" tabindex="-1"></button>
         <button class="ctrl-btn" id="langBtn" onclick="toggleLang()">🌐 EN</button>
         <button class="ctrl-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
@@ -156,7 +155,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
     </section>
 
     <section class="import-strip"><div><strong>Import / Export</strong><span>Daten sicher importieren oder exportieren.</span></div><button onclick="document.getElementById('ioToggleBtn').click()">⇅ Öffnen</button></section>
-    <div class="footer">Daten werden lokal gespeichert · Läuft offline · v1.8 · Beta Redesign</div>
+    <div class="footer">Daten werden lokal gespeichert · Läuft offline · v1.8</div>
   </main>
 </div>
 
