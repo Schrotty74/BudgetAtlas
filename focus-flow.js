@@ -130,7 +130,70 @@
     });
   }
 
+  function buildMoreMenu() {
+    const moreButton = document.querySelector('.bottom-nav button:last-child');
+    if (!moreButton) return;
+
+    const sheet = document.createElement('div');
+    sheet.id = 'mobileMoreSheet';
+    sheet.className = 'mobile-more-backdrop';
+    sheet.hidden = true;
+    sheet.innerHTML = `
+      <div class="mobile-more-sheet" role="dialog" aria-modal="true" aria-labelledby="mobileMoreTitle">
+        <div class="mobile-more-handle"></div>
+        <div class="mobile-more-head">
+          <strong id="mobileMoreTitle">${isEnglish() ? 'More' : 'Mehr'}</strong>
+          <button type="button" class="mobile-more-close" aria-label="Schließen">×</button>
+        </div>
+        <div class="mobile-more-list">
+          <button type="button" data-more="mix"><span>◉</span><b>${isEnglish() ? 'Expense mix' : 'Ausgaben-Mix'}</b><small>${isEnglish() ? 'Show spending distribution' : 'Verteilung der Ausgaben anzeigen'}</small></button>
+          <button type="button" data-more="io"><span>⇅</span><b>Import / Export</b><small>${isEnglish() ? 'Manage local data' : 'Lokale Daten verwalten'}</small></button>
+          <button type="button" data-more="lang"><span>🌐</span><b>${isEnglish() ? 'Language' : 'Sprache'}</b><small>${isEnglish() ? 'Switch German / English' : 'Deutsch / Englisch wechseln'}</small></button>
+          <button type="button" data-more="theme"><span>◐</span><b>${isEnglish() ? 'Appearance' : 'Darstellung'}</b><small>${isEnglish() ? 'Switch light / dark' : 'Hell / Dunkel wechseln'}</small></button>
+        </div>
+      </div>`;
+
+    document.body.appendChild(sheet);
+
+    const close = () => {
+      sheet.classList.remove('open');
+      setTimeout(() => { sheet.hidden = true; }, 180);
+    };
+    const open = () => {
+      sheet.hidden = false;
+      requestAnimationFrame(() => sheet.classList.add('open'));
+    };
+
+    document.addEventListener('click', event => {
+      const clickedMore = event.target.closest('.bottom-nav button:last-child');
+      if (!clickedMore) return;
+      event.preventDefault();
+      event.stopPropagation();
+      open();
+    }, true);
+
+    sheet.addEventListener('click', event => {
+      if (event.target === sheet || event.target.closest('.mobile-more-close')) {
+        close();
+        return;
+      }
+      const action = event.target.closest('[data-more]')?.dataset.more;
+      if (!action) return;
+      close();
+      if (action === 'mix') {
+        setTimeout(() => document.getElementById('mixSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 190);
+      } else if (action === 'io') {
+        setTimeout(() => window.openMobileIO?.(), 190);
+      } else if (action === 'lang' && typeof toggleLang === 'function') {
+        toggleLang();
+      } else if (action === 'theme' && typeof toggleTheme === 'function') {
+        toggleTheme();
+      }
+    });
+  }
+
   refreshReferenceMetrics();
   if (typeof window.setDonutDefault === 'function') window.setDonutDefault();
   buildMobileIOMenu();
+  buildMoreMenu();
 })();
