@@ -20,6 +20,7 @@ Die App speichert Budgetdaten ausschließlich lokal im Browser. Es gibt kein Kon
 - Deutsch / Englisch
 - Dark- und Light-Mode
 - Offline-fähige PWA mit Service Worker
+- Update-Hinweis über `version.json`
 - Unterstützung für `prefers-reduced-motion`
 - Responsive Desktop-Sidebar und mobile Bottom-Navigation
 
