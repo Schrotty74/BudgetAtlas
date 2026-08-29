@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#06111d">
 <link rel="manifest" href="manifest.json">
 <title>BudgetAtlas</title>
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 <link rel="stylesheet" href="focus-flow.css?v=15">
 <style>
 /* Consolidated polish formerly in light-polish.css */
@@ -88,7 +88,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
 
     <section class="hero-grid">
       <div class="balance-banner hero-card" id="balanceBanner">
-        <div class="hero-copy"><div class="eyebrow"><span>Monatliches Polster</span></div><div class="balance-amount" id="balance"></div><div class="hero-status">Noch verfügbar</div><div class="balance-bar"><div class="balance-bar-fill" id="balanceBar" style="width:0%"></div></div><div class="hero-meta"><span id="heroMetaLeft">Verfügbar</span><strong id="heroRatio">–</strong></div></div>
+        <div class="hero-copy"><div class="eyebrow"><span>Monatliches Polster</span></div><div class="balance-amount" id="balance"></div><div class="hero-status">Noch verfügbar</div><div class="balance-bar"><div class="balance-bar-fill" id="balanceBar" style="width:0%"></div></div><div class="hero-meta"><span id="heroMetaLeft">Ausgabenanteil</span><strong id="heroRatio">–</strong></div></div>
       </div>
       <section class="section mix-card" id="mixSection"><div class="section-title"><span>Ausgaben-Mix</span></div><div class="mix-layout"><div class="donut-wrap"><div class="donut-container"><svg class="donut" width="180" height="180" viewBox="0 0 180 180" id="donutSvg"></svg><div class="donut-center"><div class="dc-pct" id="donutPct">–</div><div class="dc-label" id="donutLabel">–</div></div></div></div><div class="legend" id="legend"></div></div><div class="mix-total"><span id="donutCenterLabel">Gesamtausgaben</span><strong id="donutTotal">–</strong></div></section>
     </section>
