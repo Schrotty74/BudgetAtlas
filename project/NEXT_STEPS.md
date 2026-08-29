@@ -26,7 +26,6 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 ## Funktionsprüfung
 
 - Vorhandene `localStorage`-Budgetdaten korrekt darstellen.
-- JSON-Wiederherstellung inklusive Vorschau und Wiederherstellung der Listeneinstellungen prüfen.
 
 ## Priorität 2
 
