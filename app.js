@@ -194,6 +194,7 @@ function applyLang() {
   if (ub.dataset.version) document.getElementById('updateBannerText').textContent = l('updateAvailable')(ub.dataset.version);
   updateUndoToastText();
   update(false);
+  document.dispatchEvent(new Event('budgetatlas:languagechange'));
 }
 
 function toggleLang() {
@@ -323,6 +324,11 @@ function localFreq(f) {
   return I18N[currentLang].freqs[idx].replace(/^[^\w]+/, '').trim();
 }
 function fmt(n) { return n.toLocaleString('de-AT',{minimumFractionDigits:2,maximumFractionDigits:2})+' €'; }
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[char]);
+}
 function totalIncome() { return income.reduce((s,r)=>s+r.amount,0); }
 function totalExpenses() { return expenses.reduce((s,r)=>s+r.monthly,0); }
 
@@ -337,8 +343,8 @@ function renderIncome() {
     wrap.innerHTML = `
       <div class="swipe-bg">🗑</div>
       <div class="row">
-        <span class="row-icon">${r.icon}</span>
-        <div class="row-name-wrap"><span class="row-name">${r.name}</span></div>
+        <span class="row-icon">${escapeHtml(r.icon)}</span>
+        <div class="row-name-wrap"><span class="row-name">${escapeHtml(r.name)}</span></div>
         <span class="row-amount green">${fmt(r.amount)}</span>
         <div class="row-actions">
           <button class="icon-btn edit" onclick="startEdit('income',${i})" title="Bearbeiten">✎</button>
@@ -369,9 +375,9 @@ function renderExpenses() {
     wrap.innerHTML = `
       <div class="swipe-bg">🗑</div>
       <div class="row">
-        <span class="row-icon">${r.icon}</span>
+        <span class="row-icon">${escapeHtml(r.icon)}</span>
         <div class="row-name-wrap">
-          <span class="row-name">${r.name}</span>
+          <span class="row-name">${escapeHtml(r.name)}</span>
           ${r.freq !== 'Monatlich' ? `<span class="row-freq-sub">${freqEmoji(r.freq)} ${localFreq(r.freq)}</span>` : ''}
         </div>
         <span class="row-amount">${fmt(r.amount ?? r.monthly)}</span>
@@ -400,8 +406,8 @@ function inlineEditHTML(type, i, icon, name, amount, freq, showFreq) {
       </select></div>` : '';
   return `<div class="edit-row open" id="edit-${type}-${i}">
     <div class="edit-fields">
-      <div class="ef ef-icon"><label>${t('iconLabel')}</label><input id="ef-icon-${type}-${i}" value="${icon}" maxlength="4"></div>
-      <div class="ef ef-name"><label>${t('nameLabel')}</label><input id="ef-name-${type}-${i}" value="${name}"></div>
+      <div class="ef ef-icon"><label>${t('iconLabel')}</label><input id="ef-icon-${type}-${i}" value="${escapeHtml(icon)}" maxlength="4"></div>
+      <div class="ef ef-name"><label>${t('nameLabel')}</label><input id="ef-name-${type}-${i}" value="${escapeHtml(name)}"></div>
       <div class="ef ef-amount"><label>${t('amountLabel')}</label><input id="ef-amount-${type}-${i}" type="number" inputmode="decimal" min="0" step="0.01" value="${amount}"></div>
       ${freqSel}
     </div>
@@ -543,7 +549,7 @@ function renderDonut() {
     offset+=dash;
   });
   document.getElementById('donutSvg').innerHTML=`<circle cx="90" cy="90" r="61" fill="var(--bg)"/>` + paths;
-  document.getElementById('legend').innerHTML=expenses.map((e,i)=>`<div class="legend-item"><div class="legend-dot" style="background:${COLORS[i%COLORS.length]}"></div>${e.name}</div>`).join('');
+  document.getElementById('legend').innerHTML=expenses.map((e,i)=>`<div class="legend-item"><div class="legend-dot" style="background:${COLORS[i%COLORS.length]}"></div>${escapeHtml(e.name)}</div>`).join('');
   setDonutDefault();
 }
 function setDonutDefault() {
@@ -582,6 +588,7 @@ function update(save=true) {
   renderDonut();
   if (save) saveData();
   checkEmptyState();
+  document.dispatchEvent(new Event('budgetatlas:update'));
 }
 
 document.addEventListener('keydown', e=>{
@@ -637,68 +644,6 @@ async function checkForUpdate() {
 }
 setTimeout(checkForUpdate, 3000);
 
-// ---- Reminder / Push Notifications ----
-function updateReminderBtn(enabled) {
-  const btn = document.getElementById('reminderBtn');
-  btn.style.color = enabled ? 'var(--accent)' : '';
-  btn.style.borderColor = enabled ? 'var(--accent)' : '';
-  btn.title = enabled ? 'Erinnerung aktiv – zum Deaktivieren klicken' : 'Tägliche Erinnerung aktivieren';
-}
-async function toggleReminder() {
-  const enabled = localStorage.getItem('reminderEnabled') === 'true';
-  if (enabled) {
-    localStorage.setItem('reminderEnabled', 'false');
-    updateReminderBtn(false);
-    return;
-  }
-  if (!('Notification' in window)) {
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-    if (isIOS) {
-      alert('Benachrichtigungen funktionieren auf iPhone/iPad nur wenn die App installiert ist.\n\n👉 Teilen → „Zum Home-Bildschirm" → App öffnen → 🔔 aktivieren');
-    } else {
-      alert('Dein Browser unterstützt keine Benachrichtigungen.');
-    }
-    return;
-  }
-  if (Notification.permission === 'denied') {
-    alert('Benachrichtigungen sind blockiert. Bitte in den Browser-Einstellungen freigeben.');
-    return;
-  }
-  const permission = await Notification.requestPermission();
-  if (permission !== 'granted') return;
-  const time = prompt('Uhrzeit für tägliche Erinnerung (Format HH:MM):', '20:00');
-  if (!time || !/^\d{1,2}:\d{2}$/.test(time)) return;
-  localStorage.setItem('reminderEnabled', 'true');
-  localStorage.setItem('reminderTime', time);
-  updateReminderBtn(true);
-  scheduleReminderToday();
-}
-function scheduleReminderToday() {
-  const time = localStorage.getItem('reminderTime') || '20:00';
-  const [h, m] = time.split(':').map(Number);
-  const today = new Date().toDateString();
-  if (localStorage.getItem('reminderLastSent') === today) return;
-  const scheduled = new Date();
-  scheduled.setHours(h, m, 0, 0);
-  const diff = scheduled - Date.now();
-  if (diff <= 0) showReminder();
-  else setTimeout(showReminder, diff);
-}
-function showReminder() {
-  localStorage.setItem('reminderLastSent', new Date().toDateString());
-  const opts = { body: 'Hast du heute deine Ausgaben eingetragen? 💶' };
-  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
-    navigator.serviceWorker.controller.postMessage({ type: 'SHOW_NOTIFICATION', title: 'BudgetAtlas', ...opts });
-  } else {
-    new Notification('BudgetAtlas', opts);
-  }
-}
-(function initReminder() {
-  const enabled = localStorage.getItem('reminderEnabled') === 'true';
-  updateReminderBtn(enabled);
-  if (enabled && Notification.permission === 'granted') scheduleReminderToday();
-})();
-
 // ---- Motion enhancements ----
 (() => {
   const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -751,18 +696,13 @@ function showReminder() {
     importTimer = setTimeout(() => container.classList.remove('dashboard-import-pulse'), 900);
   }
 
-  const originalUpdate = window.update;
-  if (typeof originalUpdate === 'function') {
-    window.update = function(...args) {
-      const result = originalUpdate.apply(this, args);
-      requestAnimationFrame(() => {
-        animateDonut();
-        animatePctBars();
-        animateCardsIfChanged();
-      });
-      return result;
-    };
-  }
+  document.addEventListener('budgetatlas:update', () => {
+    requestAnimationFrame(() => {
+      animateDonut();
+      animatePctBars();
+      animateCardsIfChanged();
+    });
+  });
 
   const originalDeleteItem = window.deleteItem;
   if (typeof originalDeleteItem === 'function') {
