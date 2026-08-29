@@ -113,7 +113,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-6`. Die Erhöhung auf `-5` stellt sicher, dass bestehende Installationen die auf `v1.0` aktualisierte JavaScript-Version statt einer älteren gecachten Datei laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-6`. Die Erhöhung auf `-6` stellt sicher, dass bestehende Installationen die aktuelle mobile Navigation und die zugehörigen Styles statt älterer gecachter Dateien laden.
 
 ## PWA-Icon
 
