@@ -12,7 +12,10 @@ BudgetAtlas entstand als eigenständiges Redesign aus BudgetApp. Übernommene Fu
 - Redundante mobile Seitenleiste entfernt; „Mehr“ ist auf Mobilgeräten der einzige Zugang zu Ausgaben-Mix, Import/Export, Sprache und Darstellung
 - Mobile Kopfzeile ohne Hamburger-Button vereinfacht
 - Monatliches Polster und Ausgaben-Mix mit einem dezenten Schwebeeffekt ergänzt
-- Einnahmen und Ausgaben ab dem 21. Eintrag pro Liste mit Seitennavigation ergänzt
+- Seitennavigation für längere Einnahmen- und Ausgabenlisten ergänzt; Standard sind 10 Einträge pro Seite
+- Im mobilen „Mehr“-Menü kann die Eintragszahl für Einnahmen und Ausgaben getrennt auf 10, 15, 20 oder 25 gesetzt werden; die Auswahl wird lokal gespeichert und in JSON-Backups übernommen
+- Seitennavigation mit kompakten runden Pfeilen und einer Anzeige wie „1 / 3“ überarbeitet
+- Demo-Excel auf jeweils 30 fiktive Einnahmen und Ausgaben für Paginationstests erweitert
 - Offline-Cache und Update-Signal auf `v1.1` aktualisiert
 
 ---
