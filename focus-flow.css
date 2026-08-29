@@ -5,7 +5,7 @@
 /* Desktop proportions closer to the reference */
 .main-content{max-width:1180px;padding-top:18px}
 .hero-grid{grid-template-columns:minmax(0,1.45fr) minmax(300px,.92fr);gap:12px}
-.balance-banner{min-height:212px;border-radius:11px;padding:22px 24px}
+.balance-banner{display:block;min-height:212px;border-radius:11px;padding:22px 24px}
 .mix-card{border-radius:11px}
 .summary-card,.quick-card,.detail-card{border-radius:10px}
 .balance-amount{font-size:clamp(2.4rem,4.3vw,3.55rem)}
