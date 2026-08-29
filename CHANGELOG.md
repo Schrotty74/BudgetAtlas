@@ -4,6 +4,15 @@ Alle wesentlichen Änderungen an BudgetAtlas werden hier dokumentiert.
 
 ---
 
+## [1.1] – 2026-08-29
+
+### Geändert
+- Redundante mobile Seitenleiste entfernt; „Mehr“ ist auf Mobilgeräten der einzige Zugang zu Ausgaben-Mix, Import/Export, Sprache und Darstellung
+- Mobile Kopfzeile ohne Hamburger-Button vereinfacht
+- Offline-Cache und Update-Signal auf `v1.1` aktualisiert
+
+---
+
 ## [1.0] – 2026-08-28
 
 ### BudgetAtlas

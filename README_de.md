@@ -52,7 +52,7 @@ Budgetdaten werden im lokalen Browser-Speicher (`localStorage`) gespeichert. Es 
 
 ## Status
 
-BudgetAtlas startet nach dem Redesign als eigenständiges Projekt mit einer eigenen Versionslinie bei `v1.0`.
+BudgetAtlas verwendet nach dem Redesign eine eigene Versionslinie, die bei `v1.0` begann; die aktuelle dokumentierte Version ist `v1.1`.
 
 ## Repository
 

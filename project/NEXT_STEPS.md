@@ -6,9 +6,9 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 
 ## Aktueller Stand
 
-- Aktuelle dokumentierte App-Version: `v1.0`
+- Aktuelle dokumentierte App-Version: `v1.1`
 - `main` enthält das eigenständige BudgetAtlas-Redesign.
-- BudgetAtlas verwendet eine eigene Versionslinie ab `v1.0`; die frühere BudgetApp-Versionszählung wird nicht fortgeführt.
+- BudgetAtlas verwendet eine eigene Versionslinie, die mit `v1.0` begann; aktuell dokumentiert ist `v1.1`. Die frühere BudgetApp-Versionszählung wird nicht fortgeführt.
 - Die Oberfläche wurde deutlich an die visuelle Referenz „Vorschlag 2 – Focus & Flow“ angeglichen.
 - Datenmodell, `localStorage`, Budgetlogik und Import-/Exportlogik wurden dabei nicht umgebaut.
 - Architektur: `index.html`, `app/css/styles.css`, `app/css/focus-flow.css`, `app/js/app.js`, `app/js/io.js`, `app/js/ui.js`, `app/js/focus-flow.js`, `sw.js`.
@@ -24,7 +24,7 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - Prüfen, dass der abgeleitete Ausgabenanteil und die Gesamtausgaben im Mix korrekt angezeigt werden.
 - Deutsch/Englisch prüfen, insbesondere UI-Beschriftungen und Import-/Export-Funktionen.
 - Dark-/Light-Mode im aktuellen Layout prüfen.
-- PWA nach Aktualisierung einmal neu laden und danach Offline-/Flugmodus testen, damit der aktuelle Cache `budgetatlas-v1.0-focus-flow-6` bestätigt ist.
+- PWA nach Aktualisierung einmal neu laden und danach Offline-/Flugmodus testen, damit der aktuelle Cache `budgetatlas-v1.1-focus-flow-1` bestätigt ist.
 
 ## Funktionsprüfung
 
@@ -47,7 +47,7 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 
 ## Release
 
-- BudgetAtlas verwendet aktuell die dokumentierte Version `v1.0`.
+- BudgetAtlas verwendet aktuell die dokumentierte Version `v1.1`.
 - Sichtbare Versionsanzeige, `version.json`, Update-Prüfung, Changelog und Service-Worker-Cache sind auf die BudgetAtlas-Versionslinie abgestimmt.
 - Es wurde noch kein separater GitHub-Release oder Tag für BudgetAtlas erstellt.
 - Kein Tag oder Release ohne ausdrücklichen Auftrag.

@@ -2,7 +2,7 @@
 
 Stand: 2026-08-29
 
-Aktuelle dokumentierte App-Version: `v1.0`
+Aktuelle dokumentierte App-Version: `v1.1`
 
 Diese Datei beschreibt den aktuellen Projektkontext. Die allgemeinen Arbeits-, Git-, Veröffentlichungs- und Repository-Datenschutzregeln stehen verbindlich in `AGENTS.md`.
 
@@ -113,7 +113,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-6`. Die Erhöhung auf `-6` stellt sicher, dass bestehende Installationen die aktuelle mobile Navigation und die zugehörigen Styles statt älterer gecachter Dateien laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-1`. Dieser Cache stellt sicher, dass bestehende Installationen die Version `v1.1` samt aktueller mobiler Navigation und Styles laden.
 
 ## PWA-Icon
 
@@ -154,7 +154,7 @@ Nach der aktuellen visuellen Angleichung insbesondere prüfen:
 
 ## Release
 
-BudgetAtlas verwendet ab jetzt eine eigene Versionslinie beginnend mit `v1.0`. `version.json`, sichtbare Versionsanzeigen und der Service-Worker-Cache sind darauf abgestimmt. Dies erstellt noch keinen separaten GitHub-Release oder Tag.
+BudgetAtlas verwendet eine eigene Versionslinie, die mit `v1.0` begann; die aktuelle dokumentierte Version ist `v1.1`. `version.json`, sichtbare Versionsanzeigen und der Service-Worker-Cache sind darauf abgestimmt. Dies erstellt noch keinen separaten GitHub-Release oder Tag.
 
 Vor einem späteren Release müssen Versionsstellen, Changelog, `version.json`, Service-Worker-Cache und `PORTFOLIO_UPDATE.md` gezielt geprüft werden.
 

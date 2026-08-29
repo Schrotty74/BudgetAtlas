@@ -9,8 +9,8 @@
 <meta name="theme-color" content="#06111d">
 <link rel="manifest" href="manifest.json">
 <title>BudgetAtlas</title>
-<link rel="stylesheet" href="app/css/styles.css?v=17">
-<link rel="stylesheet" href="app/css/focus-flow.css?v=17">
+<link rel="stylesheet" href="app/css/styles.css?v=1.1">
+<link rel="stylesheet" href="app/css/focus-flow.css?v=1.1">
 <style>
 /* Consolidated polish formerly in light-polish.css */
 html.light{--bg:#e5eef3;--panel:#ffffff;--panel-2:#f1f6f9;--line:#91aebe;--line-strong:#6f97ab;--text:#0c2332;--muted:#486473;--cyan:#006f89;--accent:#078848;--orange:#ad4d00}
@@ -101,7 +101,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
       <section class="section detail-card" id="expenseSection"><div class="section-title" onclick="toggleSection('expense')" id="expenseSectionTitle"><span id="expenseSectionLabel">Ausgaben</span><span class="section-chevron" id="expenseChevron">▾</span></div><div class="section-body" id="expenseBody"><div id="expenseRows"></div><button class="btn-add" onclick="toggleAdd('expense')">+ Ausgabe hinzufügen</button><div class="add-form" id="expenseAddForm"><div class="edit-fields"><div class="ef ef-icon"><label>Icon</label><input id="aeIcon" value="💸" maxlength="4"></div><div class="ef ef-name"><label>Bezeichnung</label><input id="aeName" placeholder="z. B. Streaming"></div><div class="ef ef-amount"><label>Betrag (€)</label><input id="aeAmount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0,00"></div><div class="ef ef-freq"><label>Häufigkeit</label><select id="aeFreq"><option value="Monatlich">🔁 Monatlich</option><option value="Alle 2 Monate">📅 Alle 2 Monate</option><option value="Quartalsweise">📅 Quartalsweise</option><option value="Jährlich">📅 Jährlich</option><option value="Variabel">🔀 Variabel</option></select></div></div><div class="edit-actions"><button class="btn-discard" onclick="closeAdd('expense')">Abbrechen</button><button class="btn-save" onclick="confirmAddExpense()">Hinzufügen</button></div></div><div class="total-row"><span>Gesamt / Monat</span><span id="outTotal"></span></div></div></section>
     </section>
 
-    <div class="footer">Daten werden lokal gespeichert · Läuft offline · v1.0</div>
+    <div class="footer">Daten werden lokal gespeichert · Läuft offline · v1.1</div>
   </main>
 </div>
 
@@ -115,6 +115,6 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
 <div id="importPreviewModal" class="import-preview-backdrop" hidden onclick="if (event.target === this) closeImportPreview()"><div class="import-preview" role="dialog" aria-modal="true" aria-labelledby="importPreviewTitle"><h2 id="importPreviewTitle"></h2><p id="importPreviewSummary" class="import-preview-summary"></p><p id="importPreviewNotice" class="import-preview-notice"></p><ul id="importPreviewDetails" class="import-preview-details"></ul><div class="import-preview-actions"><button type="button" class="import-preview-cancel" id="importPreviewCancel" onclick="closeImportPreview()"></button><button type="button" class="import-preview-confirm" id="importPreviewConfirm" onclick="confirmImportPreview()"></button></div></div></div>
 <div id="saveIndicator">✓ gespeichert</div>
 <div id="undoToast" class="undo-toast" role="status" aria-live="polite"><span></span><button type="button" onclick="undoDelete()"></button></div>
-<script src="app/js/app.js?v=15"></script><script src="app/js/io.js?v=15"></script><script src="app/js/ui.js?v=17"></script><script src="app/js/focus-flow.js?v=17"></script>
+<script src="app/js/app.js?v=1.1"></script><script src="app/js/io.js?v=1.1"></script><script src="app/js/ui.js?v=1.1"></script><script src="app/js/focus-flow.js?v=1.1"></script>
 </body>
 </html>
