@@ -8,9 +8,8 @@
 
     const incomeTotal = totalIncome();
     const expenseTotal = totalExpenses();
-    const balance = incomeTotal - expenseTotal;
-    const availablePct = incomeTotal > 0
-      ? Math.max(0, Math.min(100, (balance / incomeTotal) * 100))
+    const expensePct = incomeTotal > 0
+      ? Math.min(Math.max((expenseTotal / incomeTotal) * 100, 0), 999)
       : 0;
 
     const heroLabel = document.getElementById('heroMetaLeft');
@@ -18,8 +17,8 @@
     const donutLabel = document.getElementById('donutCenterLabel');
     const donutTotal = document.getElementById('donutTotal');
 
-    if (heroLabel) heroLabel.textContent = isEnglish() ? 'Available' : 'Verfügbar';
-    if (heroRatio) heroRatio.textContent = `${Math.round(availablePct)}%`;
+    if (heroLabel) heroLabel.textContent = isEnglish() ? 'Expense ratio' : 'Ausgabenanteil';
+    if (heroRatio) heroRatio.textContent = incomeTotal > 0 ? `${Math.round(expensePct)} %` : '–';
     if (donutLabel) donutLabel.textContent = isEnglish() ? 'Total expenses' : 'Gesamtausgaben';
     if (donutTotal) donutTotal.textContent = fmt(expenseTotal);
   }
@@ -203,7 +202,7 @@
   const copy = {
     de: {
       overview:'Übersicht', income:'Einnahmen', expenses:'Ausgaben', mix:'Ausgaben-Mix', more:'Mehr',
-      monthlyOverview:'Monatliche Übersicht', monthlyBuffer:'Monatliches Polster', stillAvailable:'Noch verfügbar', available:'Verfügbar',
+      monthlyOverview:'Monatliche Übersicht', monthlyBuffer:'Monatliches Polster', stillAvailable:'Noch verfügbar', available:'Verfügbar', expenseRatio:'Ausgabenanteil',
       incomeMonth:'Einnahmen / Monat', expenseMonth:'Ausgaben / Monat', thisMonth:'Diesen Monat', totalExpenses:'Gesamtausgaben', total:'Gesamt', totalMonth:'Gesamt / Monat',
       quick:'Schnellzugriff', quickIncome:'Einnahme', quickExpense:'Ausgabe',
       addIncome:'+ Einnahme hinzufügen', addExpense:'+ Ausgabe hinzufügen',
@@ -218,7 +217,7 @@
     },
     en: {
       overview:'Overview', income:'Income', expenses:'Expenses', mix:'Expense Mix', more:'More',
-      monthlyOverview:'Monthly Overview', monthlyBuffer:'Monthly Buffer', stillAvailable:'Still available', available:'Available',
+      monthlyOverview:'Monthly Overview', monthlyBuffer:'Monthly Buffer', stillAvailable:'Still available', available:'Available', expenseRatio:'Expense ratio',
       incomeMonth:'Income / Month', expenseMonth:'Expenses / Month', thisMonth:'This month', totalExpenses:'Total expenses', total:'Total', totalMonth:'Total / Month',
       quick:'Quick access', quickIncome:'Income', quickExpense:'Expense',
       addIncome:'+ Add income', addExpense:'+ Add expense',
@@ -278,7 +277,7 @@
     setText('.header-label', c.monthlyOverview);
     setText('.eyebrow span', c.monthlyBuffer);
     setText('.hero-status', c.stillAvailable);
-    setText('#heroMetaLeft', c.available);
+    setText('#heroMetaLeft', c.expenseRatio);
     setText('#donutCenterLabel', c.totalExpenses);
 
     const cardLabels = qa('.card-label');
@@ -383,27 +382,12 @@
     const incomeTotal = totalIncome();
     const expenseTotal = totalExpenses();
     const balance = incomeTotal - expenseTotal;
-
     const status = document.querySelector('.hero-status');
-    const label = document.getElementById('heroMetaLeft');
-    const ratio = document.getElementById('heroRatio');
 
-    if (balance < 0) {
-      const overPct = incomeTotal > 0
-        ? (Math.abs(balance) / incomeTotal) * 100
-        : (expenseTotal > 0 ? 100 : 0);
-
-      if (status) status.textContent = isEnglish() ? 'Over budget' : 'Budget überschritten';
-      if (label) label.textContent = isEnglish() ? 'Over by' : 'Überschritten';
-      if (ratio) ratio.textContent = `${Math.round(overPct)}%`;
-    } else {
-      const availablePct = incomeTotal > 0
-        ? Math.max(0, Math.min(100, (balance / incomeTotal) * 100))
-        : 0;
-
-      if (status) status.textContent = isEnglish() ? 'Still available' : 'Noch verfügbar';
-      if (label) label.textContent = isEnglish() ? 'Available' : 'Verfügbar';
-      if (ratio) ratio.textContent = `${Math.round(availablePct)}%`;
+    if (status) {
+      status.textContent = balance < 0
+        ? (isEnglish() ? 'Over budget' : 'Budget überschritten')
+        : (isEnglish() ? 'Still available' : 'Noch verfügbar');
     }
   }
 
