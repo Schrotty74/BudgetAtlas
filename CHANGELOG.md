@@ -12,6 +12,7 @@ BudgetAtlas entstand als eigenständiges Redesign aus BudgetApp. Übernommene Fu
 - Redundante mobile Seitenleiste entfernt; „Mehr“ ist auf Mobilgeräten der einzige Zugang zu Ausgaben-Mix, Import/Export, Sprache und Darstellung
 - Mobile Kopfzeile ohne Hamburger-Button vereinfacht
 - Monatliches Polster und Ausgaben-Mix mit einem dezenten Schwebeeffekt ergänzt
+- Einnahmen und Ausgaben ab dem 21. Eintrag pro Liste mit Seitennavigation ergänzt
 - Offline-Cache und Update-Signal auf `v1.1` aktualisiert
 
 ---

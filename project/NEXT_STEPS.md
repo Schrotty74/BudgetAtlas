@@ -24,13 +24,14 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - Prüfen, dass der abgeleitete Ausgabenanteil und die Gesamtausgaben im Mix korrekt angezeigt werden.
 - Deutsch/Englisch prüfen, insbesondere UI-Beschriftungen und Import-/Export-Funktionen.
 - Dark-/Light-Mode im aktuellen Layout prüfen.
-- PWA nach Aktualisierung einmal neu laden und danach Offline-/Flugmodus testen, damit der aktuelle Cache `budgetatlas-v1.1-focus-flow-2` bestätigt ist.
+- PWA nach Aktualisierung einmal neu laden und danach Offline-/Flugmodus testen, damit der aktuelle Cache `budgetatlas-v1.1-focus-flow-3` bestätigt ist.
 
 ## Funktionsprüfung
 
 - Vorhandene `localStorage`-Budgetdaten korrekt darstellen.
 - Einnahmen und Ausgaben hinzufügen, bearbeiten, löschen und per Rückgängig wiederherstellen.
 - Swipe-to-delete auf Mobilgerät prüfen.
+- Einnahmen und Ausgaben mit mehr als 20 Einträgen prüfen: Seitennavigation, Bearbeiten, Löschen und Rückgängig auf allen Seiten.
 - Excel-Import mit `docs/examples/demo.xlsx` inklusive Vorschau prüfen.
 - JSON-Wiederherstellung inklusive Vorschau prüfen.
 - Excel-, PDF-, PNG- und JSON-Export prüfen.

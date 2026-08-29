@@ -91,6 +91,7 @@ Aktuell enthalten sind insbesondere:
 - Prozentbalken für Ausgabenanteile
 - Hinzufügen, Bearbeiten und Löschen
 - Swipe-to-delete mit Rückgängig-Option
+- Seitennavigation für Einnahmen und Ausgaben ab mehr als 20 Einträgen je Liste
 - einklappbare Einnahmen-/Ausgabenbereiche
 - Excel-Import mit Vorschau und Fehlerhinweisen
 - Excel-Export
@@ -113,7 +114,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-2`. Dieser Cache stellt sicher, dass bestehende Installationen die aktuelle Version `v1.1` samt mobiler Navigation, Styles und Schwebeeffekt laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-3`. Dieser Cache stellt sicher, dass bestehende Installationen die aktuelle Version `v1.1` samt mobiler Navigation, Styles, Schwebeeffekt und Seitennavigation laden.
 
 ## PWA-Icon
 
