@@ -140,7 +140,7 @@ let currentLang = localStorage.getItem('budgetLang') || 'de';
 let currentTheme = localStorage.getItem('budgetTheme') || 'dark';
 let pendingDelete = null;
 let undoTimer = null;
-const LIST_PAGE_SIZE = 20;
+const LIST_PAGE_SIZE = 10;
 let incomePage = 0;
 let expensePage = 0;
 
@@ -372,7 +372,7 @@ function renderListPagination(type) {
   }
   const page = clampListPage(type);
   const disabled = editing?.type === type ? ' disabled' : '';
-  container.innerHTML = `<button type="button" onclick="changeListPage('${type}',-1)" aria-label="${t('previousPage')}" title="${t('previousPage')}"${page === 0 ? ' disabled' : ''}${disabled}>‹</button><span>${t('pageOf')(page + 1, totalPages)}</span><button type="button" onclick="changeListPage('${type}',1)" aria-label="${t('nextPage')}" title="${t('nextPage')}"${page === totalPages - 1 ? ' disabled' : ''}${disabled}>›</button>`;
+  container.innerHTML = `<button class="pagination-button" type="button" onclick="changeListPage('${type}',-1)" aria-label="${t('previousPage')}" title="${t('previousPage')}"${page === 0 ? ' disabled' : ''}${disabled}>‹</button><span class="page-status" aria-label="${t('pageOf')(page + 1, totalPages)}">${page + 1} / ${totalPages}</span><button class="pagination-button" type="button" onclick="changeListPage('${type}',1)" aria-label="${t('nextPage')}" title="${t('nextPage')}"${page === totalPages - 1 ? ' disabled' : ''}${disabled}>›</button>`;
 }
 
 // ---- Render income ----
