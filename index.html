@@ -9,8 +9,8 @@
 <meta name="theme-color" content="#06111d">
 <link rel="manifest" href="manifest.json">
 <title>BudgetAtlas</title>
-<link rel="stylesheet" href="styles.css?v=15">
-<link rel="stylesheet" href="focus-flow.css?v=15">
+<link rel="stylesheet" href="styles.css?v=16">
+<link rel="stylesheet" href="focus-flow.css?v=16">
 <style>
 /* Consolidated polish formerly in light-polish.css */
 html.light{--bg:#e5eef3;--panel:#ffffff;--panel-2:#f1f6f9;--line:#91aebe;--line-strong:#6f97ab;--text:#0c2332;--muted:#486473;--cyan:#006f89;--accent:#078848;--orange:#ad4d00}
@@ -89,6 +89,7 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
     <section class="hero-grid">
       <div class="balance-banner hero-card" id="balanceBanner">
         <div class="hero-copy"><div class="eyebrow"><span>Monatliches Polster</span></div><div class="balance-amount" id="balance"></div><div class="hero-status">Noch verfügbar</div><div class="balance-bar"><div class="balance-bar-fill" id="balanceBar" style="width:0%"></div></div><div class="hero-meta"><span id="heroMetaLeft">Ausgabenanteil</span><strong id="heroRatio">–</strong></div></div>
+        <div class="hero-visual" aria-hidden="true"><svg class="mountain-chart" viewBox="0 0 420 190" preserveAspectRatio="none"><path class="mountain-back" d="M0 190 L58 122 L92 148 L145 70 L194 130 L244 90 L302 142 L354 82 L420 190 Z"/><path class="mountain-front" d="M70 190 L145 108 L190 151 L240 83 L310 190 Z"/></svg></div>
       </div>
       <section class="section mix-card" id="mixSection"><div class="section-title"><span>Ausgaben-Mix</span></div><div class="mix-layout"><div class="donut-wrap"><div class="donut-container"><svg class="donut" width="180" height="180" viewBox="0 0 180 180" id="donutSvg"></svg><div class="donut-center"><div class="dc-pct" id="donutPct">–</div><div class="dc-label" id="donutLabel">–</div></div></div></div><div class="legend" id="legend"></div></div><div class="mix-total"><span id="donutCenterLabel">Gesamtausgaben</span><strong id="donutTotal">–</strong></div></section>
     </section>
@@ -118,6 +119,6 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
 <div id="importPreviewModal" class="import-preview-backdrop" hidden onclick="if (event.target === this) closeImportPreview()"><div class="import-preview" role="dialog" aria-modal="true" aria-labelledby="importPreviewTitle"><h2 id="importPreviewTitle"></h2><p id="importPreviewSummary" class="import-preview-summary"></p><p id="importPreviewNotice" class="import-preview-notice"></p><ul id="importPreviewDetails" class="import-preview-details"></ul><div class="import-preview-actions"><button type="button" class="import-preview-cancel" id="importPreviewCancel" onclick="closeImportPreview()"></button><button type="button" class="import-preview-confirm" id="importPreviewConfirm" onclick="confirmImportPreview()"></button></div></div></div>
 <div id="saveIndicator">✓ gespeichert</div>
 <div id="undoToast" class="undo-toast" role="status" aria-live="polite"><span></span><button type="button" onclick="undoDelete()"></button></div>
-<script src="app.js?v=14"></script><script src="io.js?v=14"></script><script src="ui.js?v=15"></script><script src="focus-flow.js?v=16"></script>
+<script src="app.js?v=14"></script><script src="io.js?v=14"></script><script src="ui.js?v=16"></script><script src="focus-flow.js?v=16"></script>
 </body>
 </html>
