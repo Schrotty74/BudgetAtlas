@@ -51,9 +51,9 @@ Der aktuelle Stand wurde stärker an diese Referenz angeglichen:
 - Desktop-Sidebar mit zurückhaltender Navigation; auf Mobilgeräten wird sie nicht als zusätzliches Menü geöffnet
 - Mobile-Bottom-Navigation mit „Mehr“ als einzigem Zugang zu Ausgaben-Mix, Import/Export, Sprache und Darstellung
 - deutlich kompaktere Karten, Abstände und Radien
-- große Polster-Karte mit Bergsilhouette im Hintergrund, Fortschrittsbalken und Ausgabenanteil; ohne dekorative aufsteigende Linie
+- große Polster-Karte mit Bergsilhouette im Hintergrund, Fortschrittsbalken und Ausgabenanteil; ohne dekorative aufsteigende Linie sowie mit einem dezenten Schwebeeffekt
 - Fortschrittsbalken plus abgeleiteter Ausgabenanteil
-- kompakter Ausgaben-Mix mit Donut, Legende und Gesamtausgaben
+- kompakter Ausgaben-Mix mit Donut, Legende und Gesamtausgaben sowie mit einem dezenten Schwebeeffekt
 - Einnahmen-/Ausgaben-Karten mit Icons und dezenten Trend-Akzenten
 - Schnellzugriff nur für tatsächlich vorhandene Funktionen: Einnahme, Ausgabe und Import/Export
 - Cyan wird primär für Navigation/Aktionen eingesetzt, Grün für positive Werte und Orange für Ausgaben
@@ -113,7 +113,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-1`. Dieser Cache stellt sicher, dass bestehende Installationen die Version `v1.1` samt aktueller mobiler Navigation und Styles laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-2`. Dieser Cache stellt sicher, dass bestehende Installationen die aktuelle Version `v1.1` samt mobiler Navigation, Styles und Schwebeeffekt laden.
 
 ## PWA-Icon
 
