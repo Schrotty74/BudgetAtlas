@@ -41,7 +41,7 @@ html:not(.light) .balance-banner.negative{border-color:#5b3041;background:radial
 @media(max-width:700px){html.light .quick-card{padding:10px}html.light .quick-actions{gap:8px}html.light .quick-card button{min-height:58px;padding:6px 3px}html.light .quick-card button span{width:32px;height:32px}html.light .quick-card button b{font-size:.5rem}html:not(.light) .summary-caption,html:not(.light) .dc-label,html:not(.light) .legend-item,html:not(.light) .mix-total,html:not(.light) .row-freq-sub,html:not(.light) .footer,html:not(.light) .hero-meta{color:#96adbc}html:not(.light) .icon-btn{color:#94adbd}}
 </style>
 <script>
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(console.warn);
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' }).catch(console.warn);
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
@@ -115,6 +115,6 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
 <div id="importPreviewModal" class="import-preview-backdrop" hidden onclick="if (event.target === this) closeImportPreview()"><div class="import-preview" role="dialog" aria-modal="true" aria-labelledby="importPreviewTitle"><h2 id="importPreviewTitle"></h2><p id="importPreviewSummary" class="import-preview-summary"></p><p id="importPreviewNotice" class="import-preview-notice"></p><ul id="importPreviewDetails" class="import-preview-details"></ul><div class="import-preview-actions"><button type="button" class="import-preview-cancel" id="importPreviewCancel" onclick="closeImportPreview()"></button><button type="button" class="import-preview-confirm" id="importPreviewConfirm" onclick="confirmImportPreview()"></button></div></div></div>
 <div id="saveIndicator">✓ gespeichert</div>
 <div id="undoToast" class="undo-toast" role="status" aria-live="polite"><span></span><button type="button" onclick="undoDelete()"></button></div>
-<script src="app/js/app.js?v=1.1.3"></script><script src="app/js/io.js?v=1.1.1"></script><script src="app/js/ui.js?v=1.1"></script><script src="app/js/focus-flow.js?v=1.1"></script>
+<script src="app/js/app.js?v=1.1.3"></script><script src="app/js/io.js?v=1.1.1"></script><script src="app/js/ui.js?v=1.1"></script><script src="app/js/focus-flow.js?v=1.1.2"></script>
 </body>
 </html>

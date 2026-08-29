@@ -1,4 +1,4 @@
-const CACHE = 'budgetatlas-v1.1-focus-flow-6';
+const CACHE = 'budgetatlas-v1.1-focus-flow-7';
 const ASSETS = [
   './',
   './index.html',
@@ -7,7 +7,7 @@ const ASSETS = [
   './app/js/app.js?v=1.1.3',
   './app/js/io.js?v=1.1.1',
   './app/js/ui.js?v=1.1',
-  './app/js/focus-flow.js?v=1.1',
+  './app/js/focus-flow.js?v=1.1.2',
   './manifest.json',
   './version.json',
   'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap'
