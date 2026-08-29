@@ -1,6 +1,6 @@
 # BudgetAtlas Project Context
 
-Stand: 2026-08-28
+Stand: 2026-08-29
 
 Aktuelle dokumentierte App-Version: `v1.0`
 

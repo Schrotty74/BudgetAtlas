@@ -1,6 +1,6 @@
 # BudgetAtlas Next Steps
 
-Stand: 2026-08-28
+Stand: 2026-08-29
 
 Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Projekts.
 
