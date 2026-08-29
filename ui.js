@@ -48,19 +48,8 @@
     ).format(new Date());
   }
 
-  function numberFromMoney(text) {
-    if (!text) return 0;
-    const cleaned = text.replace(/[^0-9,.-]/g, '').replace(/\./g, '').replace(',', '.');
-    return Number.parseFloat(cleaned) || 0;
-  }
-
   function syncDashboardMeta() {
-    const income = numberFromMoney(document.getElementById('totalIn')?.textContent);
-    const expenses = numberFromMoney(document.getElementById('totalOut')?.textContent);
-    const ratio = income > 0 ? Math.min(Math.max((expenses / income) * 100, 0), 999) : 0;
-    const ratioEl = document.getElementById('heroRatio');
     const donutTotal = document.getElementById('donutTotal');
-    if (ratioEl) ratioEl.textContent = income > 0 ? `${ratio.toFixed(0)} %` : '–';
     if (donutTotal) donutTotal.textContent = document.getElementById('totalOut')?.textContent || '–';
   }
 
