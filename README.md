@@ -34,7 +34,7 @@ These screenshots show fictional demo data only.
 
 ## Demo workbook
 
-[`demo.xlsx`](docs/demo.xlsx) contains fictional sample data only and can be used directly to test the Excel import. The Excel data format remains compatible with the inherited data core.
+[`demo.xlsx`](docs/examples/demo.xlsx) contains fictional sample data only and can be used directly to test the Excel import. The Excel data format remains compatible with the inherited data core.
 
 Supported frequencies:
 

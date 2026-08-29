@@ -18,7 +18,7 @@ Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine 
 - BudgetAtlas ist inzwischen ein eigenständiges Repository und `main` ist der aktuelle Entwicklungsstand.
 - BudgetAtlas beginnt als eigenständiges Projekt mit einer eigenen Versionslinie bei `v1.0`; die frühere BudgetApp-Versionszählung wird nicht fortgeführt.
 - Alte BudgetApp-Handbücher, Screenshots und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
-- `docs/demo.xlsx` ist kompatibel und bleibt als Demo-Datei für Excel-Importtests erhalten.
+- `docs/examples/demo.xlsx` ist kompatibel und bleibt als Demo-Datei für Excel-Importtests erhalten.
 - BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel.
 
 ## Architektur
@@ -28,16 +28,16 @@ BudgetAtlas ist eine statische PWA ohne Framework, Paketmanager oder Build-Schri
 Wichtige Dateien:
 
 - `index.html`: Dashboard-Struktur, PWA-Einstieg und zusammengeführte Light-/Dark-Polish-Regeln
-- `styles.css`: grundlegende App-Styles
-- `focus-flow.css`: Focus-&-Flow-Redesign, Responsive-Layout und zusätzliche Dashboard-/Mobile-Styles
-- `app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung, allgemeines UI-Verhalten und zentrale UI-Ereignisse
-- `io.js`: Excel-, PDF-, PNG- und JSON-Import/-Export
-- `ui.js`: Desktop-/Mobile-Navigation, Monatsanzeige und rein darstellungsbezogene Dashboard-Metadaten
-- `focus-flow.js`: zusätzliche Focus-&-Flow-UI-Logik, Sprachsynchronisierung und Budgetstatus über zentrale UI-Ereignisse ohne Überschreiben der Hauptfunktionen
+- `app/css/styles.css`: grundlegende App-Styles
+- `app/css/focus-flow.css`: Focus-&-Flow-Redesign, Responsive-Layout und zusätzliche Dashboard-/Mobile-Styles
+- `app/js/app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung, allgemeines UI-Verhalten und zentrale UI-Ereignisse
+- `app/js/io.js`: Excel-, PDF-, PNG- und JSON-Import/-Export
+- `app/js/ui.js`: Desktop-/Mobile-Navigation, Monatsanzeige und rein darstellungsbezogene Dashboard-Metadaten
+- `app/js/focus-flow.js`: zusätzliche Focus-&-Flow-UI-Logik, Sprachsynchronisierung und Budgetstatus über zentrale UI-Ereignisse ohne Überschreiben der Hauptfunktionen
 - `sw.js`: Service Worker und Offline-Cache
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
-- `docs/demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
+- `docs/examples/demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
 
 Die Budget- und Import-/Exportlogik wurde bei der visuellen Focus-&-Flow-Angleichung nicht umgebaut.
 
@@ -105,7 +105,7 @@ Aktuell enthalten sind insbesondere:
 
 ## Redesign-spezifische UI-Metadaten
 
-`ui.js` ergänzt ausschließlich abgeleitete Darstellungswerte und verändert keine gespeicherten Budgetdaten:
+`app/js/ui.js` ergänzt ausschließlich abgeleitete Darstellungswerte und verändert keine gespeicherten Budgetdaten:
 
 - Ausgabenanteil = monatliche Ausgaben geteilt durch monatliche Einnahmen
 - Gesamtausgaben im Mix werden aus dem bereits gerenderten Monatswert übernommen
@@ -144,7 +144,7 @@ Nach der aktuellen visuellen Angleichung insbesondere prüfen:
 - Header, Polster-Karte, Ausgaben-Mix, Summary-Karten und Bottom-Navigation
 - vorhandene `localStorage`-Budgetdaten
 - Hinzufügen, Bearbeiten, Löschen und Rückgängig
-- Excel-Import mit `docs/demo.xlsx`
+- Excel-Import mit `docs/examples/demo.xlsx`
 - JSON-Wiederherstellung
 - Excel-, PDF-, PNG- und JSON-Export
 - DE/EN-Umschaltung

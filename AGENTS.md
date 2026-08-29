@@ -1,13 +1,13 @@
 # AGENTS.md
 
-Vor jeder Projektarbeit zuerst `PROJECT_CONTEXT.md` und `NEXT_STEPS.md` lesen.
+Vor jeder Projektarbeit zuerst `project/PROJECT_CONTEXT.md` und `project/NEXT_STEPS.md` lesen.
 
 ## Verbindliche Arbeitsregeln
 
-- `PROJECT_CONTEXT.md` ist die dauerhafte Quelle für den aktuellen Projektkontext.
-- `NEXT_STEPS.md` enthält nur tatsächlich offene Aufgaben, bestätigte Bugs und konkrete nächste Schritte.
+- `project/PROJECT_CONTEXT.md` ist die dauerhafte Quelle für den aktuellen Projektkontext.
+- `project/NEXT_STEPS.md` enthält nur tatsächlich offene Aufgaben, bestätigte Bugs und konkrete nächste Schritte.
 - Bei relevanten Änderungen an Funktionen, Architektur, Datenformaten, Datenschutz, Build/Release oder offenen Aufgaben die betroffenen Kontextdateien im selben Auftrag aktualisieren.
-- Erledigte Punkte aus `NEXT_STEPS.md` entfernen oder nach vorhandenen Projektregeln archivieren.
+- Erledigte Punkte aus `project/NEXT_STEPS.md` entfernen oder nach vorhandenen Projektregeln archivieren.
 - Weitere projektspezifische Regeln und Dokumente beachten.
 - Bestehende Architektur, Datenformate, Einstellungen und Benutzerabläufe erhalten, sofern eine Änderung nicht ausdrücklich verlangt oder technisch notwendig ist.
 - Keine unnötigen Refactorings, neuen Abhängigkeiten oder Funktionsentfernungen ohne klaren Auftrag.
@@ -16,7 +16,7 @@ Vor jeder Projektarbeit zuerst `PROJECT_CONTEXT.md` und `NEXT_STEPS.md` lesen.
 - Erklärungen verständlich formulieren und keine besonderen technischen Vorkenntnisse voraussetzen. Keine persönlichen Aussagen über Fähigkeiten, Kenntnisse, Gewohnheiten oder Arbeitsweise des Entwicklers dokumentieren.
 - Bei Git-Projekten dokumentierte Branch-Grenzen beachten. Branches nicht ohne ausdrücklichen Auftrag wechseln oder zusammenführen.
 - Keine Versionen, Buildnummern, Commits, Pushes, Tags, Releases oder Veröffentlichungen ohne ausdrücklichen Auftrag erstellen oder ändern.
-- Keine Regeln zur Vorbereitung oder Fortsetzung eines neuen Chats aufnehmen. Solche Anweisungen gehören ausschließlich in `CHAT_TEMPLATE.md` beziehungsweise in einen separaten Start-Prompt.
+- Keine Regeln zur Vorbereitung oder Fortsetzung eines neuen Chats aufnehmen. Solche Anweisungen gehören ausschließlich in `project/CHAT_TEMPLATE.md` beziehungsweise in einen separaten Start-Prompt.
 
 ## Datenschutzregel für das öffentliche Repository
 

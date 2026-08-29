@@ -11,8 +11,8 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - BudgetAtlas verwendet eine eigene Versionslinie ab `v1.0`; die frühere BudgetApp-Versionszählung wird nicht fortgeführt.
 - Die Oberfläche wurde deutlich an die visuelle Referenz „Vorschlag 2 – Focus & Flow“ angeglichen.
 - Datenmodell, `localStorage`, Budgetlogik und Import-/Exportlogik wurden dabei nicht umgebaut.
-- Architektur: `index.html`, `styles.css`, `focus-flow.css`, `app.js`, `io.js`, `ui.js`, `focus-flow.js`, `sw.js`.
-- `docs/demo.xlsx` bleibt als kompatible Demo-Datei für Importtests erhalten.
+- Architektur: `index.html`, `app/css/styles.css`, `app/css/focus-flow.css`, `app/js/app.js`, `app/js/io.js`, `app/js/ui.js`, `app/js/focus-flow.js`, `sw.js`.
+- `docs/examples/demo.xlsx` bleibt als kompatible Demo-Datei für Importtests erhalten.
 - Kein Framework, kein Paketmanager und kein Build-Schritt wurden hinzugefügt.
 
 ## Priorität 1 – aktuellen Stand prüfen
@@ -31,7 +31,7 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - Vorhandene `localStorage`-Budgetdaten korrekt darstellen.
 - Einnahmen und Ausgaben hinzufügen, bearbeiten, löschen und per Rückgängig wiederherstellen.
 - Swipe-to-delete auf Mobilgerät prüfen.
-- Excel-Import mit `docs/demo.xlsx` inklusive Vorschau prüfen.
+- Excel-Import mit `docs/examples/demo.xlsx` inklusive Vorschau prüfen.
 - JSON-Wiederherstellung inklusive Vorschau prüfen.
 - Excel-, PDF-, PNG- und JSON-Export prüfen.
 - Deutsch/Englisch-Umschaltung prüfen.
