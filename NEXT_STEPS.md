@@ -19,12 +19,12 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 
 - Live-Seite auf iPhone prüfen und direkt mit der Focus-&-Flow-Mobilvorlage vergleichen.
 - Live-Seite am Desktop prüfen und direkt mit der Focus-&-Flow-Desktopvorlage vergleichen.
-- Besonders prüfen: kompakter Monatskopf, Polster-Karte ohne Berg-/Verlaufslinie, Ausgaben-Mix, Einnahmen-/Ausgaben-Karten, Schnellzugriff und Bottom-Navigation.
+- Besonders prüfen: kompakter Monatskopf, Polster-Karte mit Bergsilhouette ohne aufsteigende Linie, Ausgaben-Mix, Einnahmen-/Ausgaben-Karten, Schnellzugriff und Bottom-Navigation.
 - Prüfen, ob Kartenhöhen, Abstände, Radien und Typografie auf realen Geräten noch weiter verdichtet werden müssen.
 - Prüfen, dass der abgeleitete Ausgabenanteil und die Gesamtausgaben im Mix korrekt angezeigt werden.
 - Deutsch/Englisch prüfen, insbesondere UI-Beschriftungen und Import-/Export-Funktionen.
 - Dark-/Light-Mode im aktuellen Layout prüfen.
-- PWA nach Aktualisierung einmal neu laden und danach Offline-/Flugmodus testen, damit der aktuelle Cache `budgetatlas-v1.0-focus-flow-3` bestätigt ist.
+- PWA nach Aktualisierung einmal neu laden und danach Offline-/Flugmodus testen, damit der aktuelle Cache `budgetatlas-v1.0-focus-flow-4` bestätigt ist.
 
 ## Funktionsprüfung
 
