@@ -55,12 +55,10 @@
 
   function syncLanguageExtras() {
     const en = document.documentElement.lang === 'en';
-    const heroMeta = document.getElementById('heroMetaLeft');
     const donutLabel = document.getElementById('donutCenterLabel');
     const quickTitle = document.querySelector('.quick-title');
     const quickButtons = document.querySelectorAll('.quick-card button b');
     const moreButton = document.querySelector('.bottom-nav button[data-target="mixSection"]');
-    if (heroMeta) heroMeta.textContent = en ? 'Expense ratio' : 'Ausgabenanteil';
     if (donutLabel) donutLabel.textContent = en ? 'Total expenses' : 'Gesamtausgaben';
     if (quickTitle) quickTitle.textContent = en ? 'Quick access' : 'Schnellzugriff';
     if (quickButtons[0]) quickButtons[0].textContent = en ? 'Income' : 'Einnahme';
