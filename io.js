@@ -248,11 +248,7 @@ function exportJsonBackup() {
     settings: {
       lang: currentLang,
       theme: currentTheme,
-      sectionState: JSON.parse(localStorage.getItem('sectionState') || '{}'),
-      reminder: {
-        enabled: localStorage.getItem('reminderEnabled') === 'true',
-        time: localStorage.getItem('reminderTime') || '20:00'
-      }
+      sectionState: JSON.parse(localStorage.getItem('sectionState') || '{}')
     }
   };
 
@@ -325,7 +321,7 @@ function confirmImportPreview() {
 
 function containsBackupSettings(settings) {
   return !!settings && typeof settings === 'object' &&
-    ['lang', 'theme', 'sectionState', 'reminder'].some(key => Object.prototype.hasOwnProperty.call(settings, key));
+    ['lang', 'theme', 'sectionState'].some(key => Object.prototype.hasOwnProperty.call(settings, key));
 }
 
 function restoreJsonBackup(restoredData, settings) {
@@ -344,17 +340,11 @@ function restoreJsonBackup(restoredData, settings) {
   if (settings.sectionState && typeof settings.sectionState === 'object') {
     localStorage.setItem('sectionState', JSON.stringify(settings.sectionState));
   }
-  if (settings.reminder) {
-    localStorage.setItem('reminderEnabled', settings.reminder.enabled ? 'true' : 'false');
-    if (settings.reminder.time) localStorage.setItem('reminderTime', settings.reminder.time);
-  }
-
   document.querySelectorAll('.section-body').forEach(el => el.classList.remove('collapsed'));
   document.querySelectorAll('.section-chevron').forEach(el => el.style.transform = '');
   applyTheme();
   applyLang();
   initSectionState();
-  updateReminderBtn(localStorage.getItem('reminderEnabled') === 'true');
   update(false);
   showToast(l('jsonRestored'));
 }
