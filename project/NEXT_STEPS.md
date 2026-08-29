@@ -42,6 +42,4 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 
 ## Bekannte Einschränkungen
 
-- Es gibt keine automatisierte Testsuite.
-- Es gibt keine CI-Konfiguration.
 - Ein vollständiger realer Geräte- und Browser-Funktionstest des aktuellen Stands ist weiterhin manuell durchzuführen.
