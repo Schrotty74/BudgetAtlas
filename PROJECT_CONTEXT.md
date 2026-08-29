@@ -30,10 +30,10 @@ Wichtige Dateien:
 - `index.html`: Dashboard-Struktur, PWA-Einstieg und zusammengeführte Light-/Dark-Polish-Regeln
 - `styles.css`: grundlegende App-Styles
 - `focus-flow.css`: Focus-&-Flow-Redesign, Responsive-Layout und zusätzliche Dashboard-/Mobile-Styles
-- `app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung und allgemeines UI-Verhalten
+- `app.js`: Budgetlogik, Datenmodell, Berechnungen, Sprache, Theme, Update-Prüfung, allgemeines UI-Verhalten und zentrale UI-Ereignisse
 - `io.js`: Excel-, PDF-, PNG- und JSON-Import/-Export
 - `ui.js`: Desktop-/Mobile-Navigation, Monatsanzeige und rein darstellungsbezogene Dashboard-Metadaten
-- `focus-flow.js`: zusätzliche Focus-&-Flow-UI-Logik, Sprachsynchronisierung und Budgetstatus
+- `focus-flow.js`: zusätzliche Focus-&-Flow-UI-Logik, Sprachsynchronisierung und Budgetstatus über zentrale UI-Ereignisse ohne Überschreiben der Hauptfunktionen
 - `sw.js`: Service Worker und Offline-Cache
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
@@ -113,7 +113,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-4`. Die Erhöhung auf `-4` stellt sicher, dass bestehende Installationen die auf `v1.0` aktualisierte JavaScript-Version statt einer älteren gecachten Datei laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-5`. Die Erhöhung auf `-5` stellt sicher, dass bestehende Installationen die auf `v1.0` aktualisierte JavaScript-Version statt einer älteren gecachten Datei laden.
 
 ## PWA-Icon
 
