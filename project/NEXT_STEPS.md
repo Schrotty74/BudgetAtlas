@@ -22,23 +22,11 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - Besonders prüfen: kompakter Monatskopf, Polster-Karte mit Bergsilhouette ohne aufsteigende Linie, Ausgaben-Mix, Einnahmen-/Ausgaben-Karten, Schnellzugriff und Bottom-Navigation mit „Mehr“ statt einer zusätzlichen mobilen Seitenleiste.
 - Prüfen, ob Kartenhöhen, Abstände, Radien und Typografie auf realen Geräten noch weiter verdichtet werden müssen.
 - Prüfen, dass der abgeleitete Ausgabenanteil und die Gesamtausgaben im Mix korrekt angezeigt werden.
-- Deutsch/Englisch prüfen, insbesondere UI-Beschriftungen und Import-/Export-Funktionen.
-- Dark-/Light-Mode im aktuellen Layout prüfen.
-- PWA nach Aktualisierung einmal neu laden und danach Offline-/Flugmodus testen, damit der aktuelle Cache `budgetatlas-v1.1-focus-flow-6` bestätigt ist.
 
 ## Funktionsprüfung
 
 - Vorhandene `localStorage`-Budgetdaten korrekt darstellen.
-- Einnahmen und Ausgaben hinzufügen, bearbeiten, löschen und per Rückgängig wiederherstellen.
-- Swipe-to-delete auf Mobilgerät prüfen.
-- Einnahmen und Ausgaben mit mehr als der gewählten Eintragszahl prüfen: Auswahl 10/15/20/25, getrennte Speicherung für beide Listen, Seitennavigation, Bearbeiten, Löschen und Rückgängig auf allen Seiten.
-- Excel-Import mit `docs/examples/demo.xlsx` inklusive Vorschau prüfen.
 - JSON-Wiederherstellung inklusive Vorschau und Wiederherstellung der Listeneinstellungen prüfen.
-- Excel-, PDF-, PNG- und JSON-Export prüfen.
-- Deutsch/Englisch-Umschaltung prüfen.
-- Dark-/Light-Mode prüfen.
-- `prefers-reduced-motion` prüfen.
-- Update-Hinweis über `version.json` prüfen.
 
 ## Priorität 2
 
