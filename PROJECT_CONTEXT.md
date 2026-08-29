@@ -50,7 +50,7 @@ Der aktuelle Stand wurde stärker an diese Referenz angeglichen:
 - kompakter Monatskopf statt großer mobiler App-Überschrift
 - Desktop-Sidebar mit zurückhaltender Navigation
 - deutlich kompaktere Karten, Abstände und Radien
-- große Polster-Karte mit dunkler Bergsilhouette und durchgehender grüner Verlaufslinie
+- große Polster-Karte mit Fortschrittsbalken und Ausgabenanteil ohne dekorative Berg-/Verlaufsgrafik
 - Fortschrittsbalken plus abgeleiteter Ausgabenanteil
 - kompakter Ausgaben-Mix mit Donut, Legende und Gesamtausgaben
 - Einnahmen-/Ausgaben-Karten mit Icons und dezenten Trend-Akzenten
@@ -113,7 +113,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-2`. Die Erhöhung auf `-2` stellt sicher, dass bestehende Installationen die auf `v1.0` aktualisierte JavaScript-Version statt einer älteren gecachten Datei laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.0-focus-flow-3`. Die Erhöhung auf `-2` stellt sicher, dass bestehende Installationen die auf `v1.0` aktualisierte JavaScript-Version statt einer älteren gecachten Datei laden.
 
 ## PWA-Icon
 
