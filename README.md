@@ -10,7 +10,15 @@ The app stores budget data exclusively in the browser. There is no account, no t
 
 These screenshots show fictional demo data only.
 
-<img src="docs/screenshots/IMG_2651.jpeg" alt="BudgetAtlas demo screenshot 1" width="220"> <img src="docs/screenshots/IMG_2655.jpg" alt="BudgetAtlas demo screenshot 2" width="220">
+### Mobile
+
+<img src="docs/screenshots/IMG_2651.jpeg" alt="BudgetAtlas mobile dashboard in dark mode with fictional demo data" width="220"> <img src="docs/screenshots/IMG_2655.jpg" alt="BudgetAtlas mobile dashboard in light mode with fictional demo data" width="220">
+
+### Desktop
+
+<img src="docs/screenshots/CleanShot%202026-08-29%20at%2010.56.10@2x.png" alt="BudgetAtlas desktop dashboard in dark mode with fictional demo data" width="480">
+
+<img src="docs/screenshots/CleanShot%202026-08-29%20at%2010.56.58@2x.png" alt="BudgetAtlas desktop dashboard in light mode with fictional demo data" width="480">
 
 ## Features
 

@@ -13,6 +13,7 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - Datenmodell, `localStorage`, Budgetlogik und Import-/Exportlogik wurden dabei nicht umgebaut.
 - Architektur: `index.html`, `app/css/styles.css`, `app/css/focus-flow.css`, `app/js/app.js`, `app/js/io.js`, `app/js/ui.js`, `app/js/focus-flow.js`, `sw.js`.
 - `docs/examples/demo.xlsx` bleibt als kompatible Demo-Datei für Importtests erhalten.
+- Die beiden Handbücher und READMEs zeigen ausschließlich fiktive Demo-Daten und enthalten Desktop- und Mobilansichten; das helle Theme wird im Handbuch nur im Theme-Vergleich gezeigt.
 - Kein Framework, kein Paketmanager und kein Build-Schritt wurden hinzugefügt.
 
 ## Priorität 1 – aktuellen Stand prüfen

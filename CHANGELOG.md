@@ -6,6 +6,14 @@ BudgetAtlas entstand als eigenständiges Redesign aus BudgetApp. Übernommene Fu
 
 ---
 
+## Unreleased
+
+### Documentation
+- Updated the German and English user guides for the current v1.1 interface, including mobile More menu, configurable list display, pagination, and current import/export workflows
+- Added compact dark desktop and mobile visuals, with light mode shown only in the dedicated theme comparison
+- Clarified in guides and README screenshots that all displayed values are fictional data from `docs/examples/demo.xlsx`
+- Added desktop dark and light screenshots alongside the existing mobile screenshot pair in both README files
+
 ## [1.1] – 2026-08-29
 
 ### Geändert

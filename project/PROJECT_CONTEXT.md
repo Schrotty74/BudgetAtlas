@@ -38,6 +38,7 @@ Wichtige Dateien:
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
 - `docs/examples/demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
+- `docs/manuals/build_manuals.py`: erzeugt die DE- und EN-Handbücher aus den aktuellen, fiktiven Screenshots; die PDFs liegen im selben Ordner
 
 Die Budget- und Import-/Exportlogik wurde bei der visuellen Focus-&-Flow-Angleichung nicht umgebaut.
 
@@ -105,6 +106,7 @@ Aktuell enthalten sind insbesondere:
 - Offline-PWA und Service Worker
 - Update-Hinweis über BudgetAtlas `version.json`
 - lokale Speicherung ohne Server
+- aktuelle DE- und EN-Handbücher mit Desktop-/Mobilansicht, Theme-Vergleich und Bedienhinweisen zu Mehr-Menü, Listenansicht und Datentransfer
 
 ## Redesign-spezifische UI-Metadaten
 
