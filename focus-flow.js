@@ -23,27 +23,17 @@
     if (donutTotal) donutTotal.textContent = fmt(expenseTotal);
   }
 
-  if (typeof setDonutDefault === 'function') {
-    const originalSetDonutDefault = setDonutDefault;
-    window.setDonutDefault = function() {
-      originalSetDonutDefault();
-      const total = typeof totalExpenses === 'function' ? totalExpenses() : 0;
-      const value = document.getElementById('donutPct');
-      const label = document.getElementById('donutLabel');
-      if (value && typeof fmt === 'function') value.textContent = fmt(total);
-      if (label) label.textContent = isEnglish() ? 'Total' : 'Gesamt';
-    };
+  function refreshFocusDashboard() {
+    refreshReferenceMetrics();
+    if (typeof totalExpenses !== 'function' || typeof fmt !== 'function') return;
+    const total = totalExpenses();
+    const value = document.getElementById('donutPct');
+    const label = document.getElementById('donutLabel');
+    if (value) value.textContent = fmt(total);
+    if (label) label.textContent = isEnglish() ? 'Total' : 'Gesamt';
   }
 
-  if (typeof update === 'function') {
-    const originalUpdate = update;
-    window.update = function(...args) {
-      const result = originalUpdate.apply(this, args);
-      refreshReferenceMetrics();
-      if (typeof window.setDonutDefault === 'function') window.setDonutDefault();
-      return result;
-    };
-  }
+  document.addEventListener('budgetatlas:update', refreshFocusDashboard);
 
   let openMobileIO = () => {};
 
@@ -191,8 +181,7 @@
     });
   }
 
-  refreshReferenceMetrics();
-  if (typeof window.setDonutDefault === 'function') window.setDonutDefault();
+  refreshFocusDashboard();
   buildMobileIOMenu();
   buildMoreMenu();
 })();
@@ -355,16 +344,9 @@
     }
 
     syncMenus(c);
-    if (typeof update === 'function') update(false);
   }
 
-  const originalApplyLang = typeof applyLang === 'function' ? applyLang : null;
-  if (originalApplyLang) {
-    applyLang = function() {
-      originalApplyLang();
-      syncLanguageUI();
-    };
-  }
+  document.addEventListener('budgetatlas:languagechange', syncLanguageUI);
 
   window.syncBudgetAtlasLanguage = syncLanguageUI;
   syncLanguageUI();
@@ -391,23 +373,7 @@
     }
   }
 
-  const previousUpdate = window.update;
-  if (typeof previousUpdate === 'function') {
-    window.update = function(...args) {
-      const result = previousUpdate.apply(this, args);
-      updateHeroBudgetStatus();
-      return result;
-    };
-  }
-
-  const previousApplyLang = window.applyLang;
-  if (typeof previousApplyLang === 'function') {
-    window.applyLang = function(...args) {
-      const result = previousApplyLang.apply(this, args);
-      updateHeroBudgetStatus();
-      return result;
-    };
-  }
+  document.addEventListener('budgetatlas:update', updateHeroBudgetStatus);
 
   window.updateHeroBudgetStatus = updateHeroBudgetStatus;
   updateHeroBudgetStatus();
