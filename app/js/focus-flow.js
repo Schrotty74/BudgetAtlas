@@ -168,15 +168,16 @@
           <button type="button" data-more="io"><span>⇅</span><b>Import / Export</b><small>${isEnglish() ? 'Manage local data' : 'Lokale Daten verwalten'}</small></button>
           <button type="button" data-more="lang"><span>🌐</span><b>${isEnglish() ? 'Language' : 'Sprache'}</b><small>${isEnglish() ? 'Switch German / English' : 'Deutsch / Englisch wechseln'}</small></button>
           <button type="button" data-more="theme"><span>◐</span><b>${isEnglish() ? 'Appearance' : 'Darstellung'}</b><small>${isEnglish() ? 'Switch light / dark' : 'Hell / Dunkel wechseln'}</small></button>
-          <button type="button" data-more="page-size" aria-expanded="false"><span>☷</span><b></b><small></small></button>
+          <button type="button" data-more="page-size" aria-expanded="false"><span>☷</span><b>${isEnglish() ? 'List display' : 'Listenansicht'}</b><small>${isEnglish() ? `Income ${getPageSize('income')} · Expenses ${getPageSize('expenses')}` : `Einnahmen ${getPageSize('income')} · Ausgaben ${getPageSize('expenses')}`}</small></button>
           <div class="page-size-settings" hidden>
-            <label><span data-page-size-label="income"></span><select data-page-size="income"><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select></label>
-            <label><span data-page-size-label="expenses"></span><select data-page-size="expenses"><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select></label>
+            <label><span data-page-size-label="income">${isEnglish() ? 'Income' : 'Einnahmen'}</span><select data-page-size="income"><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select></label>
+            <label><span data-page-size-label="expenses">${isEnglish() ? 'Expenses' : 'Ausgaben'}</span><select data-page-size="expenses"><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select></label>
           </div>
         </div>
       </div>`;
 
     document.body.appendChild(sheet);
+    syncPageSizeMenu(sheet);
 
     const close = () => {
       sheet.classList.remove('open');

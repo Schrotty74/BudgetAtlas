@@ -1,9 +1,9 @@
-const CACHE = 'budgetatlas-v1.1-focus-flow-5';
+const CACHE = 'budgetatlas-v1.1-focus-flow-6';
 const ASSETS = [
   './',
   './index.html',
   './app/css/styles.css?v=1.1.2',
-  './app/css/focus-flow.css?v=1.1.1',
+  './app/css/focus-flow.css?v=1.1.2',
   './app/js/app.js?v=1.1.3',
   './app/js/io.js?v=1.1.1',
   './app/js/ui.js?v=1.1',
