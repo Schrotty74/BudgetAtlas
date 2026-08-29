@@ -20,6 +20,7 @@ These screenshots show fictional demo data only.
 - Add, edit and delete income and expenses
 - Swipe-to-delete with undo on mobile devices
 - Collapsible income and expense sections
+- Individually selectable entries per page for income and expenses (10–25; default: 10)
 - Excel import with preview and invalid-row feedback
 - Excel export
 - PDF export

@@ -70,6 +70,8 @@ Bekannte aktive Schlüssel:
 - `budgetLang`: Spracheinstellung (`de` oder `en`)
 - `budgetTheme`: Theme (`dark` oder `light`)
 - `sectionState`: Zustand eingeklappter Sektionen
+- `incomePageSize`: Einträge pro Seite für Einnahmen (10–25, Standard 10)
+- `expensePageSize`: Einträge pro Seite für Ausgaben (10–25, Standard 10)
 - `updateCheck`: Zeitstempel und zuletzt erkannte Online-Version
 
 Interne Ausgaben-Frequenzen bleiben deutsch gespeichert:
@@ -91,7 +93,7 @@ Aktuell enthalten sind insbesondere:
 - Prozentbalken für Ausgabenanteile
 - Hinzufügen, Bearbeiten und Löschen
 - Swipe-to-delete mit Rückgängig-Option
-- Seitennavigation für Einnahmen und Ausgaben ab mehr als 10 Einträgen je Liste
+- Seitennavigation für Einnahmen und Ausgaben ab mehr als der jeweils gewählten Eintragszahl (10–25; Standard 10), getrennt einstellbar und in JSON-Backups enthalten
 - einklappbare Einnahmen-/Ausgabenbereiche
 - Excel-Import mit Vorschau und Fehlerhinweisen
 - Excel-Export
@@ -114,7 +116,7 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-4`. Dieser Cache stellt sicher, dass bestehende Installationen die aktuelle Version `v1.1` samt mobiler Navigation, Styles, Schwebeeffekt und Seitennavigation laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-5`. Dieser Cache stellt sicher, dass bestehende Installationen die aktuelle Version `v1.1` samt mobiler Navigation, Styles, Schwebeeffekt und Seitennavigation laden.
 
 ## PWA-Icon
 

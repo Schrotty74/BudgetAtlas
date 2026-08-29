@@ -248,7 +248,11 @@ function exportJsonBackup() {
     settings: {
       lang: currentLang,
       theme: currentTheme,
-      sectionState: JSON.parse(localStorage.getItem('sectionState') || '{}')
+      sectionState: JSON.parse(localStorage.getItem('sectionState') || '{}'),
+      pageSizes: {
+        income: getListPageSize('income'),
+        expenses: getListPageSize('expenses')
+      }
     }
   };
 
@@ -321,7 +325,7 @@ function confirmImportPreview() {
 
 function containsBackupSettings(settings) {
   return !!settings && typeof settings === 'object' &&
-    ['lang', 'theme', 'sectionState'].some(key => Object.prototype.hasOwnProperty.call(settings, key));
+    ['lang', 'theme', 'sectionState', 'pageSizes'].some(key => Object.prototype.hasOwnProperty.call(settings, key));
 }
 
 function restoreJsonBackup(restoredData, settings) {
@@ -339,6 +343,14 @@ function restoreJsonBackup(restoredData, settings) {
   }
   if (settings.sectionState && typeof settings.sectionState === 'object') {
     localStorage.setItem('sectionState', JSON.stringify(settings.sectionState));
+  }
+  if (settings.pageSizes && typeof settings.pageSizes === 'object') {
+    ['income', 'expenses'].forEach(type => {
+      const pageSize = Number(settings.pageSizes[type]);
+      if (isListPageSize(pageSize)) {
+        localStorage.setItem(getListPageSizeKey(type), String(pageSize));
+      }
+    });
   }
   document.querySelectorAll('.section-body').forEach(el => el.classList.remove('collapsed'));
   document.querySelectorAll('.section-chevron').forEach(el => el.style.transform = '');

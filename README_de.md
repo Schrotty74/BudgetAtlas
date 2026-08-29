@@ -12,6 +12,7 @@ Die App speichert Budgetdaten ausschließlich lokal im Browser. Es gibt kein Kon
 - Einnahmen und Ausgaben hinzufügen, bearbeiten und löschen
 - Swipe-to-delete mit Rückgängig-Funktion auf Mobilgeräten
 - Einklappbare Einnahmen- und Ausgabenbereiche
+- Separat wählbare Einträge pro Seite für Einnahmen und Ausgaben (10–25; Standard: 10)
 - Excel-Import mit Vorschau und Hinweisen zu fehlerhaften Zeilen
 - Excel-Export
 - PDF-Export

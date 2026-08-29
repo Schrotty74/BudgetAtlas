@@ -31,9 +31,9 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - Vorhandene `localStorage`-Budgetdaten korrekt darstellen.
 - Einnahmen und Ausgaben hinzufügen, bearbeiten, löschen und per Rückgängig wiederherstellen.
 - Swipe-to-delete auf Mobilgerät prüfen.
-- Einnahmen und Ausgaben mit mehr als 10 Einträgen prüfen: Seitennavigation, Bearbeiten, Löschen und Rückgängig auf allen Seiten.
+- Einnahmen und Ausgaben mit mehr als der gewählten Eintragszahl prüfen: Auswahl 10/15/20/25, getrennte Speicherung für beide Listen, Seitennavigation, Bearbeiten, Löschen und Rückgängig auf allen Seiten.
 - Excel-Import mit `docs/examples/demo.xlsx` inklusive Vorschau prüfen.
-- JSON-Wiederherstellung inklusive Vorschau prüfen.
+- JSON-Wiederherstellung inklusive Vorschau und Wiederherstellung der Listeneinstellungen prüfen.
 - Excel-, PDF-, PNG- und JSON-Export prüfen.
 - Deutsch/Englisch-Umschaltung prüfen.
 - Dark-/Light-Mode prüfen.

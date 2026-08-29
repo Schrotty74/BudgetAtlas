@@ -140,7 +140,8 @@ let currentLang = localStorage.getItem('budgetLang') || 'de';
 let currentTheme = localStorage.getItem('budgetTheme') || 'dark';
 let pendingDelete = null;
 let undoTimer = null;
-const LIST_PAGE_SIZE = 10;
+const LIST_PAGE_SIZE_DEFAULT = 10;
+const LIST_PAGE_SIZE_OPTIONS = [10, 15, 20, 25];
 let incomePage = 0;
 let expensePage = 0;
 
@@ -347,15 +348,34 @@ function setListPage(type, page) {
   if (type === 'income') incomePage = page;
   else expensePage = page;
 }
+function getListPageSizeKey(type) {
+  return type === 'income' ? 'incomePageSize' : 'expensePageSize';
+}
+function isListPageSize(value) {
+  return LIST_PAGE_SIZE_OPTIONS.includes(Number(value));
+}
+function getListPageSize(type) {
+  const saved = Number(localStorage.getItem(getListPageSizeKey(type)));
+  return isListPageSize(saved) ? saved : LIST_PAGE_SIZE_DEFAULT;
+}
+function setListPageSize(type, value) {
+  const pageSize = Number(value);
+  if (!isListPageSize(pageSize)) return;
+  localStorage.setItem(getListPageSizeKey(type), String(pageSize));
+  if (editing?.type === type) editing = null;
+  clampListPage(type);
+  update(false);
+  document.dispatchEvent(new CustomEvent('budgetatlas:pagesizechange', { detail: { type, pageSize } }));
+}
 function clampListPage(type) {
-  const totalPages = Math.max(1, Math.ceil(listForType(type).length / LIST_PAGE_SIZE));
+  const totalPages = Math.max(1, Math.ceil(listForType(type).length / getListPageSize(type)));
   const page = Math.min(Math.max(getListPage(type), 0), totalPages - 1);
   setListPage(type, page);
   return page;
 }
 function changeListPage(type, delta) {
   const current = clampListPage(type);
-  const totalPages = Math.max(1, Math.ceil(listForType(type).length / LIST_PAGE_SIZE));
+  const totalPages = Math.max(1, Math.ceil(listForType(type).length / getListPageSize(type)));
   const next = Math.min(Math.max(current + delta, 0), totalPages - 1);
   if (next === current) return;
   if (editing?.type === type) editing = null;
@@ -365,7 +385,7 @@ function changeListPage(type, delta) {
 function renderListPagination(type) {
   const container = document.getElementById(type === 'income' ? 'incomePagination' : 'expensePagination');
   if (!container) return;
-  const totalPages = Math.ceil(listForType(type).length / LIST_PAGE_SIZE);
+  const totalPages = Math.ceil(listForType(type).length / getListPageSize(type));
   if (totalPages <= 1) {
     container.innerHTML = '';
     return;
@@ -380,8 +400,9 @@ function renderIncome() {
   const container = document.getElementById('incomeRows');
   container.innerHTML = '';
   const page = clampListPage('income');
-  const start = page * LIST_PAGE_SIZE;
-  income.slice(start, start + LIST_PAGE_SIZE).forEach((r, offset) => {
+  const pageSize = getListPageSize('income');
+  const start = page * pageSize;
+  income.slice(start, start + pageSize).forEach((r, offset) => {
     const i = start + offset;
     const wrap = document.createElement('div');
     wrap.className = 'row-wrap';
@@ -414,8 +435,9 @@ function renderExpenses() {
   const container = document.getElementById('expenseRows');
   container.innerHTML = '';
   const page = clampListPage('expense');
-  const start = page * LIST_PAGE_SIZE;
-  expenses.slice(start, start + LIST_PAGE_SIZE).forEach((r, offset) => {
+  const pageSize = getListPageSize('expenses');
+  const start = page * pageSize;
+  expenses.slice(start, start + pageSize).forEach((r, offset) => {
     const i = start + offset;
     const pct = total > 0 ? r.monthly/total*100 : 0;
     const large = pct > 30;
@@ -572,7 +594,7 @@ function confirmAddIncome() {
   const amount=parseFloat(document.getElementById('aiAmount').value);
   if(!name||isNaN(amount)||amount<=0){document.getElementById('aiName').focus();return;}
   income.push({icon,name,amount});
-  incomePage = Math.floor((income.length - 1) / LIST_PAGE_SIZE);
+  incomePage = Math.floor((income.length - 1) / getListPageSize('income'));
   document.getElementById('aiName').value=''; document.getElementById('aiAmount').value=''; document.getElementById('aiIcon').value='💰';
   closeAdd('income'); update(true);
 }
@@ -583,7 +605,7 @@ function confirmAddExpense() {
   const freq=document.getElementById('aeFreq').value;
   if(!name||isNaN(raw)||raw<=0){document.getElementById('aeName').focus();return;}
   expenses.push({icon,name,freq,amount:raw,monthly:freqToMonthly(raw,freq)});
-  expensePage = Math.floor((expenses.length - 1) / LIST_PAGE_SIZE);
+  expensePage = Math.floor((expenses.length - 1) / getListPageSize('expenses'));
   document.getElementById('aeName').value=''; document.getElementById('aeAmount').value=''; document.getElementById('aeIcon').value='💸';
   closeAdd('expense'); update(true);
 }

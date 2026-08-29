@@ -73,6 +73,7 @@
       </div>`;
 
     document.body.appendChild(sheet);
+    syncPageSizeMenu(sheet);
 
     const close = () => {
       sheet.classList.remove('open');
@@ -119,6 +120,34 @@
     });
   }
 
+  function getPageSize(type) {
+    return typeof getListPageSize === 'function' ? getListPageSize(type) : 10;
+  }
+
+  function syncPageSizeMenu(sheet = document.getElementById('mobileMoreSheet')) {
+    if (!sheet) return;
+    const english = isEnglish();
+    const item = sheet.querySelector('[data-more="page-size"]');
+    if (item) {
+      const title = item.querySelector('b');
+      const subtitle = item.querySelector('small');
+      if (title) title.textContent = english ? 'List display' : 'Listenansicht';
+      if (subtitle) subtitle.textContent = english
+        ? `Income ${getPageSize('income')} · Expenses ${getPageSize('expenses')}`
+        : `Einnahmen ${getPageSize('income')} · Ausgaben ${getPageSize('expenses')}`;
+    }
+    sheet.querySelectorAll('[data-page-size]').forEach(select => {
+      select.value = String(getPageSize(select.dataset.pageSize));
+      const label = sheet.querySelector(`[data-page-size-label="${select.dataset.pageSize}"]`);
+      if (label) label.textContent = english
+        ? (select.dataset.pageSize === 'income' ? 'Income' : 'Expenses')
+        : (select.dataset.pageSize === 'income' ? 'Einnahmen' : 'Ausgaben');
+      select.setAttribute('aria-label', english
+        ? `${select.dataset.pageSize === 'income' ? 'Income' : 'Expenses'} entries per page`
+        : `${select.dataset.pageSize === 'income' ? 'Einnahmen' : 'Ausgaben'} pro Seite`);
+    });
+  }
+
   function buildMoreMenu() {
     const moreButton = document.querySelector('.bottom-nav button:last-child');
     if (!moreButton) return;
@@ -139,6 +168,11 @@
           <button type="button" data-more="io"><span>⇅</span><b>Import / Export</b><small>${isEnglish() ? 'Manage local data' : 'Lokale Daten verwalten'}</small></button>
           <button type="button" data-more="lang"><span>🌐</span><b>${isEnglish() ? 'Language' : 'Sprache'}</b><small>${isEnglish() ? 'Switch German / English' : 'Deutsch / Englisch wechseln'}</small></button>
           <button type="button" data-more="theme"><span>◐</span><b>${isEnglish() ? 'Appearance' : 'Darstellung'}</b><small>${isEnglish() ? 'Switch light / dark' : 'Hell / Dunkel wechseln'}</small></button>
+          <button type="button" data-more="page-size" aria-expanded="false"><span>☷</span><b></b><small></small></button>
+          <div class="page-size-settings" hidden>
+            <label><span data-page-size-label="income"></span><select data-page-size="income"><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select></label>
+            <label><span data-page-size-label="expenses"></span><select data-page-size="expenses"><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option></select></label>
+          </div>
         </div>
       </div>`;
 
@@ -168,6 +202,14 @@
       }
       const action = event.target.closest('[data-more]')?.dataset.more;
       if (!action) return;
+      if (action === 'page-size') {
+        const panel = sheet.querySelector('.page-size-settings');
+        const expanded = panel?.hidden;
+        if (panel) panel.hidden = !expanded;
+        event.target.closest('[data-more="page-size"]')?.setAttribute('aria-expanded', String(!!expanded));
+        if (expanded) setTimeout(() => panel?.querySelector('select')?.focus(), 0);
+        return;
+      }
       close();
       if (action === 'mix') {
         setTimeout(() => document.getElementById('mixSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 190);
@@ -179,7 +221,17 @@
         toggleTheme();
       }
     });
+
+    sheet.addEventListener('change', event => {
+      const select = event.target.closest('[data-page-size]');
+      if (!select || typeof setListPageSize !== 'function') return;
+      setListPageSize(select.dataset.pageSize, select.value);
+      syncPageSizeMenu(sheet);
+    });
   }
+
+  document.addEventListener('budgetatlas:pagesizechange', () => syncPageSizeMenu());
+  document.addEventListener('budgetatlas:languagechange', () => syncPageSizeMenu());
 
   refreshFocusDashboard();
   buildMobileIOMenu();

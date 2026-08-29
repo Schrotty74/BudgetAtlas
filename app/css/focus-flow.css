@@ -145,6 +145,11 @@
 .mobile-more-list button>b{align-self:end;font-size:.72rem}
 .mobile-more-list button>small{align-self:start;margin-top:2px;color:#71899a;font-size:.55rem}
 .mobile-more-list button:active{transform:scale(.985)}
+.page-size-settings{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:0 2px;padding:9px;border:1px solid #183c52;border-radius:12px;background:rgba(6,22,34,.68)}
+.page-size-settings[hidden]{display:none}
+.page-size-settings label{display:flex;align-items:center;justify-content:space-between;gap:7px;min-width:0;color:#96adbc;font-size:.61rem;font-weight:700}
+.page-size-settings select{min-width:58px;min-height:34px;padding:0 8px;border:1px solid #28516a;border-radius:8px;background:#0a1d2a;color:#d9edf6;font:600 .68rem 'DM Mono',monospace;outline:0}
+.page-size-settings select:focus{border-color:#49def4;box-shadow:0 0 0 2px rgba(73,222,244,.16)}
 
 /* High-contrast Light Mode */
 html.light{--bg:#eaf2f6;--panel:#ffffff;--panel-2:#f4f8fb;--line:#a9c2d0;--line-strong:#7fa5b9;--text:#102432;--muted:#526d7d;--cyan:#078da8;--accent:#0c9b55;--orange:#c45c00;--red:#c23d48}
@@ -207,6 +212,9 @@ html.light .mobile-io-action,html.light .mobile-more-list button{border-color:#b
 html.light .mobile-io-action span,html.light .mobile-more-list button>span{background:#dff1f5;color:#087f98}
 html.light .mobile-io-action.primary{border-color:#88b7c5;background:#eef9fb}
 html.light .mobile-more-list button>small{color:#587586}
+html.light .page-size-settings{border-color:#b4cbd6;background:#f7fbfd}
+html.light .page-size-settings label{color:#466475}
+html.light .page-size-settings select{border-color:#9bb8c6;background:#fff;color:#17485b}
 html.light .import-preview{border-color:#a8c3cf;background:#fff;color:#173142;box-shadow:0 22px 60px rgba(30,65,82,.22)}
 html.light .import-preview-summary,html.light .import-preview-notice,html.light .import-preview-details{color:#526f80}
 html.light .import-preview-cancel{border-color:#a8c3cf;color:#36596a}
