@@ -59,11 +59,9 @@
   body{padding-bottom:calc(61px + env(safe-area-inset-bottom))}
   .main-content{padding:calc(4px + env(safe-area-inset-top)) 11px 22px}
 
-  /* Reference mobile header: menu | month | compact action */
-  .topbar{grid-template-columns:38px 1fr 52px;gap:5px;min-height:50px;margin-bottom:7px;padding:0 2px}
-  .mobile-menu-btn{width:34px;height:34px;border:1px solid #1b3a50;border-radius:9px;background:#081724;font-size:0}
-  .mobile-menu-btn::before{content:'☰';font-size:.92rem;color:#9bb0bf}
-  .month-control{justify-self:center;display:flex;align-items:center;gap:4px}
+  /* Mobile header: month | compact action */
+  .topbar{grid-template-columns:minmax(0,1fr) auto;gap:5px;min-height:50px;margin-bottom:7px;padding:0 2px}
+  .month-control{justify-self:start;display:flex;align-items:center;gap:4px}
   .month-control>div{min-width:105px}
   .month-control strong{font-size:.8rem;font-weight:700}
   .month-control button{display:none}
@@ -195,8 +193,6 @@ html.light .io-toggle small,html.light .side-footer{color:#587586}
 html.light .io-dropdown{border-color:#9fbecb;background:#fff;box-shadow:0 16px 40px rgba(31,67,85,.16)}
 html.light .io-item{border-color:#d2e0e7;color:#264657}
 html.light .io-item:hover{background:#eef7fa;color:#087f98}
-html.light .mobile-menu-btn{border-color:#9fbecb;background:#f7fbfd}
-html.light .mobile-menu-btn::before{color:#244657}
 html.light #langBtn{color:#466878}
 html.light .bottom-nav{border-color:#b8ccd6;background:rgba(248,251,253,.97)}
 html.light .bottom-nav button{color:#587586}

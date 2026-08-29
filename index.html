@@ -25,7 +25,7 @@ html.light .quick-card button{min-height:62px;border:1px solid #a0bcc9;border-ra
 html.light .quick-card button:active{background:#e5f1f6;border-color:#5c93a9;transform:scale(.98)}html.light .quick-card button span{width:34px;height:34px;border:1px solid #5f99ad;background:#d5edf3;color:#006d86;box-shadow:inset 0 0 0 1px rgba(255,255,255,.65)}html.light .quick-card button b{color:#163849;font-weight:700}
 html.light .btn-add{border:1px dashed #5f93aa;background:#f3f8fb;color:#006f89;font-weight:800}html.light .btn-add:active{background:#e6f1f5}
 html.light .row{border-color:#aec6d1}html.light .row-icon{background:#dcece5}html.light .icon-btn{color:#355d70}
-html.light .mobile-menu-btn{border-color:#82a6b8;background:#f7fbfd}html.light .mobile-menu-btn::before{color:#24495b}html.light #langBtn{color:#31596b}
+html.light #langBtn{color:#31596b}
 html.light .bottom-nav{border-top-color:#8eaaba;background:rgba(244,249,252,.98)!important;box-shadow:0 -4px 14px rgba(28,61,79,.10)}html.light .bottom-nav button{color:#456574}html.light .bottom-nav button.active{color:#006f89}
 html.light .sidebar{background:linear-gradient(180deg,#fbfdfe,#eef5f8);border-right-color:#9fb8c5}html.light .nav-item{color:#355668}html.light .nav-item span{color:#456d80}html.light .nav-item:hover,html.light .nav-item.active{background:#dbeaf1;color:#0d2d3e}html.light .nav-item.active span{color:#006f89}
 html.light .io-toggle{border-color:#7ea5b7;background:#eef6f9;color:#123444}html.light .io-toggle small{color:#486473}
@@ -70,12 +70,9 @@ if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').ca
     <div class="side-footer"><span class="status-dot"></span><span>Daten lokal gespeichert</span></div>
   </aside>
 
-  <div class="mobile-scrim" id="mobileScrim"></div>
-
   <main class="main-content" id="overview">
     <div id="installBanner" class="notice-banner"><span>📲 Als App installieren — läuft dann offline</span><button class="install-btn" id="installBtn">Installieren</button><button class="dismiss-btn" onclick="dismissInstall()">×</button></div>
     <header class="topbar">
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü öffnen">☰</button>
       <div class="month-control"><button aria-label="Voriger Monat">‹</button><div><strong id="monthLabel">Aktueller Monat</strong><small class="header-label">Monatliche Übersicht</small></div><button aria-label="Nächster Monat">›</button></div>
       <div class="header"><h1><span class="hl">BudgetAtlas</span> <span id="offlineBadge">Offline</span></h1></div>
       <div class="top-controls"><a class="ctrl-btn icon-only desktop-only" id="discordBtn" href="https://discord.gg/RbsvqRCPQ" target="_blank" rel="noopener noreferrer" title="Discord" aria-label="Discord">◈</a><a class="ctrl-btn icon-only desktop-only" id="githubBtn" href="https://github.com/Schrotty74/BudgetAtlas" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">⌘</a><button class="ctrl-btn" id="langBtn" onclick="toggleLang()">🌐 DE</button><button class="ctrl-btn compact-theme" id="themeBtn" onclick="toggleTheme()">☀️</button></div>

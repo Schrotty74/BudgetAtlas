@@ -48,14 +48,14 @@ Die verbindliche visuelle Richtung ist das Konzept „Vorschlag 2 – Focus & Fl
 Der aktuelle Stand wurde stärker an diese Referenz angeglichen:
 
 - kompakter Monatskopf statt großer mobiler App-Überschrift
-- Desktop-Sidebar mit zurückhaltender Navigation
+- Desktop-Sidebar mit zurückhaltender Navigation; auf Mobilgeräten wird sie nicht als zusätzliches Menü geöffnet
+- Mobile-Bottom-Navigation mit „Mehr“ als einzigem Zugang zu Ausgaben-Mix, Import/Export, Sprache und Darstellung
 - deutlich kompaktere Karten, Abstände und Radien
 - große Polster-Karte mit Bergsilhouette im Hintergrund, Fortschrittsbalken und Ausgabenanteil; ohne dekorative aufsteigende Linie
 - Fortschrittsbalken plus abgeleiteter Ausgabenanteil
 - kompakter Ausgaben-Mix mit Donut, Legende und Gesamtausgaben
 - Einnahmen-/Ausgaben-Karten mit Icons und dezenten Trend-Akzenten
 - Schnellzugriff nur für tatsächlich vorhandene Funktionen: Einnahme, Ausgabe und Import/Export
-- Mobile-Bottom-Navigation mit vier gleichwertigen Einträgen: Übersicht, Einnahmen, Ausgaben und Mehr
 - Cyan wird primär für Navigation/Aktionen eingesetzt, Grün für positive Werte und Orange für Ausgaben
 - keine Konzeptfunktionen wie Belegscanner, Konten, Budgets oder Ziele wurden erfunden
 - `prefers-reduced-motion` bleibt berücksichtigt
