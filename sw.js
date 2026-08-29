@@ -2,7 +2,7 @@ const CACHE = 'budgetatlas-v1.0-focus-flow-3';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css?v=14',
+  './styles.css?v=15',
   './focus-flow.css?v=15',
   './app.js?v=14',
   './io.js?v=14',
