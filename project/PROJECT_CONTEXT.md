@@ -16,7 +16,7 @@ Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine 
 
 - Das aktuelle `main` von BudgetAtlas basiert auf dem Redesign aus `Schrotty74/BudgetApp` Branch `beta`.
 - BudgetAtlas ist inzwischen ein eigenständiges Repository und `main` ist der aktuelle Entwicklungsstand.
-- BudgetAtlas beginnt als eigenständiges Projekt mit einer eigenen Versionslinie bei `v1.0`; die frühere BudgetApp-Versionszählung wird nicht fortgeführt.
+- BudgetAtlas beginnt als eigenständiges Projekt mit einer eigenen Versionslinie bei `v1.0`; die frühere BudgetApp-Versionszählung ist vollständig in `docs/legacy/BudgetApp_CHANGELOG.md` archiviert und wird nicht fortgeführt.
 - Alte BudgetApp-Handbücher, Screenshots und große alte Branding-Grafiken wurden bewusst nicht übernommen, weil sie Oberfläche und Bezeichnungen des neuen Projekts nicht mehr korrekt darstellen.
 - `docs/examples/demo.xlsx` ist kompatibel und bleibt als Demo-Datei für Excel-Importtests erhalten.
 - BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel.
