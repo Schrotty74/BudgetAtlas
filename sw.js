@@ -1,4 +1,4 @@
-const CACHE = 'budgetatlas-v1.1-focus-flow-18';
+const CACHE = 'budgetatlas-v1.1-focus-flow-19';
 const ASSETS = [
   './',
   './index.html',
@@ -8,13 +8,16 @@ const ASSETS = [
   './app/js/io.js?v=1.1.1',
   './app/js/ui.js?v=1.1',
   './app/js/focus-flow.js?v=1.1.2',
-  './manifest.json',
-  './assets/icons/apple-touch-icon.png?v=8',
-  './assets/icons/icon-192.png?v=8',
-  './assets/icons/icon-512.png?v=8',
-  './assets/icons/icon-1024.png?v=8',
-  './assets/icons/maskable-192.png?v=8',
-  './assets/icons/maskable-512.png?v=8',
+  './manifest.json?v=9',
+  './assets/icons/favicon-16.png?v=9',
+  './assets/icons/favicon-32.png?v=9',
+  './assets/icons/favicon-48.png?v=9',
+  './assets/icons/apple-touch-icon.png?v=9',
+  './assets/icons/icon-192.png?v=9',
+  './assets/icons/icon-512.png?v=9',
+  './assets/icons/icon-1024.png?v=9',
+  './assets/icons/maskable-192.png?v=9',
+  './assets/icons/maskable-512.png?v=9',
   './version.json',
   'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap'
 ];
