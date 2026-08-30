@@ -42,42 +42,42 @@
         fill="url(#bg)" stroke="#323b4f" stroke-width="8"/>
 
   <!-- Inner dashboard panel -->
-  <rect x="112" y="112" width="800" height="800" rx="128"
+  <rect x="56" y="56" width="912" height="912" rx="140"
         fill="url(#panel)" stroke="#3c4659" stroke-width="6"/>
 
   <!-- Donut chart -->
   <g transform="translate(0 0)">
-    <circle cx="392" cy="388" r="152" fill="none" stroke="#17202d" stroke-width="82"/>
+    <circle cx="350" cy="350" r="180" fill="none" stroke="#17202d" stroke-width="96"/>
 
     <!-- Cyan ~52% -->
-    <circle cx="392" cy="388" r="152" fill="none"
-            stroke="url(#cyan)" stroke-width="82" stroke-linecap="butt"
-            stroke-dasharray="497 458" stroke-dashoffset="0"
-            transform="rotate(-90 392 388)"/>
+    <circle cx="350" cy="350" r="180" fill="none"
+            stroke="url(#cyan)" stroke-width="96" stroke-linecap="butt"
+            stroke-dasharray="590 541" stroke-dashoffset="0"
+            transform="rotate(-90 350 350)"/>
 
     <!-- Blue ~31% -->
-    <circle cx="392" cy="388" r="152" fill="none"
-            stroke="url(#blue)" stroke-width="82" stroke-linecap="butt"
-            stroke-dasharray="296 659" stroke-dashoffset="-514"
-            transform="rotate(-90 392 388)"/>
+    <circle cx="350" cy="350" r="180" fill="none"
+            stroke="url(#blue)" stroke-width="96" stroke-linecap="butt"
+            stroke-dasharray="350 781" stroke-dashoffset="-610"
+            transform="rotate(-90 350 350)"/>
 
     <!-- Lime ~17% -->
-    <circle cx="392" cy="388" r="152" fill="none"
-            stroke="url(#lime)" stroke-width="82" stroke-linecap="butt"
-            stroke-dasharray="162 793" stroke-dashoffset="-828"
-            transform="rotate(-90 392 388)"/>
+    <circle cx="350" cy="350" r="180" fill="none"
+            stroke="url(#lime)" stroke-width="96" stroke-linecap="butt"
+            stroke-dasharray="192 939" stroke-dashoffset="-975"
+            transform="rotate(-90 350 350)"/>
 
     <circle cx="392" cy="388" r="94" fill="#0a0f17"/>
   </g>
 
   <!-- Bars -->
   <g>
-    <rect x="430" y="644" width="88" height="166" rx="24" fill="url(#blue)"/>
-    <rect x="540" y="590" width="88" height="220" rx="24" fill="#0b9fe8"/>
-    <rect x="650" y="520" width="88" height="290" rx="24" fill="url(#cyan)"/>
-    <rect x="760" y="430" width="88" height="380" rx="24" fill="url(#lime)"/>
+    <rect x="480" y="650" width="100" height="205" rx="28" fill="url(#blue)"/>
+    <rect x="600" y="580" width="100" height="275" rx="28" fill="#0b9fe8"/>
+    <rect x="720" y="495" width="100" height="360" rx="28" fill="url(#cyan)"/>
+    <rect x="840" y="385" width="100" height="470" rx="28" fill="url(#lime)"/>
   </g>
 
   <!-- Subtle highlights -->
-  <path d="M215 190 H810" stroke="#ffffff" stroke-opacity="0.06" stroke-width="4" stroke-linecap="round"/>
+  <path d="M160 155 H864" stroke="#ffffff" stroke-opacity="0.06" stroke-width="4" stroke-linecap="round"/>
 </svg>
