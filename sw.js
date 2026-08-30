@@ -1,4 +1,4 @@
-const CACHE = 'budgetatlas-v1.1-focus-flow-12';
+const CACHE = 'budgetatlas-v1.1-focus-flow-13';
 const ASSETS = [
   './',
   './index.html',
@@ -9,6 +9,7 @@ const ASSETS = [
   './app/js/ui.js?v=1.1',
   './app/js/focus-flow.js?v=1.1.2',
   './manifest.json',
+  './apple-touch-icon.png?v=4',
   './assets/icons/budgetatlas.svg?v=3',
   './assets/icons/budgetatlas-icon-v3-180.png',
   './assets/icons/budgetatlas-icon-v3-192.png',
