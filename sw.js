@@ -1,4 +1,4 @@
-const CACHE = 'budgetatlas-v1.1-focus-flow-17';
+const CACHE = 'budgetatlas-v1.1-focus-flow-18';
 const ASSETS = [
   './',
   './index.html',
@@ -9,15 +9,12 @@ const ASSETS = [
   './app/js/ui.js?v=1.1',
   './app/js/focus-flow.js?v=1.1.2',
   './manifest.json',
-  './apple-touch-icon.png?v=4',
-  './manifest.json',
-  './manifest.json',
-  './assets/icons/budgetatlas.svg?v=6',
-  './apple-touch-icon.png?v=7',
-  './assets/icons/icon-512.png',
-  './assets/icons/icon-1024.png',
-  './assets/icons/maskable-192.png',
-  './assets/icons/maskable-512.png',
+  './assets/icons/apple-touch-icon.png?v=8',
+  './assets/icons/icon-192.png?v=8',
+  './assets/icons/icon-512.png?v=8',
+  './assets/icons/icon-1024.png?v=8',
+  './assets/icons/maskable-192.png?v=8',
+  './assets/icons/maskable-512.png?v=8',
   './version.json',
   'https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap'
 ];
