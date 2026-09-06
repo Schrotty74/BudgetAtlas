@@ -4,7 +4,12 @@
 
 ## Supported Versions
 
-Security reports are accepted for the current published BudgetAtlas version.
+| Version | Supported |
+| --- | --- |
+| 1.1.x | Yes |
+| 1.0.x and earlier | No |
+
+The currently documented version is 1.1.
 
 ## Reporting a Vulnerability
 
