@@ -1,6 +1,6 @@
 # BudgetAtlas Project Context
 
-Stand: 2026-08-29
+Stand: 2026-09-10
 
 Aktuelle dokumentierte App-Version: `v1.1`
 
@@ -38,7 +38,8 @@ Wichtige Dateien:
 - `manifest.json`: PWA-Manifest
 - `version.json`: Versionssignal für den Update-Hinweis
 - `docs/examples/demo.xlsx`: kompatible Demo-Datei mit fiktiven Beispieldaten für Excel-Importtests
-- `docs/manuals/build_manuals.py`: erzeugt die DE- und EN-Handbücher aus den aktuellen, fiktiven Screenshots; die PDFs liegen im selben Ordner
+- `docs/manuals/build_manuals.py`: erzeugt die DE- und EN-Handbücher aus den aktuellen, fiktiven Screenshots
+- `docs/manuals/screenshots/`: die eingecheckten, bereinigten Bildquellen für die Handbücher; die PDFs liegen in `docs/manuals/`
 
 Die Budget- und Import-/Exportlogik wurde bei der visuellen Focus-&-Flow-Angleichung nicht umgebaut.
 

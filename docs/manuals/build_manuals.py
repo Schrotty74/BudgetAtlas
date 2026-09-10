@@ -14,22 +14,22 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "docs" / "manuals"
-USER_PHOTOS = Path("/Users/martin/Pictures/Photos Library.photoslibrary")
+SCREENSHOTS = OUT / "screenshots"
 
 IMAGES = {
-    "mobile_dark": USER_PHOTOS / "resources/derivatives/7/7DDF4400-BF47-4E54-BD43-4C95C6676311_1_105_c.jpeg",
-    "mobile_light": USER_PHOTOS / "resources/derivatives/1/1B6F58D8-F77A-4899-BF01-D83E03C997A4_1_105_c.jpeg",
-    "desktop_dark": USER_PHOTOS / "resources/derivatives/F/F7EB8B9C-7B16-436E-BC54-E2D3044C61DE_1_105_c.jpeg",
-    "desktop_light": USER_PHOTOS / "originals/F/F81AAA9C-769C-4E07-8364-AE80F65B1EC6.png",
-    "quick": USER_PHOTOS / "resources/renders/4/4F26FF4D-6A25-476A-A27A-FFC0D4F9CF12_1_201_a.jpeg",
-    "income_add": USER_PHOTOS / "resources/renders/3/37A0C2DF-38F2-4CAC-9CEA-9EC9AE5F16B7_1_201_a.jpeg",
-    "expense_add": USER_PHOTOS / "resources/renders/F/FF22786E-F05B-417F-8710-DB2077B16A78_1_201_a.jpeg",
-    "bottom_nav": USER_PHOTOS / "resources/renders/4/4F717A1F-5FD1-4770-8E3E-0CC5F1F60993_1_201_a.jpeg",
-    "more": USER_PHOTOS / "resources/derivatives/2/22AFC768-6791-47C0-A3EB-B33EAA2EEBE5_1_105_c.jpeg",
-    "list_display": USER_PHOTOS / "resources/renders/3/356399C3-190E-4BF2-967D-0FDD143DB1C0_1_201_a.jpeg",
-    "io": USER_PHOTOS / "resources/renders/D/D9C54357-7042-48B1-905F-CC6B20BFD6B9_1_201_a.jpeg",
-    "desktop_nav": USER_PHOTOS / "resources/derivatives/masters/B/B407089B-5007-4CBA-8A57-C6A98A9B92F8_4_5005_c.jpeg",
-    "month_header": USER_PHOTOS / "resources/renders/6/696A7F4F-8BCE-473A-93AE-F27F7DAF9478_1_201_a.jpeg",
+    "mobile_dark": SCREENSHOTS / "mobile-dark.jpg",
+    "mobile_light": SCREENSHOTS / "mobile-light.jpg",
+    "desktop_dark": SCREENSHOTS / "desktop-dark.jpg",
+    "desktop_light": SCREENSHOTS / "desktop-light.png",
+    "quick": SCREENSHOTS / "quick-access.jpg",
+    "income_add": SCREENSHOTS / "income-add.jpg",
+    "expense_add": SCREENSHOTS / "expense-add.jpg",
+    "bottom_nav": SCREENSHOTS / "bottom-navigation.jpg",
+    "more": SCREENSHOTS / "more-menu.jpg",
+    "list_display": SCREENSHOTS / "list-display.jpg",
+    "io": SCREENSHOTS / "import-export.jpg",
+    "desktop_nav": SCREENSHOTS / "desktop-sidebar.jpg",
+    "month_header": SCREENSHOTS / "month-header.jpg",
 }
 
 INK = colors.HexColor("#F1F8FC")
@@ -44,7 +44,7 @@ LINE = colors.HexColor("#27526B")
 def img(name, width, max_height=None):
     path = IMAGES[name]
     if not path.exists():
-        raise FileNotFoundError(path)
+        raise FileNotFoundError(f"Missing manual screenshot: {path}")
     image = Image(str(path))
     ratio = image.imageHeight / image.imageWidth
     height = width * ratio
