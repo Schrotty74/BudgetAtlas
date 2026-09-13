@@ -4,18 +4,6 @@ Stand: 2026-08-29
 
 Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Projekts.
 
-## Aktueller Stand
-
-- Aktuelle dokumentierte App-Version: `v1.1`
-- `main` enthält das eigenständige BudgetAtlas-Redesign.
-- BudgetAtlas verwendet eine eigene Versionslinie, die mit `v1.0` begann; aktuell dokumentiert ist `v1.1`. Die frühere BudgetApp-Versionszählung wird nicht fortgeführt.
-- Die Oberfläche wurde deutlich an die visuelle Referenz „Vorschlag 2 – Focus & Flow“ angeglichen.
-- Datenmodell, `localStorage`, Budgetlogik und Import-/Exportlogik wurden dabei nicht umgebaut.
-- Architektur: `index.html`, `app/css/styles.css`, `app/css/focus-flow.css`, `app/js/app.js`, `app/js/io.js`, `app/js/ui.js`, `app/js/focus-flow.js`, `sw.js`.
-- `docs/examples/demo.xlsx` bleibt als kompatible Demo-Datei für Importtests erhalten.
-- Die beiden Handbücher und READMEs zeigen ausschließlich fiktive Demo-Daten und enthalten Desktop- und Mobilansichten; das helle Theme wird im Handbuch nur im Theme-Vergleich gezeigt.
-- Kein Framework, kein Paketmanager und kein Build-Schritt wurden hinzugefügt.
-
 ## Priorität 1 – aktuellen Stand prüfen
 
 - Live-Seite auf iPhone prüfen und direkt mit der Focus-&-Flow-Mobilvorlage vergleichen.
@@ -33,13 +21,6 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 - Nur tatsächlich gefundene Layout- oder Funktionsprobleme korrigieren.
 - Eigenes BudgetAtlas-PWA-Icon erstellen und danach Manifest, HTML und Service Worker entsprechend ergänzen.
 - Vor einer späteren öffentlichen Veröffentlichung README, Portfolio-Hinweise und öffentliche Links nochmals prüfen.
-
-## Release
-
-- BudgetAtlas verwendet aktuell die dokumentierte Version `v1.1`.
-- Sichtbare Versionsanzeige, `version.json`, Update-Prüfung, Changelog und Service-Worker-Cache sind auf die BudgetAtlas-Versionslinie abgestimmt.
-- Es wurde noch kein separater GitHub-Release oder Tag für BudgetAtlas erstellt.
-- Kein Tag oder Release ohne ausdrücklichen Auftrag.
 
 ## Bekannte Einschränkungen
 
