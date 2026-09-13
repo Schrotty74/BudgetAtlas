@@ -11,8 +11,8 @@ https://github.com/Schrotty74/BudgetAtlas
 Bitte lies vor Beginn:
 
 1. `AGENTS.md`
-2. `project/PROJECT_CONTEXT.md`
-3. `project/NEXT_STEPS.md`
+2. `PROJECT_CONTEXT.md`
+3. `NEXT_STEPS.md`
 4. `CHANGELOG.md`
 5. `README.md` und `README_de.md`, wenn die Änderung öffentliche Dokumentation betrifft
 6. `PORTFOLIO_UPDATE.md` vor einer öffentlichen Veröffentlichung
@@ -23,7 +23,7 @@ Prüfe vor Aussagen oder Änderungen den tatsächlichen Projektzustand. Halte de
 
 BudgetAtlas-spezifisch:
 
-- Die verbindlichen Architektur-, Versions-, Daten- und Veröffentlichungsregeln stehen in `project/PROJECT_CONTEXT.md`.
+- Die verbindlichen Architektur-, Versions-, Daten- und Veröffentlichungsregeln stehen in `PROJECT_CONTEXT.md`.
 
 Aktueller Auftrag:
 
