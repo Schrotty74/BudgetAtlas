@@ -1,6 +1,6 @@
 # BudgetAtlas Next Steps
 
-Stand: 2026-08-29
+Stand: 2026-09-18
 
 Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Projekts.
 
@@ -19,7 +19,6 @@ Diese Datei beschreibt nur bekannte, realistisch offene Punkte des aktuellen Pro
 ## Priorität 2
 
 - Nur tatsächlich gefundene Layout- oder Funktionsprobleme korrigieren.
-- Eigenes BudgetAtlas-PWA-Icon erstellen und danach Manifest, HTML und Service Worker entsprechend ergänzen.
 - Vor einer späteren öffentlichen Veröffentlichung README, Portfolio-Hinweise und öffentliche Links nochmals prüfen.
 
 ## Bekannte Einschränkungen
