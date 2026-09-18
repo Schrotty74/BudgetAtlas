@@ -1,4 +1,4 @@
-🇩🇪 [Deutsche Version](README_de.md)
+🇩🇪 [Deutsche Version](README_de.md) · 📖 [English User Guide (PDF)](docs/manuals/BudgetAtlas_User_Guide_EN.pdf)
 
 <img src="assets/icons/icon-192.png" alt="BudgetAtlas Icon" width="160">
 
@@ -91,6 +91,25 @@ BudgetAtlas uses its own version line, which started at `v1.0`; the current docu
 ## Repository
 
 https://github.com/Schrotty74/BudgetAtlas
+
+## Install as an App
+
+### iPhone / iPad (Safari)
+
+1. Open [BudgetAtlas](https://schrotty74.github.io/BudgetAtlas/) in Safari.
+2. Tap the **Share** button.
+3. Choose **Add to Home Screen**.
+4. Confirm with **Add**.
+
+### Mac / Windows (Chrome or Edge)
+
+1. Open [BudgetAtlas](https://schrotty74.github.io/BudgetAtlas/).
+2. Use the browser's install option for the web app.
+3. Confirm the installation.
+
+## Community
+
+Questions, feedback and discussions are welcome on [Discord](https://discord.gg/Zy93AaYFaj).
 
 ## Repo activity
 
