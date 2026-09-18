@@ -1,4 +1,6 @@
-🇩🇪 [Deutsche Version](README_de.md) · 📖 [English User Guide (PDF)](docs/manuals/BudgetAtlas_User_Guide_EN.pdf)
+🇩🇪 [Deutsche Version](README_de.md)
+
+📖 [English User Guide (PDF)](docs/manuals/BudgetAtlas_User_Guide_EN.pdf)
 
 <img src="assets/icons/icon-192.png" alt="BudgetAtlas Icon" width="160">
 
