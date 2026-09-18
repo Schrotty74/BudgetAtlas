@@ -115,7 +115,7 @@ Fragen, Feedback und Diskussionen sind auf [Discord](https://discord.gg/Zy93AaYF
 
 ## Repo-Aktivität
 
-![Alt](https://repobeats.axiom.co/api/embed/c8cf3c56f0c9c8dc7954a1e45033ee696f5be103.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/52dc68cbc67ed089cdabb6404bb9fbce3ea83c0e.svg "Repobeats analytics image")
 
 ## Lizenz
 
