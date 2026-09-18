@@ -1,5 +1,18 @@
 # BudgetAtlas
 
+![License](https://img.shields.io/badge/license-GPL--3.0-green)
+![PWA](https://img.shields.io/badge/PWA-ready-blue)
+![HTML5](https://img.shields.io/badge/HTML5-pure-orange)
+![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-yellow)
+![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen)
+![Mobile](https://img.shields.io/badge/mobile-friendly-blueviolet)
+![No Server](https://img.shields.io/badge/no%20server-offline%20only-lightgrey)
+![localStorage](https://img.shields.io/badge/storage-localStorage%20only-informational)
+![No Tracking](https://img.shields.io/badge/tracking-none-success)
+![No Login](https://img.shields.io/badge/login-not%20required-success)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-5865F2?logo=discord&logoColor=white)](https://discord.gg/Zy93AaYFaj)
+[![Live Demo](https://img.shields.io/badge/%F0%9F%9A%80%20Live%20Demo-open-brightgreen)](https://schrotty74.github.io/BudgetAtlas/)
+
 **Live App:** https://schrotty74.github.io/BudgetAtlas/
 
 BudgetAtlas is a local, responsive budget PWA with a modern “Focus & Flow” dashboard for desktop and mobile devices.
