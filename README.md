@@ -42,23 +42,17 @@ These screenshots show fictional demo data only.
 ## Features
 
 - Monthly buffer, income and expenses at a glance
-- Animated expense-mix donut chart
-- Animated percentage bars for expense shares
-- Add, edit and delete income and expenses
-- Swipe-to-delete with undo on mobile devices
-- Collapsible income and expense sections
-- Individually selectable entries per page for income and expenses (10–25; default: 10)
+- Animated expense-mix donut chart and percentage bars
+- Add, edit and delete income and expenses with undo
+- Multiple payment frequencies with actual and monthly expense values
 - Excel import with preview and invalid-row feedback
-- Excel export
-- PDF export
-- PNG dashboard export
+- Excel, PDF and PNG export
 - JSON backup and restore with preview
-- German / English
-- Dark and light mode
-- Offline-capable PWA with Service Worker
-- Update notification via `version.json`
-- `prefers-reduced-motion` support
-- Responsive desktop sidebar and mobile bottom navigation
+- Collapsible lists with selectable page size (10–25)
+- German / English and dark / light mode
+- Installable offline PWA with responsive desktop and mobile navigation
+
+[View all features](FEATURES.md)
 
 ## Demo workbook
 
