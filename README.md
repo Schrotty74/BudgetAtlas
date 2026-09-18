@@ -1,3 +1,7 @@
+🇩🇪 [Deutsche Version](README_de.md)
+
+<img src="assets/icons/icon-192.png" alt="BudgetAtlas Icon" width="160">
+
 # BudgetAtlas
 
 ![License](https://img.shields.io/badge/license-GPL--3.0-green)
@@ -95,5 +99,3 @@ https://github.com/Schrotty74/BudgetAtlas
 ## License
 
 GPL-3.0 — see [`LICENSE`](LICENSE).
-
-🇩🇪 [Deutsche Version](README_de.md)
