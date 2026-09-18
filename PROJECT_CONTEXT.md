@@ -21,6 +21,26 @@ Die App bleibt bewusst lokal: kein Backend, kein Login, kein Tracking und keine 
 - `docs/examples/demo.xlsx` ist kompatibel und bleibt als Demo-Datei für Excel-Importtests erhalten.
 - BudgetAtlas verwendet weiterhin die bestehende Budget-Datenstruktur und dieselben `localStorage`-Schlüssel.
 
+## Öffentliche README-Dokumentation
+
+`README.md` und `README_de.md` bilden die öffentliche Projektübersicht und müssen bei Änderungen strukturell synchron gehalten werden. Die Inhalte dürfen sprachlich übersetzt sein, sollen aber dieselben aktuellen Bereiche und Verweise enthalten.
+
+Bei Redesigns, Releases, Migrationen oder größeren Dokumentationsänderungen darf eine bestehende README nicht pauschal durch eine verkürzte Neufassung ersetzt werden, ohne die vorhandenen öffentlichen Elemente vorher zu inventarisieren und nach der Änderung zu vergleichen. Weiterhin gültige Inhalte werden übernommen oder auf aktuelle Namen und Pfade angepasst, statt unbeabsichtigt entfernt zu werden.
+
+Solange sie fachlich aktuell sind und keine ausdrückliche Entfernung beauftragt wurde, sind insbesondere zu erhalten:
+
+- gegenseitige Sprachlinks zwischen englischer und deutscher README
+- der zur jeweiligen Sprache passende PDF-Handbuch-Link
+- das aktuelle BudgetAtlas-Projekticon
+- Projekt-, Technik-, Datenschutz-, Status-, Discord- und Live-Demo-Badges
+- aktuelle Screenshots mit ausschließlich fiktiven Demodaten
+- Funktionsübersicht und Demo-Arbeitsmappe
+- Datenschutz-, Technik-, Status- und Repository-Angaben
+- Installationsanleitung für die PWA
+- Community-/Discord-Abschnitt
+- Repobeats-Abschnitt zur Repository-Aktivität
+- Lizenzangaben
+
 ## Architektur
 
 BudgetAtlas ist eine statische PWA ohne Framework, Paketmanager oder Build-Schritt.
