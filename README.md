@@ -75,6 +75,10 @@ BudgetAtlas uses its own version line, which started at `v1.0`; the current docu
 
 https://github.com/Schrotty74/BudgetAtlas
 
+## Repo activity
+
+![Alt](https://repobeats.axiom.co/api/embed/c8cf3c56f0c9c8dc7954a1e45033ee696f5be103.svg "Repobeats analytics image")
+
 ## License
 
 GPL-3.0 — see [`LICENSE`](LICENSE).
