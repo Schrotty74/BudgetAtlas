@@ -1,6 +1,6 @@
 # BudgetAtlas Project Context
 
-Stand: 2026-09-10
+Stand: 2026-09-18
 
 Aktuelle dokumentierte App-Version: `v1.1`
 
@@ -139,13 +139,13 @@ Aktuell enthalten sind insbesondere:
 
 ## PWA-Cache
 
-Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-7`. Dieser Cache stellt sicher, dass bestehende Installationen die aktuelle Version `v1.1` samt mobiler Navigation, Styles, Schwebeeffekt und Seitennavigation laden.
+Der aktuelle Service-Worker-Cache lautet `budgetatlas-v1.1-focus-flow-19`. Dieser Cache stellt sicher, dass bestehende Installationen die aktuelle Version `v1.1` samt mobiler Navigation, Styles, Schwebeeffekt und Seitennavigation laden.
 
 ## PWA-Icon
 
-Die bisherigen BudgetApp-PNG-Icons wurden nicht übernommen. `manifest.json` und `sw.js` enthalten derzeit keine Verweise auf diese alten Dateien.
+BudgetAtlas verwendet eigene PWA-Icons unter `assets/icons/`. Die aktuellen Varianten für Favicons, Apple Touch Icon, Standard-PWA-Icons und maskierbare Icons sind in `index.html`, `manifest.json` und `sw.js` eingebunden.
 
-Vor einer späteren Veröffentlichung mit eigenständigem Branding sollte ein eigenes BudgetAtlas-PWA-Icon erstellt und anschließend in Manifest, HTML und Service Worker eingebunden werden.
+Die früheren BudgetApp-Icons werden nicht verwendet.
 
 ## Externe Abhängigkeiten
 
