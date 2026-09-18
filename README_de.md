@@ -42,23 +42,17 @@ Diese Screenshots zeigen ausschließlich fiktive Demodaten.
 ## Funktionen
 
 - Monatliches Polster, Einnahmen und Ausgaben auf einen Blick
-- Animiertes Donut-Diagramm für den Ausgaben-Mix
-- Animierte Prozentbalken für Ausgabenanteile
-- Einnahmen und Ausgaben hinzufügen, bearbeiten und löschen
-- Swipe-to-delete mit Rückgängig-Funktion auf Mobilgeräten
-- Einklappbare Einnahmen- und Ausgabenbereiche
-- Separat wählbare Einträge pro Seite für Einnahmen und Ausgaben (10–25; Standard: 10)
+- Animierter Ausgaben-Mix mit Donut-Diagramm und Prozentbalken
+- Einnahmen und Ausgaben hinzufügen, bearbeiten und löschen – mit Rückgängig-Funktion
+- Mehrere Zahlungsintervalle mit tatsächlichem und monatlichem Ausgabenwert
 - Excel-Import mit Vorschau und Hinweisen zu fehlerhaften Zeilen
-- Excel-Export
-- PDF-Export
-- PNG-Export des Dashboards
+- Excel-, PDF- und PNG-Export
 - JSON-Backup und Wiederherstellung mit Vorschau
-- Deutsch / Englisch
-- Dark- und Light-Mode
-- Offline-fähige PWA mit Service Worker
-- Update-Hinweis über `version.json`
-- Unterstützung für `prefers-reduced-motion`
-- Responsive Desktop-Sidebar und mobile Bottom-Navigation
+- Einklappbare Listen mit wählbarer Seitengröße (10–25)
+- Deutsch / Englisch sowie Dark- / Light-Mode
+- Installierbare Offline-PWA mit responsiver Desktop- und Mobilnavigation
+
+[Alle Funktionen anzeigen](FEATURES_de.md)
 
 ## Demo-Arbeitsmappe
 
